@@ -1,0 +1,603 @@
+Chapter no 4. Inheritance.
+
+      Creating new class from existing onces is called called inheritance.
+     The subclass(derived or child class) access the properties of superclass(base or parent) with its own 
+     properties, is called inheritance.
+           Inheritance is used for reusability of code.
+           In java, we can achieve inheritance  by using  'extends'  keyword.
+           The class being inherited is called the Superclass or base or parent class.
+           and the class  which inherits properties is called  the subclass or derived or child class.
+           Inheritance model   "is-a"  relationship i.e the subclass is  a special type of superclass.
+           
+             Syntax 
+                    class superclassname
+                     {
+                          variables and methods.
+                      }
+                    class subclass  extends superclass
+                     {
+                         variables and methods.
+                     }
+            -----------------------------------------------------------------
+           Types of Inheritance.
+              There are three type of inheritance.
+            i)  Single Inheritance
+                  One superclass has only one subclass is called single inheritance.
+                            
+                        Syntax                                                                     e.g
+                          class superclass                                                    class A
+                             {                                                                           {
+                             }                                                                           }
+                           class subclass extends superclass                    class B extends A
+                            {                                                                             {
+                            }                                                                             }
+                            
+                   ---------------------------------------------------------------------------
+                   /* Define class employee(id,name,salary) Define a subclass Manager (bonus).
+		   Create  n  object of manager class. Define a Static method sort which will sort the manager object
+		    on basis of total salary. Display Sorted data.
+		    */
+		   import java.util.*;
+		    class employee
+		     {
+		         Scanner s1=new Scanner(System.in);
+		          int id;  String enm;  float sal;
+		           void accept()
+		            {
+		               System.out.println("\n Enter the id,name and salary :-->");
+		               id=s1.nextInt();
+		               enm=s1.next();
+		               sal=s1.nextFloat();
+		            }
+		           void show()
+		            {
+		               System.out.println("\n Emp id="+id+"\t Emp name="+enm+"\n  Emp Salary="+sal);
+		            }
+		       }
+		      class manager extends employee
+		       {
+		           Scanner s1=new Scanner(System.in);
+		          int bonus;
+		           void accept()
+		            {
+		   			 super.accept();
+		               System.out.println("Enter the bonus :->");
+		               bonus=s1.nextInt();
+		            }
+		           void show()
+		            {
+		   			  super.show();
+		               //System.out.println("\n Bonus ="+bonus);
+		            }
+		       }
+		      class single2
+		       {
+		         public static void main(String args[])
+		          {
+		                 Scanner s1=new Scanner(System.in);
+		                 System.out.println("\n Tumhal kitti object havet aahet->  ? ");
+		                 int n=s1.nextInt();
+		                 manager  m[]=new manager[n];
+		                 for(int i=0;i<n;i++)
+		                  {
+		                     m[i]=new manager();
+		                     m[i].accept();
+		                  }
+		                  for(int i=0;i<n;i++)
+		                  {
+		                         m[i].show();
+		                  }
+		                 for(int i=0;i < n;i++)
+		                  {
+		   				    for(int j=i+1; j<n; j++)
+		   				     {
+		   						   if(m[i].sal >  m[j].sal)
+		   						    {
+		   								 manager temp = m[i];
+		   								                    m[i]=m[j];
+		   								                    m[j]=temp;
+		   							}
+		   					 }
+		   			   }
+		   			 System.out.println("\n Sorted data according salary :->");
+		   			   for(int i=0;i<n;i++)
+		   			              {
+		   			                     m[i].show();
+		                             }
+		               }
+		        }
+		  ------------------------------------------
+		  //WAP to demonstrate of single inheritance.
+		    class A
+		      {
+		         int x;
+		            void show()
+		             {
+		                x=10;
+		                System.out.println("\n Hello I am superclass show method ");
+		             }
+		       }
+		      class B extends A
+		      {
+		         int y;
+		            void display()
+		             {
+		                y=20;
+		                System.out.println("\n Hello I am subclass display method ");
+		                System.out.println("\n  Addition ="+(x+y));
+		             }
+		       }
+		      class single1
+		        {
+		           public static void main(String args[])
+		            {
+		  			   B b1=new B();
+		  			   b1.show();
+		  			   b1.display();
+		            }
+		         }                           
+               -------------------------------------------------
+          ii)   Multilevel Inheritance     
+                   One subclass is inherited or derived from another subclass is called multilevel inheritance.
+                     class A
+                       {
+                       }
+                     class B  extends A
+                      {
+                      }
+                    class C  extends B
+                     {
+                     }
+                  -----------------------------------------------------------------
+                  //WAP to demonstrate of Multilevel inheritance.
+		    class A
+		      {
+		         int x;
+		            void show()
+		             {
+		                x=10;
+		                System.out.println("\n Hello I am superclass A show method ");
+		             }
+		       }
+		      class B extends A
+		      {
+		         int y;
+		            void show()
+		             {
+		  			  super.show();
+		                y=20;
+		                System.out.println("\n Hello I am intermediate class B display method ");
+		                System.out.println("\n  Addition ="+(x+y));
+		             }
+		       }
+		      class C extends B
+		      {
+		         int z;
+		            void show()
+		             {
+		               super.show();
+		                z=30;
+		                System.out.println("\n Hello I am Subclass C  ghedata() method ");
+		                System.out.println("\n  Addition ="+(x+y+z));
+		  
+		             }
+		       }
+		      class multilevel2
+		        {
+		           public static void main(String args[])
+		            {
+		               C c1=new C();
+		               c1.show();
+		             }
+		         }
+		  ---------------------------------------------------------
+/*WAP create class product(id,nm, & price) class saleproduct extends product (discount) and
+class bill extends saleproduct(qty, total) define constructor in each cls. create an obj of bill class and
+display details of product, discount, and final total , use protected keyword for price and discount */
+   import java.util.*;
+   class product
+    {
+       int pid;
+        protected int price;
+       String pnm;
+        product(int pno, String nm, int p)
+         {
+            pid=pno;    pnm=nm;   price=p;
+         }
+   }
+   class saleproduct extends product
+    {
+      protected int  disc;
+        saleproduct(int pid, String pnm, int p,int d)
+          {
+             super(pid, pnm, p);
+              disc=d;
+           }
+    }
+  class bill extends saleproduct
+    {
+       int  qty;
+        bill(int pid, String pnm, int p,int qty,int disc)
+          {
+			  super(pid, pnm, p,disc);
+			   this.qty=qty;
+			}
+        void display()
+         {
+       System.out.println("Product id->"+pid+" Prod nm->"+pnm+"\t Price ->"+price+"\tQuantity->"+qty);
+         }
+    }
+ class multilevel1
+   {
+       public static void main(String args[])
+        {
+           Scanner s1=new Scanner(System.in);
+           System.out.println("\n How many product details u want :->");
+           int n=s1.nextInt();
+             bill b[]=new bill[n];
+             double total=0;
+               for(int i=0; i<n;i++)
+                 {
+                    System.out.println("\n Enter product id,name, price, quantity and discounti in % ->");
+                       int pid=s1.nextInt();
+                       String pnm=s1.next();
+                       int p=s1.nextInt();
+                       int qty=s1.nextInt();
+                       int d=s1.nextInt();
+                           b[i]=new bill(pid,pnm,p,qty,d);
+                   }
+                for(int i=0;i <n;i++)
+                {
+                   b[i].display();
+                    double x=b[i].qty*b[i].price;
+                    System.out.println("product wise cost->"+x+" discount->"+b[i].disc);
+                    double y=(x*b[i].disc)/100;
+                    System.out.print(" Discount price=>"+y);
+                       total=total+(x-y);
+			  }
+            System.out.println("\n===========================\n Final bill ->"+total);
+          }
+      }
+  -----------------------------------------------------------------------------
+   Constructor in inheritance.
+            if we create default constructor in super class , its need not necessery to define default constructor
+            in sub class.  but if we parameterized constructor in superclass, then we must create parameterized
+            constructor in subclass.
+  
+  //WAP to demonstrate of constructor in single inheritance.
+    class A
+      {
+         int x;
+            A()
+             {
+                x=10;
+                System.out.println("\n Hello I am superclass A constructor ");
+             }
+       }
+      class B extends A
+      {
+         int y;
+            B()
+             {
+                y=20;
+                System.out.println("\n Hello I am subclass B class constructor ");
+                System.out.println("\n  Addition ="+(x+y));
+             }
+       }
+      class singlecon1
+        {
+           public static void main(String args[])
+            {
+  			   B b1=new B();
+            }
+         }
+   ----------------------------------------------------------------
+   //WAP to demonstrate of constructor in single inheritance.
+      class A
+        {
+           int x;
+             A(int a)
+              {
+                 x=a;
+                 System.out.println("\n Hello I am superclass A constructor ");
+              }
+        }
+       class B extends A
+        {
+          int y;
+             B(int p, int q)
+              {
+                 super(p);
+                 y=q;
+                 System.out.println("\n Hello I am subclass B class constructor ");
+              }
+        }
+       class C extends B
+        {
+          int z;
+              C(int p, int q,int r)
+              {
+   			   super(p,q);
+   			   z=r;
+   			   System.out.println("\n C class constructor.. "+(x+y+z));
+              }
+        }
+       class multilevelcon1
+         {
+            public static void main(String args[])
+             {
+   			   C c1=new C(10,20,30);
+             }
+          }
+      ----------------------------------------------------------------------
+            iii)  Hierarchical  Inheritance
+                        One superclass has two or more subclass is called Hierarchical Inheritance.
+                  Syntax
+                        class A
+                          {
+                          }
+                       class B extends A
+                        {
+                        }
+                     class C extends A
+                        {
+                        }
+                     class D extends A
+                        {
+                        }   
+                 --------------------------------------------    
+          class A
+	   {
+	      void show()
+	       {
+	         System.out.println("\n  Happy Birthday Dear Class A");
+	       }
+	   }
+	  class B extends  A
+	   {
+	      void display()
+	       {
+	         System.out.println("\n  Best of luck Dear Class B");
+	       }
+	   } 
+	  class C extends  A
+	   {
+	      void display()
+	       {
+	         System.out.println("\n  Best of luck Dear Class C");
+	       }
+	   } 
+	   class D extends  A
+	    {
+	       void display()
+	        {
+	          System.out.println("\n  Best of luck Dear Class D");
+	        }
+	   } 
+	  class hierar1
+	   {
+	      public static void main(String args[])
+	       {
+	           B b1=new B();
+	           C c1=new C();   D d1=new D();
+	             b1.show();  b1.display();
+	             c1.show();  c1.display();
+	       }
+	   }    
+  ---------------------------------------------------------------------
+  /* WAP create class vehicle contains (vehicleno and name) create two subclass twowheeler
+  and fourwheeler . twowheeler cls contain(cc and model) and fourwheeler cls
+  contain(color and company nm). Write approprite methods to accept and display */
+     import java.util.*;
+     class vehicle
+       {
+           int no;
+           String nm;
+              Scanner s1=new Scanner(System.in);
+               void accept()
+                {
+                  System.out.println("\n Enter the vehicle no and name :->");
+                    no=s1.nextInt();
+                    nm=s1.next();
+                }
+              void display()
+               {
+            System.out.println("\n Vechicle no->"+no+" \t Vehicle name=>"+nm);
+               }
+         }
+      class twowheeler extends vehicle
+       {
+           int cc;
+           String model;
+              Scanner s1=new Scanner(System.in);
+               void accept()
+                {
+  				  super.accept();
+                    System.out.println("\n Enter the vehicle CC and Model for twowheeler :->");
+  	           cc=s1.nextInt();
+                     model=s1.next();
+                }
+              void display()
+               {
+  				 super.display();
+               System.out.println("\n 2 Wheeler Vechicle Cc->"+cc+" \t Vehicle Model=>"+model);
+               }
+         }
+     class fourwheeler extends vehicle
+       {
+           String color;
+           String company;
+              Scanner s1=new Scanner(System.in);
+               void accept()
+                {
+  				  super.accept();
+                   System.out.println("\n Enter the vehicle Colour and Company name four wheeler:->");
+  	          color=s1.next();
+                    company=s1.next();
+                }
+              void display()
+               {
+  				 super.display();
+               System.out.println("\n  Four wheeler Vechicle color->"+color+" \t Vehicle Company=>"+company);
+               }
+         }
+        class hierar
+          {
+             public static void main(String args[])
+              {
+                   twowheeler t1=new twowheeler();
+                   fourwheeler f1=new fourwheeler();
+                     t1.accept();   f1.accept();
+                     t1.display();   f1.display();
+              }
+          }
+  -------------------------------------------------------------------------------------
+    
+      Use of Protected keyword.                  
+        The protected keyword is special keyword  used in inheritance. It is a special privilege given a
+     subclass. If  a subclass wants to access a superclass membe directly, the superclass member should
+     be declared either public or without any modifier. However, this make it accessible to other classes
+     also.  And declaring private will make it inaccessible.
+        The solution is to declare  it protected so that it can directly accessible to the subclasses.
+     ------------------------------------------------------------------------------------     
+         Super Keyword.
+           The keyword super is very important keyword used in inheritance.
+           It used for two purposes.
+             i)  To invoke superclass constructor.
+            ii)  To access superclass member which are hidder by subclass member.
+            
+     i)  To invoke superclass constructor.
+             if the superclass has default constructor,  the subclass need not define default constructor.
+             however, if the superclass define parameterized constructor  then it is compulsary define 
+             parameter constructor in subclass . and pass parameter to superclass cosntructor.
+             here, parameter pass to superclass constructor,  this statement should be first statement in
+             subclass constructor.
+              Syntax 
+                                  super(parameter);
+        
+      ii)  Invoking superclass member hidden by subclass.     
+                If the subclass define members having the same name as the superclass.  it hides the superclass
+          member. hence superclass member cannot be accessed in  the subclass. If you want to access
+          them, the super keyword should be used.
+            
+                Syntax    super.member.
+             here member is datamember(variables) or method.
+             
+             class supercls
+	       {
+	     	   int p=100;
+	            void cal(int x,int y)
+	              {
+	                 System.out.println(" Multiplication is====>"+(x*y));
+	               }
+	        }
+	      class subcls extends supercls
+	        {
+	     	   int p=200;
+	             void cal(int x,int y)     //method overridding.
+	               {
+	     		    super.cal(x,y);
+	     	         System.out.println(" Addition ="+(x+y));
+	     	         System.out.println("\n value of p="+p+"\n Value of Super class  p="+super.p);
+	               }
+	        }
+	        class super3
+	         {
+	            public static void main(String args[])
+	             {
+	                  subcls obj=new subcls();
+	                  obj.cal(10,20);
+	             }
+            }
+    ----------------------------------------------------------------------------------         
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+             
+           
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           

@@ -1,0 +1,1283 @@
+2 . Overview of Java
+         This chapter covers the low level  Language elements called tokens, which are the building blocks
+     of the language. These include keywords, identifier, datatype, operator, and constants. 
+     They are used to build high level constructs like  expression, statements, constant structures,
+     methods and classes etc.
+    
+    Comments in Java
+          Comments are information provided by the developer to document the source code. 
+          It is good practics to add Commnets  to the java source code so that programmers,
+          or someone else.
+           There are three type of commnts.
+             i)  Single line comments                //  single line comments.
+            ii)  Multiline comments
+                      /*
+                       ---------------
+                       ---------------     Multiline Comments.
+                       ------------- 
+                       */
+            iii)  Document Comments  :  These Comments to create HTML Documentation.
+                     
+                    /**
+                       -----------
+                       -----------
+                       -----------    big size comments or no of pages comments.
+                       -----------
+                       -----------
+                        */
+         -------------------------------------------------------------------------------------
+              Keywords.
+                keywords is reverse words. Every keywords has a special meaning. keywords always written
+                is lower case. We cannot used keywords as identifier.  Java provides 50 keywords, 
+                and 3 Reverse words. (true, false, and null).
+                  Write java keywords.
+              
+              abstract           insert             boolean              break                byte                case 
+              catch              char               const                continue             default             do 
+              double             else               enum                 extends              final               finally 
+              float              for                goto                 if                   implements          import
+              instanceof         int                interface            long                 native              new
+              package            private            protected            public               return              short
+              static             strictfp           super                switch               synchronized        this
+              throw              throws             transient            try                  void                volatile 
+              while              class.    
+          ---------------------------------------------------------------------------------------------------------------------
+         Identifiers. 
+           Identifiers is nothing but identifier to itself.    Identifiers naming for variables, class, methods, 
+           interface, arrayname,  exceptionname, packages, labels,   etc....
+           
+           Rules of identifers.
+            i)  It must be start from alphabets,
+            ii) It mustnot start from a digit
+            iii) Special symbol is not allowed except  underscore ( _ )  and Doller ( $ ) .
+            iv)  Space is not allowed.
+            v)  It is Case Sensitive.
+            vi) Length of identifier has no limit.
+            vii)  We cannot used keywords as identifier.
+  -------------------------------------------------------------------------         
+             Variables
+               int a=10;
+                 Variables hold value in a program. In Java, all variables must be declared before they are used.
+                  Syntax    datatype var=values.
+              
+              Types of Variables.
+                i)  Instance Variable  (Non-Static variables)
+                     These variable belong to objects, Object store their states in non-static fields. ie. fields
+                     declared without static  keyword.  Their values may be different  for different objects.
+                     
+                ii) Class Variables. (Static variables)
+                     Class variables doesnot belong any objects, it's belongs to class. static varibles create only one
+                     copies of variables and that share in no of objects. Static variable doesnot required object to access.
+                     while it's access by classname.
+                     
+                iii) Local Variables
+                       The variable declare within the methods  is called local variables. the scope of local 
+                       variable with in block.   They are declared and used only in methods.
+                       not accessed in outside the methods.
+                      
+                 iv)  Parameters.
+                        we know syntax of main() methods,  public static void main(String args[])  here the
+                        variable args is the  parameter to this method. A method accept input information 
+                        in paramteres. These variables are local to the method and
+                        cannot be used elsewhere.
+  -------------------------------------------------------------------------------------------------------------                    
+   Constant.
+        Constant is fixed value. If we define constant value, we cannot modify.  and 
+        if we try to modify then its show compile time error.  we can declare constant value 
+        in java by using final keywords.
+        
+           Syntax    final datatype var = value;
+                        e.g   final float pi=3.14;
+                                final int MAX=100;
+         
+         blank final variable 
+            Declare  the local variable and initialize it later,  A final local variable that has been
+            declared but not yet initialized is called blank final variable.
+            
+                 Syntax      final datatype var;          //blank final variable     
+                         |
+                         |
+                         |
+                      var=value; 
+    ------------ ------------------------------
+       Literals.
+            A literals is a value assigned to a varaible, It can apper only on the right hand side of an assignment operator.
+      Literals can be different types.          
+            Boolean Literals  :    There are only two Boolean value true and false.
+            Character Literals :    Single character enclosed in single quote.
+            Float Literals,  Integer, Double, Byte, Short, Long Literals.   etc.
+          
+            int x = 10;    //integer literals
+            float y=1.24f;   //float literals
+  ---------------------------------------------------------- 
+    Escape Sequence.
+      Java support following Escape Sequence.
+     ------------------------------------------------------------------------------------------------------ 
+      Escace      |       Meaning
+     ------------------------------------------------------------------------------------------------------  
+          \n          |      New line
+    ------------------------------------------------------------------------------------------------------  
+          \t          |     Horizontal tab
+     ------------------------------------------------------------------------------------------------------ 
+           \r         |    Carriage return
+    ------------------------------------------------------------------------------------------------------  
+           \b        |      Backspace
+     ------------------------------------------------------------------------------------------------------ 
+          \a        |     Alert
+     ------------------------------------------------------------------------------------------------------ 
+           \v       |    Vertical Tab
+     ------------------------------------------------------------------------------------------------------ 
+           \f       |     Form  Feed
+     ------------------------------------------------------------------------------------------------------ 
+          \'         |   Single Quote
+     ------------------------------------------------------------------------------------------------------ 
+          \"        |     Double quote
+     ------------------------------------------------------------------------------------------------------ 
+          \\         |  Backslash
+      ------------------------------------------------------------------------------------------------------ 
+         \ddd  |     Octal
+     ------------------------------------------------------------------------------------------------------ 
+     \uxxx    |   Unicode  Character.
+     ------------------------------------------------------------------------------------------------------ 
+  ----------------------------------------------------------------------------------------------------------------------
+    Datatype. 
+        Discription of Variable is called Datatype.
+           The Java language provides a set of built-in types as well as allows the user to create user defined types ( using keywords enum and class).
+        There are Eight Primitive (Predefine) datatype.
+        ------------------------------------------------------------------------------------------------------                                                      
+           Datatype     |    Size     |      Range   
+      ------------------------------------------------------------------------------------------------------ 
+         1  boolean       |     0        |          --------- 
+      ------------------------------------------------------------------------------------------------------ 
+        2. byte              |     1        |      -128  to  + 127 
+      ------------------------------------------------------------------------------------------------------ 
+        3. char              |     2        |      -32768  to  + 32767 
+      ------------------------------------------------------------------------------------------------------ 
+        4. short             |     2        |      -32768  to  + 32767    
+      ------------------------------------------------------------------------------------ ----------------- 
+        5. int                 |     4        |      -2147483648  To  -2147483647
+      ------------------------------------------------------------------------------------------------------ 
+       6.  float              |     4       |      3.4 e-38     to   3.4 e+38
+      ------------------------------------------------------------------------------------------------------ 
+      7.   Long            |       8      |     -9223372036854775808   to  +9223372036854775807
+      ----------------------------------------------------------------------------------------------------- 
+       8. double          |     8        |     1.7 e-308   to 1.7 e+308
+     ------------------------------------------------------------------------------------------------------ 
+     
+         Operators
+              Operation on operands is called operator.
+              Java provides a Rich set of operator for manipulating program data.
+              These operator are divided into  Unary, Binary  and Ternary operator operator.
+      
+      i)   Arithmetic operator       :     + , - ,  * ,  /  ,  %.
+     ii)   Relational operator        :     <,  > ,  <=,    >=, ==,  !=.
+     iii)  Logical  operator            :    &&,  || ,  ! .
+     iv)  Assignment Operator    :      = .    (shrot hand operator  -=,  +=,  *=,  /=.
+     v)  Bitwise operator             :     Bitwise AND (&),  Bitwise OR( | ),  Bitwise X-OR ( ^ ) ,  
+                                                           LeftShift  (<<)  , Right shift (>>) , Complement (~).
+      
+    vi)  Conditional  Operator   :    ? :           exp1 ?  exp2 : exp3.
+    vii) Increment/ Decrement  :      ++,    --.     (preincrement  ++a, --x)     and postincement/decrement (a++, x--)
+   viii)  Special operator.      :   Java support  some special operator which are used very often.   These are listed  in below table.
+                                                       [ ]      :  Array subscript
+                                                         .       :  Member Access
+                                                    (type)   :  Typecasting     
+                                                     new     :  Memory Allocation
+                                                instanceof : Determine whether its first operand is an instance of  its second operand.
+       
+       i) instancof   :  The instanceof determines whether the left operands is  an instancof the type given on the right hand side.
+                               The first operand is  supposed to be the name of an object or an array element, and the second operand is
+                               is supposed to be the name of  a class, interface, or array type.
+                                     Syntax     op1 instancof op2;
+                                                     e.g.    e1  instanceof employ.
+                               This expression will be true if  e1 is a  reference  to the  employ class.         
+                               
+      ii)  Dot (.) Operator  :      The dot(.) operator is used to access member of class and object, namely class variables, instance variables,
+                                                 and methods.
+                                               e.g       e1.accept();                        Math.PI            Integer.parseInt().
+   
+     iii)  new operator   :    The new operator is used to create objects, i.e  instance of classes and arrays. It dynamically allocates memory 
+                                           for the object during runtime.
+                                 Syntax  :   classname object = new Classname();
+                                                e.g    student s1=new student.
+                                                   Datatype arrayname[] =new datatype[size];
+                                                e.g 
+                                                       int a[] =new int[20];
+                               
+     --------------------------------------------------------------------------------------------------------------------------
+     Control Structure .
+                                                                        
+     i)  simple if  statement.
+           simple if is conditional statement. In if()  test condition is true, then execute if block. and if() is false then skip if block
+           and execute next statements.
+               syntax       if(test condition)
+                                 {
+                                      //execute body of if block
+                                 }
+                               statement x;
+              -------------------------------------------------------
+  ii)    if-else
+            if-else is two way decision making statements.  we can select one statement from  exactly two statement.       
+           if(test condition)
+             {
+                // execute  if block
+             }
+          else
+            {
+               //  execute else block.
+            }
+   --------------------------------------------------------------------------------------------         
+  ii) Nested  if-else
+          one if-else is define in another if-else is called  nested if-else.
+        if(test condition1)
+         {
+          if(test condition2)
+            statement 1;
+          else
+            statement 2;
+        }    
+      else
+         {
+	       if(test condition3)
+	            statement 3;
+	          else
+	            statement 4;
+         }
+       statement x;
+  --------------------------------------------------------------   
+ iv)  ladder if-else statement.
+         In Ladder if-else, every if statement has else part.  in Ladder if-else  there are 'n' statement and we select exactly one statements.
+          Syntax
+              if(test 1)
+                  statement 1;
+                  else if(test 2)
+                          statement 2;
+                             else if(test 3)
+                                     statement 3;
+                                 else if(test 4)
+                                         statement 4;
+                                        else
+                                            statemnt 5;
+                         statement x;                     
+---------------------------------------------------------------------------------------   
+WAP to demonstrate of simple if 
+import java.util.*;
+class ifdemo
+ {
+    public static void main(String args[])
+     {
+       Scanner s1=new Scanner(System.in);
+        System.out.println("\n Enter Any number :->");
+         int age= s1.nextInt();
+           if(age>=21)
+            {
+               System.out.println(" Your are eligible for Post Graduation");
+               System.out.println("no of statements asatil tar block ghenar.");
+            }
+         System.out.println("Statement x");
+     }
+  }
+----------------------------------------------------------------------
+WAP check given no is even or odd number
+import java.util.*;
+class ifelsedemo
+ {
+    public static void main(String args[])
+     {
+       Scanner s1=new Scanner(System.in);
+        System.out.println("\n Enter Any number :->");
+         int no=s1.nextInt();
+
+           if(no%2==0)
+                  System.out.println(" Given number "+no+" is even no...");
+            else
+                   System.out.println(" Given number "+no+" is Odd no...");
+
+
+         System.out.println(" Me kay???  Statement x......");
+     }
+  }
+-------------------------------------------------------------------------------------------------- 
+ HW
+--------------------------------------------------------------------------------------------------
+   i) WAP to check given number is positive or negative.
+------------------------------------------------------------
+import java.util.Scanner;
+class positiveornegative
+{
+        public static void main(String args[])
+    {
+Scanner sc = new Scanner(System.in);
+System.out.println("enter the number to check the number is positive or negative\t:");
+int a = sc.nextInt();
+if(a>0){
+System.out.println("number is positive");
+}
+else{
+System.out.println("number is negative");
+}
+     }
+}
+-----------------------------------------------------------------------------------------------------
+   ii) WAP to check given year  is leap year or not ?
+-----------------------------------------------------------
+import java.util.Scanner;
+class leapyear
+{
+    public static void main(String[] args)
+    {
+    	Scanner sc = new Scanner(System.in);
+    	System.out.println("Enter any Year:");
+    	int year = sc.nextInt();
+        boolean isLeap = false;
+
+        if(year % 4 == 0)
+        {
+            if( year % 100 == 0)
+            {
+                if ( year % 400 == 0)
+                    isLeap = true;
+                else
+                    isLeap = false;
+         }
+            else
+            isLeap = true;
+        }
+        else {
+            isLeap = false;
+        }
+             if(isLeap==true)
+            System.out.println(year + " is a Leap Year.");
+        else
+            System.out.println(year + " is not a Leap Year.");
+    }
+}
+
+
+
+
+/*1  If the year is  divisible by 4, go to step 2. Otherwise, go to step 5.
+2  If the year is  divisible by 100, go to step 3. Otherwise, go to step 4.
+3  If the year is  divisible by 400, go to step 4. Otherwise, go to step 5.
+4  The year is a leap year (it has 366 days).
+5  The year is not a leap year*/
+
+-------------------------------------------------------------------------------------------------------
+ iii) WAP to accept three side of tringle and check given tringle is valid or not?
+---------------------------------------------------------------------------------------
+import java.util.Scanner;
+class triangle
+{
+        public static void main(String args[])
+    {
+Scanner sc = new Scanner(System.in);
+System.out.println("enter the values for side a\t:");
+int a = sc.nextInt();
+System.out.println("enter the values for side b\t:");
+int b = sc.nextInt();
+System.out.println("enter the values for side c\t:");
+int c = sc.nextInt();
+if (a + b <= c || a + c <= b || b + c <= a){
+	System.out.print("\nInvalid");
+	}
+	else{
+		System.out.print("\nvalid");
+		}
+   }
+}
+
+-------------------------------------------------------------------------------------------------------
+ iv) WAP to find maximum number in two numbers.
+--------------------------------------------------------
+import java.util.Scanner;
+class maxno
+{
+          public static vid main(String args[])
+      {
+Scanner sc = new Scanner(System.in)
+System.out.println("\nenter the value of a and b:\t");
+int a = sc.nextInt();
+int b = sc.nextInt();
+if(a>b){
+System.out.println("\na is maximum");
+}else{
+System.out.println("\nb is maximum");
+}
+    }
+}
+----------------------------------------------------------------------------------------------------------------------
+
+ // WAP to find maximum number in three numbers.
+ import java.util.*;
+ class nestedifelsedemo
+  {
+     public static void main(String args[])
+      {
+        Scanner s1=new Scanner(System.in);
+         System.out.println("\n Enter Any Three numbers :->");
+          int a=s1.nextInt();
+          int b=s1.nextInt();
+          int c=s1.nextInt();
+    if(a>b)
+       {
+            if(a>c)
+                   System.out.println(a+" is maximum");
+             else
+                    System.out.println(c+" is maximum");
+ 	   }
+ 	 else
+ 	   {
+ 		   if(b>c)
+  	           System.out.println(b+" is maximum");
+ 	       else
+                System.out.println(c+" is maximum");
+        }
+      }
+  }
+ ------------------------------------------------------------------------
+ // WAP to accept percentage and find class.
+ import java.util.*;
+ class ladderifelsedemo
+  {
+     public static void main(String args[])
+      {
+        Scanner s1=new Scanner(System.in);
+         System.out.println("\n Enter the Percentage :->");
+          int p=s1.nextInt();
+ 
+           if(p>=75)
+                   System.out.println(" Distinction ");
+                 else if (p>=60)
+                       System.out.println(" First Class ");
+ 	                  else  if(p>=45)
+                              System.out.println(" Second Class ");
+                            else if (p>=35)
+                                     System.out.println(" Pass Class ");
+ 	                           else
+                                    System.out.println(" Fail...");
+ 
+        System.out.println(" Ja Ghari..  ....");
+      }
+  }
+  -----------------------------------------------
+ switch statement.
+               switch is multiway decision  making statement. we can select one statement from 'n' statements. 
+   In switch,  switch expression is match with case label , if its match then that related case will be executed.
+   other cases are bypass. if no any case match, then default statement will be executed..
+     
+     Syntax.
+        switch(expression)
+          {
+              case 1 :   statement 1;
+                               break;
+                case 2 :   statement 2;
+                               break;
+                 case 3 :   statement 3;
+                               break;
+                   case 4 :   statement 4;
+                               break;
+                            |
+                            |
+                            |
+                    case n :   statement n;
+                               break;          
+                  default  :  default statements.             
+            }     
+        statement x;
+    ------------------------------------------------
+    Rules of switch statement.
+     i)  switch expression must be integral.
+    ii)  Case label must be integral.
+    iii) Case label must be unique.
+    iv) break statement is optional.
+    v)  break is used for transfer control outside the switch.
+    vi) In switch ,  At most one default statement.
+    vii) default statement is optional.
+    viii) default statement is declare anywhere in switch, most probably bottom of switch.
+    -----------------------------------------------------------------------------------------------------------
+    //WAP to demonstrate of switch.
+import java.util.*;
+class switchdemo
+ {
+    public static void main(String args[])
+     {
+         Scanner s1=new Scanner(System.in);
+         System.out.println("\n Enter the unit digit  :->");
+         int n=s1.nextInt();
+              switch(n)
+               {
+				    case 1 : System.out.println(" ONE ");
+				                   break;
+				   case 2 : System.out.println(" TWO ");
+				                   break;
+				   case 3 : System.out.println(" THREE ");
+				                   break;
+				   case 4 : System.out.println(" FOUR ");
+				                   break;
+				   case 5 : System.out.println(" FIVE ");
+				                   break;
+				  case 6 : System.out.println(" SIX ");
+				                   break;
+				  case 7 : System.out.println(" SEVEN ");
+				                   break;
+				 case 8 : System.out.println(" EIGHT ");
+				                   break;
+		         case 9 : System.out.println(" NINE ");
+				                   break;
+				 case 0 : System.out.println("  ZERO");
+				                   break;
+                   default : System.out.println("\n Plz enter only unit digit...");
+				                    break;
+			}
+		System.out.println("\n Kalatey ka ?...");
+     }
+  }
+---------------------------------------------------------------------------    
+  Loop.
+    loop are used for iteration or repeations. java provides three types of loops.
+     i)  while    ii) do-while   iii)  for loop.
+     
+  while loop.
+      while loop is entry control loop. In While first check while condition, if it is true then execute while loop block.
+    again check while test condition, if it is true then again execute body of while loop. this process is continue till while 
+    condition is true. when while test condition is false, terminate the loop and control move out of loop body.
+      Syntax
+               while(test condition)
+                {
+                   -----
+                   // execute body of while loop
+                   ------
+                }
+              statement x;
+         -------------------------------------    
+    do-while loop
+        do-while loop is exist control loop. In do-while, first execute body of do block, then check while condition, if it is true
+        then again execute body of do block, again check while test condition, if its true then again execute body of do block
+        this process is continue, thile while condition is true. In do while loop, do block is executed at least one time.
+            Syntax
+                   do
+                     {
+                         ---------
+                          // execute body of do block
+                         --------
+                      }while(test condition);
+                 statement x;
+           ---------------------------------------------------
+        for loop
+          for loop is also used for iteration, In for loop, there are three expression, are separated by semicolon.
+          first expression is initialization,  second expression is test condition, if it is true then execute body of for loop.
+          then go to the third expression increment or decrement, after that again check test condition, if is true.
+          then execute body of for loop,  this process continue till, test condition is true.
+           
+            Syntax    for(initialization ; test condition; incre/decre)
+                              {
+                                  ------
+                                   // body of for loop
+                                   ------
+                              }
+                            statement x;
+        ----------------------------------------------------------                 
+         factorial,  reverse no, palindrome, fibonacci, armstrong no, perfect no,  prime no, x to the power y.    
+                
+  //      WAP to find factorial of given number.
+        import java.io.*;
+	class fact1
+	 {
+	    public static void main(String args[])throws IOException
+	     {
+			  BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			  System.out.println("Enter the any number :-->");
+			   int n=Integer.parseInt(br.readLine());
+			      int f=1;
+			       while(n>1)
+			         {
+						   f=f*n;
+						   n--;
+			        }
+			       System.out.println(" Factorial is :-->"+f);
+	     }
+}
+--------------------------------------------------
+    //WAP to display sum of digit   // eg. 123= 1+2+3=6
+    import java.util.*;
+    class sumofdigit1
+     {
+        public static void main(String args[])
+         {
+    	Scanner s1=new Scanner(System.in);
+    		  System.out.println("Enter the number  -->");
+    		   int n=s1.nextInt();
+    		     int sum=0;
+    		     int x=n;
+    		     while(n>0)
+    		       {
+    				   int r=n%10;
+    				   sum=sum+r;
+    				   n=n/10;
+    			   }
+        System.out.println("\n Sum of digit ="+sum);
+     }
+-------------------------------------------------------------
+   //WAP to display reverse of number // 123 asel tar 321 yenar..
+    import java.util.*;
+    class reverse
+     {
+        public static void main(String args[])
+         {
+    	Scanner s1=new Scanner(System.in);
+    		  System.out.println("Enter the number  -->");
+    		   int n=s1.nextInt();
+    		     int sum=0;
+    		     int x=n;
+    		     while(n>0)
+    		       {
+    				   int r=n%10;
+    				   sum=sum*10+r;
+    				   n=n/10;
+    			   }
+        System.out.println("\n Reverse of digit ="+sum);
+     }
+-------------------------------------------------------------
+//WAP to check given no is palindrome or not...    given no reverse kelyawar punha toch yeto.. tevha palindrome
+import java.util.*;
+class sumofdigit
+ {
+    public static void main(String args[])
+     {
+	Scanner s1=new Scanner(System.in);
+		  System.out.println("Enter the number  -->");
+		   int n=s1.nextInt();
+		     int sum=0;
+		     int x=n;
+		     while(n>0)
+		       {
+				   int r=n%10;
+				   sum=sum*10+r;
+				   n=n/10;
+			   }
+	if(sum==x)
+	  System.out.println(" Given no "+x+" is Palindrome");
+       else
+           System.out.println(" Given no "+x+" is NOT palindrome");
+    }
+}
+---------------------------------------------------------
+//WAP to check given no is armstrong or not ?  e.g    153 = 1^3 + 5^3 + 3^3 =1+125+27=153
+import java.util.*;
+class armstong
+ {
+    public static void main(String args[])
+     {
+	Scanner s1=new Scanner(System.in);
+		  System.out.println("Enter the number  -->");
+		   int n=s1.nextInt();
+		     int sum=0;
+		     int x=n;
+		     while(n>0)
+		       {
+				   int r=n%10;
+				   sum=sum+r *r*r;
+				   n=n/10;
+			   }
+	if(sum==x)
+	  System.out.println(" Given no "+x+" is Armstrong");
+       else
+           System.out.println(" Given no "+x+" is NOT Armstrong.");
+    }
+}
+----------------------------------------------------------------------------------------
+WAP to check given no is prime number of not ?
+import java.io.*;
+class prime
+ {
+    public static void main(String args[])throws IOException
+     {
+	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		  System.out.println("Enter the any number:-->");
+		   int n=Integer.parseInt(br.readLine());
+		    int i=2;
+		       while(i<n)
+		         {
+					  if(n%i==0)
+					   {
+						   System.out.println("\n Given no "+n+" is NOT prime ");
+						    break;
+					   }
+					i++;
+			    }
+			  if(n==i)
+			    System.out.println("\n Given no "+n+" is prime ");
+     }
+}
+-------------------------------------------------------------------------------------
+//WAP to print fibonacci series...     0,1,1,2,3,5,8,13,21,34,....................
+   class clsdemo
+    {
+      public static void main(String args[])
+       {
+		    fibo f1=new fibo();
+		    f1.series(10);
+       }
+     }
+class fibo
+  {
+      void series(int n)
+       {
+		     int a=0,b=1,i=1;
+                
+		     System.out.print("\n  "+a+"    "+b) ;
+		      while(i<n)
+		        {
+					  int c=a+b;
+					  System.out.print("       "+c);
+					  a=b;
+					  b=c;
+					  i++;
+		      }
+		   }
+   }
+-------------------------------------------------------------------------------
+ //WAP to find x to the power y..   x^y =?     2^3=8
+    import java.util.*;
+    class power1
+     {
+        public static void main(String args[])
+         {
+    	Scanner s1=new Scanner(System.in);
+    		  System.out.println("Enter the value of x and y   -->");
+    		   int x=s1.nextInt();
+    		   int y=s1.nextInt();
+    		     int p=1;
+    		  System.out.print(" The "+x+" to the power "+y+" is=");
+    		        while(y>0)
+    		          {
+    		             p=p*x;
+    		             y--;
+    		          }
+    	       System.out.println(p);
+    	 }
+   }
+ -----------------------------------------
+  break   and continue.
+    these are unconditional labels. this statement doesnot have any condition.
+    break
+      the 'break' keyword used for break the flow of program or loop or switch and control move out of  block.
+     ------------------------------------------ 
+      class break1
+        {
+            public static void main(String args[])
+             {
+                System.out.println("\n Hi... Demo of break statement ");
+                int i;
+                  for(i=1; i<=50;i++)
+                     {
+                        System.out.println(" value of i ="+i);
+                          if(i%5==0)
+                            {
+      						   System.out.println(" Aditi  value of  i="+i);
+      						     break;
+      					  }
+      					System.out.println(" Dhanashree  value of  i="+i);
+                      }
+                     System.out.println(" Gayatri  value of  i="+i);
+                 }
+     }
+     ----------------------------------
+    continue keyword.
+         The 'continue' keyword is used in if block. if it is true then control move next iteration, and skip next part of loop.
+            continue always used in 'if' block of loop statement.
+            
+            class break1
+	      {
+	          public static void main(String args[])
+	           {
+	              System.out.println("\n Hi... Demo of break statement ");
+	              int i;
+	                for(i=1; i<=20;i++)
+	                   {
+	                         if(i%5==0)
+	                          {
+	          		     System.out.println(" Aditi  value of  i="+i);
+	    			    continue;
+	    			 }
+	    		      System.out.println(" Dhanashree  value of  i="+i);
+	                    }
+	                   System.out.println(" Gayatri  value of  i="+i);
+	               }
+     }
+    
+ ----------------------------------------------------------  
+ Using break with labels.
+    In Labelled Break Statement, we give a label/name to a loop.
+         When this break statement is encountered with the label/name of the loop, it skips the execution any statement 
+         after it and takes the control right out of this labelled loop. And, the control goes to the first statement right after the loop.
+    
+        Java define an expanded form of the break statement. By using this form of break, you can break out of one or more block of
+        code. These blocks need not be part of a loop or a switch. they can be any block. 
+            
+            Syntax   break  label ;
+             
+         Here label is the name of a label that identifies a block of code. To name a block, put a label at the start of it. A label is any valid java
+      identifier followed by a colon. 
+    ---------------------------------------------------------------------------------------------  
+      class breaklabel1
+        {
+            public static void main(String args[])
+             {
+                  int n=0;
+                  Gayatri :
+                                {
+                                    System.out.println(" In Gayatri inner block");
+                                    Aditi :   {
+                                                     System.out.println(" In Aditii inner block");
+                                                       if(n==0)
+                                                         break Gayatri;
+                                                      System.out.println(" This won't be execute  ");
+                                                  }
+                                           System.out.println(" Outside Aditi  block");
+                               }
+                        System.out.println(" Outside Gayatri  block");
+                }
+       }
+   --------------------------------------------------------------------------------------------- 
+   Array.
+              array is similar concept of C/C++ in java.
+      array is collection of or group of similar datatype. array is fixed size block memory of statement.
+      In java has Array bound checking, if it is wrong then it through exeception 'ArrayOutOfBoundException'.
+            An array in java is an object which stores group of variables of the same type. referred to by a common
+            name. These variable may be of primitive types  or non primitive (references).  Each element of 
+            the array is accessed by an index or subscript.
+             We can create one as well as multi dimensional arrays in java.
+             
+        One dimension Array
+           A one-dimension array is a linear list of element of the same type. to create a one dimension array.
+           i)  Array declaration.
+                 Syntax 
+                                datatype arrayname[];        or     datatype []arrayname;
+                            e.g
+                                 int a[];    or  int []a;                float a[];    or  float []a;    
+                                 student s[];    or  student []s;        Object A[]   or   Object   []A;
+           
+           ii)  Create Array using  new 
+                Syntax 
+                            datatype  arrname[]=new datatype[size];
+                            e.g    int A[]=new int[10];
+                                     student  s[] = new student[5];
+                                     
+          iii)  Assigning values;
+                     Syntax    arrname[index]=value;
+                     datatype   arrayname[] ={val1, val2, ........................, valN};
+                       e.g   int A[]={12,4,6,2,6,7,56};
+                       
+                     we can assign  values during declaration is called initialization.  
+ ----------------------------------------------                          
+// Accessing array element.
+class array3
+ {
+    public static void main(String args[])
+     {
+		  int a[]={10,20,30,40,50,60,70,80,90,11,55,34,2,34,6,54};  //array declaration with initialization
+		   for(int i=0; i <a.length ; i++)
+		   {
+		     System.out.println("a["+i+"] = "+a[i]);
+	      }
+     }
+   }
+  -------------------------------------------- 
+   Multidimensional array. 
+            Arrayname which has two or more subscript operator is called multidimensional array. 
+     multidimensional arrays are actually arrays of arrays. since an array is an object. array elements can themselves be
+     array objects.
+         Syntax   datatype arrname[][][][]...[];
+                               or
+                         datatype  [][][][]...[]arrname;      
+                 
+           the sequence of []  indicates the number of dimension.
+                 
+            Create an array using new keywords
+             datatype a[][]=new datatype[s1][s2][s3]....[Sn];
+                   e.g
+                       int a[][]=new int[3][4];
+         
+     int A[][]=new int[4][];    // 4  rows.
+       A[0]=new int[1];
+       A[1]=new int[3];
+       A[2]=new int[5]
+       
+//WAP to demonstrate of multidimensional array.
+import java.util.*;
+class array4
+ {
+    public static void main(String args[])
+     {
+		  int i,j;
+		  int a[][]=  {                    //declaration with initialization
+			                    {10},     //a[0]
+			                    {11,22},    //a[1]
+			                    {21,22,23},
+			                    {31,32,33,34}
+                            };
+         System.out.println(" Display ");
+	      for(i=0; i <4 ; i++)   // rows
+		   		   {
+		                 for(j=0;j<a[i].length; j++)            // column sathi
+		                  {
+		                    System.out.print("      "+a[i][j]);
+		  				}
+		  				System.out.println();
+	            }
+       }
+   }
+---------------------------------------------------------------------------
+ for-each loop
+    The for-each loop construct, introduced in J2SE 5.0.  makes it easier and convenient iterate through the element
+    of an array and any other collection.
+     
+       Syntax   for(variable  :  array)
+                       {
+                          // Access each element using elements.
+                       }   
+       It initialize the <variable> to the first element of the array and to the subsequent element in each iteration. Iterations are 
+       performed automatically for all the elements of the array.
+      
+   Note :  The keyword for  for-each  loop is for,  and not for each.  It is called for-each because the statement means
+   "for each element in this collection."
+----------------------------------------------------------------------------------------
+class foreach
+ {
+    public static void main(String args[])
+     {
+         int a[]={10,20,30,40,50,60,70};
+           for(int i : a)                   //for(datatype var : arrayname)
+            {
+               System.out.println(i);
+            }
+        
+        
+        String nm[]={"Omkar", "Nabeel"," Deven", "Prabhanjan"," Rushikesh"," Vismit"," Aniket","Saurabh"};
+         for(String x : nm)                   //for(datatype var : arrayname)
+            {
+               System.out.println(x);
+            }
+     }
+   }
+ -----------------------------------------------------------------------
+ Pattern program.
+import java.util.*;
+class patttern1
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j;
+          for( i=1; i<=n;i++)
+            {
+               for(j=1;j<=i;j++)
+                 {
+                    System.out.print(" * ");
+                  }
+                 System.out.println();
+             }
+       }
+    }
+ ---------------------------------------------------------------------------   
+pattern 2
+import java.util.*;
+class pattern2
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j;
+          for( i=1; i<=n;i++)
+            {
+               for(j=1;j<=i;j++)
+                 {
+                    System.out.print(" "+j);
+                  }
+                 System.out.println();
+             }
+       }
+    }
+  ------------------------------------------------------------------------------  
+import java.util.*;
+class pattern2
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j,k=1;
+          for( i=1; i<=n;i++)
+            {
+               for(j=1;j<=i;j++)
+                 {
+                    System.out.print(" "+k);
+                    k++;
+                  }
+                 System.out.println();
+             }
+       }
+    }
+----------------------------------------------------------------------------------
+import java.util.*;
+class pattern2
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j,k;
+          for( i=1; i<=n;i++)
+            {
+				 k=65;
+               for(j=1;j<=i;j++)
+                 {
+				      System.out.print("    "+(char)k);
+                      k++;
+                  }
+                 System.out.println();
+             }
+       }
+    }
+   ------------------------------------------------------------------- 
+import java.util.*;
+class pattern2
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j,k=65,l=97;
+          for( i=1; i<=n;i++)
+            {
+
+               for(j=1;j<=i;j++)
+                 {
+				      System.out.print("    "+(char)k+""+(char)l);
+				      l++;
+                      k++;
+                  }
+                 System.out.println();
+             }
+       }
+    }
+  --------------------------------------------------------------------------------------------  
+
+import java.util.*;
+class patttern1
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j;
+          for( i=1; i<=n;i++)
+            {
+               for(j=i;j<=n;j++)
+                 {
+                    System.out.print(" * ");
+                  }
+                 System.out.println();
+             }
+       }
+    }
+
+-----------------------------------------------------------------------
+import java.util.*;
+class patttern1
+ {
+    public static void main(String args[])
+     {
+        Scanner s1=new Scanner(System.in);
+        System.out.println("\n How many Line you want :->");
+         int n=s1.nextInt();
+         int i,j,k;
+          for( i=1; i<=n;i++)
+            {
+               for(j=i;j<n;j++)
+                 {
+                    System.out.print(" ");
+                  }
+                for(k=1;k<= 2*i-1;k++)
+                 {
+                    System.out.print("*");
+                  }
+                 System.out.println();
+             }
+       }
+    }
+---------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+ 
+ 
+ 
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+                               
+                               
+                               
+                               
+                               
+                               
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+                                                
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                 
+                      
+                      
+                      
+                      
+                     
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              

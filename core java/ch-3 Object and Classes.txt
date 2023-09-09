@@ -1,0 +1,1297 @@
+15-09-2021
+Objects and classes.
+    Classes and objects are heart of OOPs.   Class is a blueprint of objects. and object is
+    instance of class. Java API provided lots of Predefine classes... and These classes are 
+    categarious into various packages.
+     
+   Defining Classes.
+        class is user define datatypes. A class define a new type.   Once define, this new type 
+        can be used to  create object of that type.  Class are collection of datamember(fields or variables)
+        and member function (methods).
+      Syntax
+       [modifiers]  class classname  [extends superclsname  implements inteface1, inter2,inter3.....  interN]
+               {
+                    instance variables.
+                    static or class variables.
+                    constructor
+                    methods defination;
+                    nested classes.
+                    initialization block.
+               }               
+         -----------------------------------
+         Creating Object..
+               Object is real time entities. Every object has  own attributes or properties.
+            We can create N number objects for a class.  Each object is separate copies. every object
+            allocate separate memory.
+               
+               Syntax. 
+                            classname obj = new classname();
+                            classname obj = new classname(args list);
+                            
+                            classaname   obj;  //                 emp e1;     e1=new emp();
+                            
+                              obj=new classname();
+                            
+           ----------------------------------------------------------  
+import java.util.Scanner;
+class student
+ {
+     int rno;
+     String snm;
+     float per;
+     Scanner s1=new Scanner(System.in);
+       void accept()
+        {
+			 System.out.println("Enter the roll no, student name and  percentage");
+			 rno=s1.nextInt();
+			 snm=s1.next();
+			 per=s1.nextFloat();
+        }
+     void display()
+      {
+        System.out.println("\n Student rno="+rno+" Student name ="+snm+" Percentage="+per);
+      }
+   public static void main(String args[])
+   {
+	     student s1=new student();
+	     	     student s2=new student();
+	     s1.accept();    s2.accept();
+	     s1.display();    s2.display();
+   }
+}
+
+----------------------------------------------------------------------    
+   import java.util.Scanner;
+class book
+ {
+     int bno;      String bnm;     float price;
+     Scanner s1=new Scanner(System.in);
+       void accept()
+        {
+			 System.out.println("Enter the book no, book name and  price");
+			 bno=s1.nextInt();
+			 bnm=s1.next();
+			 price=s1.nextFloat();
+        }
+     void display()
+      {
+System.out.println("\n Book No="+bno+" Book name ="+bnm+" Price="+price);
+      }
+}
+class book1
+  {
+       public static void main(String args[])
+        {
+  	    book b1=new book();
+  	     b1.accept();
+  	     b1.display();
+      }
+  }
+-------------------------------------------------------------------------------------                       
+ Type of classes..
+   i) Concrete Class.
+       Concrete class is complete class. we can create object or instanciated of concrete class.
+       It is complet class because it contains instance,class variables, methods, constructor, nested classes
+       initialization block, etc.(sarva kahi) . it can be subclass or superclass of other classes.
+       
+  ii)  Abstract class.
+       Abstract class is incomplete class. we cannot create object of this class, but we can create
+       reference of abstract class. abstarct class is top class hierarchy.
+       abstract class created for to serve his subclasses. abstract class contains some
+       method declaration, and some method defination.
+       
+  iii)  Pure Abstract class  or  Interface
+        Interface is pure abstract class. we cannot create object of interface, but we can
+        create reference of interface class is top class hierarchy
+        interface contains  static,final varaibles and method declaration only.
+ 
+ ---------------------------------------------------------------------------------------
+ 
+                            
+  Constructor.
+  Constructor is special method which is same name as classname.
+  when object is created constructor called automatically.
+  constructor are construct for initalize value of of variable.  
+  
+      class clsname
+        {
+             clsname()     //default constructor
+               {
+               }
+             clsname(args)   //parameterized constructor
+              {
+              }
+         }     
+     Rules.
+      1) same name as clsname
+      2) object created constructor call automatically
+      3)  constructor always declare in public section.
+      4)  It doesnot return type.  not even void
+      5) Constructor can be overloaded
+      6)  constructor are construct for to initalize value of instance varaibles.
+      7)  We can't refer address of constructor
+      
+      There are two type constructor
+        1) Default  Constructor :  The constructor has no arguments or parameter is called Default constructor.
+        
+        import java.util.*;
+	class fact
+	 {
+		 Scanner s1=new Scanner(System.in);
+		 fact()   //  default constructor
+	      {
+	        int f=1;
+	       System.out.println("\n Enter the number :->");
+	       int n=s1.nextInt();
+	       while(n>1)
+	          {
+				    f=f*n;
+				    n--;
+	          }
+	        System.out.println("Factorial is -->"+f);
+	      }
+	     public static void main(String args[])
+	     {
+			 fact f1=new fact();
+	     }
+     }
+ ----------------------------------------------------------------------------- 
+             
+    2) Parameterized constructor  : The constructor which has arguments is called parameterized  constructor.    
+            //WAP to demonstrate of constructor
+	     class rect
+	       {
+	          int l,b;
+	           rect()
+	             {
+	                l=10; b=20;
+	                System.out.println(" Default constructor , has no args");
+	              }
+	         rect(int len, int breadth)
+	           {
+	                l=len; b=breadth;
+	                System.out.println(" Parameter constructor , has no args");
+	              }
+	           void area()
+	             {
+	                System.out.println("\n Area of rectangle :->"+(l*b));
+	             }
+	          public static void main(String args[])
+	           {
+	               rect r1=new rect();
+	                r1.area();
+	               rect r2=new rect(5,7);
+	                   r2.area();
+	           }
+       } 
+     ------------------------------------------------------------------------------------------
+     import java.util.*;
+     class book
+      {
+          int bno;
+          String bnm;
+          float price;
+          Scanner s1=new Scanner(System.in);
+            book()    //default
+             {
+                System.out.println("Enter the book no, bookname and price:->");
+                bno=s1.nextInt();
+                bnm=s1.next();
+                price=s1.nextFloat();
+                System.out.println(" Book no ="+bno+"\t Bookname="+bnm+"\t Book price="+price);
+             }
+             book(int bid, String booknm, float p)  //parameterized
+              {
+     			  bno=bid;         bnm=booknm;      price=p;
+     			  System.out.println(" Book no ="+bno+"\t Bookname="+bnm+"\t Book price="+price);
+     		 }
+         public static void main(String args[])
+           {
+                book    b1  = new book();  // when obj is created constructor called automatically.
+                book  b2=new book(2,"Maths",100);
+            }
+      }
+     -----------------------------------------------------------------------------
+       constructor overloading.
+             same no of constructor name with different parameter or arguments list, is called constructor 
+             overloading..
+             class sample
+	      {
+	          sample()
+	             {
+	               System.out.println(" Default constructor -->");
+	             }
+	     
+	          sample(float p, float q)
+	           {
+	              System.out.println(" float multiplication  -->"+(p*q));
+	           }
+	          sample(double  l,  double m)
+	           {
+	               System.out.println(" Double constructor  -->"+l+"   m  ="+m );
+	           }
+	          sample(int c, float m,  double d)
+	           {
+	              System.out.println(" Addition of three no -->"+(c+m+d));
+	           }
+	         public static void  main(String args[])
+	          {
+	               sample s1=new sample(10,3.5f, 35.4);
+	               sample s2=new sample(10, 35);
+	               sample s3=new sample(7.6, 9.4);
+	               sample s4=new sample(1.4f, 3.4f);
+	               sample s5=new sample();
+	               sample s6=new sample('A','B');
+	          }
+	      }
+	  -------------------------------------------------------------------------------
+   ****   this keyword ****
+      The object which invokes a method is called the implicit or hidden object. Sometime a method 
+      need to refer to this  implicit object.  java provide 'this' keyword. 
+      It always refers to the current or implicit object.
+           
+           Use of this keyword
+      1)    To Differentiate between local variable and instance variables.
+              when we create local and instance variable has same name.    the local variable 
+              hide instance variable. If we want access instance variable then we use 'this' keyword.
+      2)  To return the implicit object
+               In some cases, a method may want to return implicit object itself. 
+                 in such case 'this' keyword are used.
+      3)  To invoke methods and access instance member
+                obj. methodname();    this.methodname();
+                obj.variable;                this.variable
+              instance variable and methodname() accesed by using 'this' keyword.
+              
+      4)  To invoke one constructor within another.
+               By using 'this'  keyword we can invoke one constructor to another constructor.
+                
+       //WAP to demonstrate of this keywords.
+          class Athis
+            {
+                int a,b;
+                    Athis()
+                      {
+                        Athis(50,60);
+                         a=10; b=20;
+                         System.out.println("Default   value of a="+a+ " value of b=>"+b);
+                       }
+                    Athis(int a, int b)
+                     {
+                        this.a=a;  this.b=b;
+                            System.out.println("parameter  value of a="+a+ " value of b=>"+b);
+                     }
+                Athis   modify()
+                     {
+                        System.out.println(" This method return 'this' keyword ");
+                        this.a=900;
+                        this.b=890;
+                           this.display();
+                             return this.
+                      }
+                  void display()
+                   {
+                    System.out.pritln(" value of a->"+this.a+" Value of b->"+this.b);
+                   }
+              public static void main(String args[])
+                {
+                      Athis obj=new Athis();
+                }
+           }     
+           
+   ***  Defining Methods.*****
+       Methods is self containing block of statement, that perform a particular task.
+       A class encapsulate datamember(variable or fields) and methods.
+          Method are two types.
+          1) predefine method :  Java API provide rich set of predefine methods for build java application.
+          2) User-define Methods :-> Methods which are declare throught by user is called user-define.
+               Syntax :
+                           [modifiers] returntype methodname(parameterlist)
+                                         {
+                                            //body of method
+                                         }
+        modifiers is nothing but access specifiers , e.g. public, private, protected and default.
+           
+    TYPES of Methods.
+     1) abstract method()
+                an abstract method is a method whose has no Body or methods has no body is called 
+                abstract method.  abstract method must declare in abstract class.
+                and this must be override in subclass.
+                  Syntax  
+                    abstract returntype methodname(args list);      // abstract method declaration
+      
+        2) final()    :->    final method cannot be overridden (cannot refine in class).
+                  final returntype methodname(args list);
+        
+        3)   Static method()
+                   static method are use for initialize static variable. static method doesnot required object, 
+                   static method call directly  or by using classname.  static method doesnot belong to any object
+                   but belong class.
+                             static  returntype methodnm(argslist)
+                               {
+                               }
+         4)  synchrornized methods
+                    synchronized methods is related to multitherading. In synchronized method,
+                     no other thread are interrupted.
+                                  synchronized  returntype methodnm(argslist)
+			             {
+			                 //body of methods.
+                                      }
+        5)  native() method                              
+                  native method is written in a "native"    language like C or C++.
+               
+        6)  strictfp()
+                   A method declared strictfp(strictly floating point) has all floating  point arithametic
+                   evaluated strictly.
+                                strictfp returntype methodnm(argslist)
+			             {
+			                 //body of methods.
+                                      }
+       ---------------------------------------------------------------------------------------------------
+         Static Fields, Methods, and Block.
+         
+         Static Fields (static variables/class variable).
+               when a  no of objects are created  from same class. they each have their own distinct
+           copies of instance variables.  In this case, sometime we want to have variable that are 
+           common to all objects. at that time that variable declare as static.
+           static variable create only one copy, that only one copy can share no of object.
+           static variables doesnot belong to objects, it belong to class,   
+           static variable access by using classname. 
+              Syntax
+                  declaration :
+                      static datatype variable=value;
+                      
+                Accesss :    classname.variablename;
+            //WAP to demonstrate of static variables.     
+              --------------------------------------------------------------------------  
+       import java.util.*;  // yala package mhantat
+       class student
+         {
+       	int r;
+       	String snm;
+       	static String tnm="RahulSir";
+       	Scanner s1=new Scanner(System.in);
+                 student()
+                  {
+        		 System.out.println("\n Enter the rollno, name  :->");
+       		   r=s1.nextInt();
+       		   snm=s1.next();
+       	 }
+       	 void display()
+       	  {
+       	    System.out.println("\n Student no="+r+"\t Name="+snm+"\t Teachername="+tnm);
+       	   }
+        }
+       class staticdemo1
+         {
+             public static void main(String args[])
+              {
+       		    student s2=new student();
+       		    student s3=new student();
+       		       s2.display();     s3.display();
+       		       System.out.println("\n Teacher  Name"+student.tnm);
+              }
+         }
+     ---------------------------------------------------------------------------------------------------------  
+     static methods.
+            static method is used for to access static variables.  static methods doesnot belong 
+        any objects, its belong class. hence static methods doesnot required any objects.
+        without creating object, if we want to any methods, then that method must be declare
+        'static' methods.
+             Syntax 
+                           static  returntype methodname(parameterlist)
+                               {
+                                   //   body of methods.
+                               }
+             Static method access;
+                 
+                              classname.methodname();
+      ----------------------------------------------------------------                 
+       class staticdemo
+        {
+            static int a,b;
+              static void show()
+               {
+                  System.out.println(" value of a->"+a+" value of b-->"+b);
+                     a=10;  b=20;
+                  System.out.println(" value of a->"+a+" value of b-->"+b);
+               }
+            }
+       class static1
+         {
+            public static void main(String args[])
+             {
+                staticdemo.show();
+             }
+    }
+    ----------------------------------------------------------------------------   
+       class integerdemo
+        {
+           public static void main(String args[])
+            {
+       		 Integer obj=new Integer("10");
+       		 System.out.println("value of obj-->"+obj);
+       		 System.out.println(" Maximum size-->"+Integer.MAX_VALUE);
+       		 System.out.println(" Minimum size-->"+Integer.MIN_VALUE);
+       		 System.out.println(" Binary value -->"+Integer.toBinaryString(300));
+       		 System.out.println(" Octal value -->"+Integer.toOctalString(300));
+       		 System.out.println(" Hex value -->"+Integer.toHexString(300));
+           }
+      }
+--------------------------------------------------------------------------------------------------------------
+   static block       
+     In addition to static fields and static methods, java provided static block.
+     static block belong to class, doesnot belong to object. This block is executed even before main. 
+     This block executed only one time when class is loaded.
+     The main purpose of static block  is to initialize static variables.
+       Syntax
+               static
+                 {
+                    //  static block..
+                 }
+       
+        ----- WAP to demonstrate of static block. -------------------------
+        class static4
+	 {
+	     static int a,b;
+	      static
+	       {
+	          System.out.println("\n Static block executed before main() when class is loaded ... ");
+	          a=35;   b=22;
+	          System.out.println("\n Static block is executed Only one time ");
+	       }
+	     static void show()
+	       {
+	          System.out.println("\n value of a->"+a+"\t value of b->"+b);
+	            a=25;
+	            b=50;
+	          System.out.println("\n value of a->"+a+"\t value of b->"+b);
+	        }
+	  }
+	  class staticblock
+	    {
+	      public static void main(String args[])
+	       {
+	           static4.show();   // static4 method access by using clsname
+	       }
+	     }
+  -----------------------------------------------------------------------------------    
+   Predefined Classes.
+     Java API provides rich set of  classes and interface organized in packages. There are some predefince  classes and their purpose
+        
+       i) The Object Class.
+           The most Important  predefined class is the Object class. It is at the top of the class hierarchy in java.  It is most important
+           because all Classes  are subclasses of the Object Class.
+             The Object class define basic state and behavior that all object must have, such as the Ability to compare to another 
+             object, to convert to a string, wait on a condition variables, etc.
+        Methods.
+             i)    protected  Object clone()
+            ii)    boolean   equals(Object  obj)
+           iii)    protected void finalize()
+           iv)    Class getClass()
+           v)     int hashCode()
+           vi)    void notify()
+           vii)   void notifyAll()
+           viii)  String toString()
+           ix)     void wait()
+           x)      void wait(long  n)   
+           xi)   void wait(long  n, int non)
+       ----------------------------------------------------------------------------------------------------------------------       
+         equals() methods.
+              This equals method is used to compare two objects for equality. This method return true if the object are equals and
+              false otherwise,  equality doesnot mean that the object are the same physical object, but it means that the objects
+              have the same values.
+           --------------------------------
+           class equals1
+	    {
+	       public static void main(String args[])
+	        {
+	          String s1=new String("Rahul");
+	          String s2=new String("rahul");
+	             if(s1.equals(s2))
+	              System.out.println("\n Object contains are same ...");
+	            else
+	              System.out.println("\n Object contains are Different...");
+	   
+	             if(s1==s2)
+	              System.out.println("\n Object Address are same ...");
+	            else
+	              System.out.println("\n Object Address are Different...");
+	   
+	              String s3=s1;
+	           if(s1==s3)
+	                 System.out.println("\n Object Address are same ...");
+	            else
+	              System.out.println("\n Object Address are Different...");
+	          }
+       }
+     --------------------------------------- 
+       getClass() methods.
+         Every class in java has a corresponding "Class" Object
+         getClass() method return this 'Class' object. it give information about the class.
+         we can get variety of  information of class, such as classname, superclass, packagename,
+         name of interface, variables, constructor etc.
+         
+         import java.util.*;
+	 class getclass
+	  {
+	     public static void main(String args[])
+	      {
+	         Scanner s1=new Scanner(System.in);
+	         Class c1=s1.getClass();
+	         System.out.println("\n Class Name :->"+c1.getName());
+	         System.out.println("\n SuperClass Name :->"+c1.getSuperclass());
+	         System.out.println("\n Package Name :->"+c1.getPackage());
+	         System.out.println("\n Simple Class Name :->"+c1.getSimpleName());
+	        System.out.println("\n Protenction Domain :->"+c1.getProtectionDomain());
+	        System.out.println("\n Canonical Name :->"+c1.getCanonicalName());
+	      }
+         }
+ ------------------------------------------------------------------------------------------------
+   toString()    methods.
+          toString() method is used to display the content of object.   when we print object,  toString()
+       invoke automatically.
+         This method give the string  representation of an object. It return a string that "textually"
+         represent on object. you can use toString() to display object.  All predefined classes have
+         defined this method.
+         
+             public   String  toString()
+                    {
+                       return   "  string......";
+                    }
+              ------------------------------------------------      
+   class student1
+    {
+       int rno;
+       String snm;
+         student1(int rno, String snm)
+          {
+             this.rno=rno;
+             this.snm=snm;
+           }
+         public String toString()
+          {
+   		    return " Student Rollno->"+rno+"\t Student name:->"+snm;
+   	   }
+       public static void main(String args[])
+        {
+            student1 s1=new student1(1,"Atharva");
+               System.out.println(s1);
+	            System.out.println(s1.toString());
+	              String  s2=s1.toString();
+        System.out.println(" Hashcode--->"+s1.hashCode());
+         }
+    }
+    -----------------------------------------------------------------------------------------
+   Wrapper Classes.
+        Java is pure object oriented language. But what about primitive datatype. they are not objects.
+  so therefore, they are not participate in object world.   i.e they cannot participate in methods
+  which requires objects as parameter or  return object or be used in collection which is a group of object.
+  
+       Solution of this problem,  java provides Wrapper classe store in java.lang package.
+   Wrapper classes are used to Wrap primitive into an objects.  i.e convert primitive
+   datatype into the objets.
+      A Wrapper class object encapsulates a single value of a primitive types.
+        Java provides 8  primitive datatype and 8 Wrapper classes.
+             
+              ----------------------------------------------------------------------------------
+                           Datatype                                            Wrapper Classes
+              ----------------------------------------------------------------------------------
+                       boolean                                                Boolean
+                -------------------------------------------------------------------------------
+                       byte                                                       Byte
+              ----------------------------------------------------------------------------------
+                       char                                                        Character
+              ----------------------------------------------------------------------------------
+                       short                                                       Short
+               ----------------------------------------------------------------------------------
+                        int                                                          Integer
+              ----------------------------------------------------------------------------------
+                        long                                                         Long
+              ----------------------------------------------------------------------------------
+                        float                                                        Float
+              ----------------------------------------------------------------------------------
+                       double                                                    Double
+              ----------------------------------------------------------------------------------
+                     
+          Creating Wrapper classes.
+            There are two way of creating  wrapper class objects.
+              i)  Using  new.
+             ii)  Using static method   -   valueOf()
+             
+     i)  Using new       
+              An instance of a wrapper class may be created by calling the corresponding constructor
+          and by passing an appropriate arguments.
+             Syntax
+                       Classname  obj =new Classname(args);
+                        int x=20;
+                       Integer  obj=new Integer(x);
+                       
+   ii)  Using valueOf() method
+         The static method valueOf() can be invoked to created wrapper classes object. Because its a
+      static, It can be invoked directly on the class (without object). It return the corresponding
+      wrapper class object.
+            Syntax  
+                 Integer   obj=Integer.valueOf(20);
+                 
+             Write a program to demonstrate of Wrapper classes.
+             class wrapper
+	      {
+	         public static void main(String args[])
+	           {
+	               int a=20;
+	               Integer a1=new Integer(a);
+	               Integer a2=new Integer(30);
+	               System.out.println(" Given no  is -->"+a1);
+	               System.out.println(" Binary no  is -->"+Integer.toBinaryString(a1));
+	                   System.out.println(" Octal no  is -->"+Integer.toOctalString(a1));
+	                       System.out.println(" Hexadecimal no  is -->"+Integer.toHexString(a1));
+	                       System.out.println(" double value--->"+a1.doubleValue());
+	                       System.out.println(" Decode value--->"+Integer.decode("5443"));
+	           
+	                      System.out.println(" Maximum value--->"+Integer.MAX_VALUE);
+                              System.out.println(" Minimum value--->"+Integer.MIN_VALUE);
+	                       
+	     
+	                           System.out.println(" Bit count -->"+Integer.bitCount(a1));
+	                     int x=a1.compareTo(a2);
+	                         if(x==0)
+	                             System.out.println(" value are equals--->"+x);
+	                       else
+	                           System.out.println(" value are different equals-->"+x);
+	     
+	                  Integer a3=Integer.valueOf(100);
+	                    System.out.println(" Value of a3--->"+a3);
+	                   int p=Integer.reverse(10);
+	                     System.out.println(" Reverse value--->"+p);
+	           }
+	         }
+	   ---------------------------------------------------------------------------------------------   
+	   Array of object.
+	          We can create 'n' number of object for class. Every object allocate separate space.
+	         Every object is distinct copies for instane variables. 
+	         If we want to create 'n' number object for class then, we use array of object.
+	         
+	      Syntax 
+	                  classname  obj[]=new classname[size];
+	                  
+     //WAP to accept 'n' student details contains rollno,name and percentage. find or didsplay
+      maximum percentage students details.
+        import java.io.*;
+	class student
+	 {
+		  int rno;
+		  String nm;
+		  float per;
+		 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		    void accept() throws IOException
+		     {
+				  System.out.println("Enter the rno,name and percentage :->");
+				  rno=Integer.parseInt(br.readLine());
+				  nm=br.readLine();
+				  per=Float.parseFloat(br.readLine());
+			 }
+		void show()
+		 {
+		System.out.println("\n Student no->"+rno+"\t Name :->"+nm);
+		System.out.print("\t Percentage->"+per);
+		 }
+	 }
+	 class arrayofobj
+	 {
+		  public static void main(String args[]) throws IOException
+		   {
+		 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		 System.out.println("How many student details u want :-->");
+		  int n=Integer.parseInt(br.readLine());
+		        student s[]=new student[n];
+		        int x=0;
+		        float max=0;
+		      System.out.println("\n Accept "+n+" Students Details");
+		          for(int i=0;i<n;i++)
+		            {
+						s[i]=new student();
+						  s[i].accept();
+						   if(max<s[i].per)
+						    {
+								 max=s[i].per;
+								 x=i;
+							}
+					}
+		    System.out.println("\n Display "+n+" Students Details");
+		          for(int i=0;i<n;i++)
+		            	  s[i].show();
+	
+			System.out.println("\n Maximum percentage student details ");
+			    s[x].show();
+	
+		   }
+	 }
+  ------------------------------------------------------------------------------------------------------------------
+    /* WAP to accept 'n' product details. contains product id, name, price and quantity 
+     display all product details with product wise cost and also take discount in percentage
+     and display after discount price. */
+      import java.util.*;
+      class product
+       {
+           int pid,qty,price;
+           static int sum=0;      String pnm;
+              Scanner s1=new Scanner(System.in);
+              product()  //default constructor
+               {
+                 System.out.println("\n Enter the Product id, name , price and quantity -->");
+                 pid=s1.nextInt();            pnm=s1.next();         price=s1.nextInt();    qty=s1.nextInt();
+               }
+             void display()
+               {
+                  System.out.print("\n Product id->"+pid+"\t Product name :->"+pnm+"\t Price ->"+price);
+                  System.out.println(" Product Qty->"+qty+"\n Product wise cost->"+(price*qty));
+                  sum=sum+price*qty;
+               }
+          public static void main(String args[])
+            {
+      		        Scanner s1=new Scanner(System.in);
+      		  System.out.println("\n How many product u want :-->");
+      		  int n=s1.nextInt();
+      		   product p[]=new product[n];
+      		      for(int i=0;i<n;i++)
+      		         {	  p[i]=new product();	 }
+      		     for(int i=0;i<n;i++)
+      		          p[i].display();
+      		System.out.println("---------------------\n Total Cost :->"+sum);
+           }
+}
+---------------------------------------------------------------------------------------
+//WAP to create class emp, contains id,name and salary, accept n emp details from user and display.
+import java.io.*;
+class emp
+ {
+    int eid;
+    String enm;
+     float sal;
+     BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+        void accept() throws IOException
+         {
+             System.out.println(" Enter the Empid, Name and salary");
+             eid=Integer.parseInt(br.readLine());
+             enm=br.readLine();
+             sal=Float.parseFloat(br.readLine());
+         }
+      void display()
+       {
+System.out.println("\n Emp id->"+eid+" \t Name :->"+enm+"\t Salary ->"+sal);
+	   }
+ }
+ class arrofobj
+   {
+	   public static void main(String args[]) throws IOException
+	   	    {
+			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			System.out.println("\n How many Emp obj u want :->");
+			 int n=Integer.parseInt(br.readLine());
+			 emp e[]=new emp[n];
+			   System.out.println("\n Accept "+n+" Emp details ");
+			     for(int i=0;i<n;i++)
+			      {
+					    e[i]=new emp();    // obj create memory  call constructor
+					   e[i].accept();
+				  }
+			 System.out.println("\n Display "+n+" Emp details ");
+			 			     for(int i=0;i<n;i++)
+			 			      {
+			 					   e[i].display();
+				  }
+		}
+}
+
+------------------------------------------------------------------------------------------------
+import java.util.*;
+class stud
+  {
+      int rno;
+      String snm;
+
+        stud(int rno, String snm)
+         {
+              this.rno=rno;
+              this.snm=snm;
+         }
+        void display()
+         {
+			  System.out.println("\n Student rollno="+rno+"\t Student name="+snm);
+		 }
+  }
+ class arrayofobj1
+   {
+       public static void main(String args[])
+        {
+			 Scanner s1=new Scanner(System.in);
+			 System.out.println(" How many object u want :-->");
+			  int n=s1.nextInt();
+			    stud  s[]=new stud[n];    //ithe array of object create kela...
+			  for(int i=0; i<n ; i++)
+			   {
+				   System.out.println("Enter the rollno and name:->" );
+				   int a=s1.nextInt();
+				   String b=s1.next();
+				    s[i]=new stud(a,b);   // s[0], s[1],  s[2],   s[3],s[4]  constructor call honar..
+			   }
+			 System.out.println("Display Student details--->");
+			      for(int i=0; i<n; i++)
+			         s[i].display();
+        }
+    }
+--------------------------------------------------------------------------------------------------------------------------------
+  Package.
+     package is important and innovative concept in  java. It is naming and visibility control  machanism. 
+          A package is namespace that organizes a set of related classes and interfaces.
+         A package allows classes and interfaces to be grouped together into a collection called "Package".
+       Package is nothing but folder. folder contains lot of classes and interfaces. Java language provided
+       hundreds or thousands of individual classes organized various packages.  related classes and interface
+       stored  into packages.
+         There are two type of packages.
+          i) Predefine package.
+          ii) User-define package.
+          
+          
+       Predefine Package.
+          Java API contains severals classes and interface which are distributed over a no of package.
+          to use of these package, you should import the package. java.lang is by default package.
+           There are some predefine packages.
+            --------------------------------------------------------------------------------------------------
+               Package Name   |         Meaning
+             --------------------------------------------------------------------------------------------------
+               java.lang             |        language related...(default package)
+ 	     -------------------------------------------------------------------------------------------------- 
+ 	       java.io                 |         Input output related classes
+	     --------------------------------------------------------------------------------------------------
+	        java.util              |       java utilites related classes.. like date, vector, collection. etc
+	     --------------------------------------------------------------------------------------------------
+	       java.math          |    maths related classes
+	     --------------------------------------------------------------------------------------------------
+	        java.net           |      Networking and web related  
+	     --------------------------------------------------------------------------------------------------
+	        java.sql             |       Database related classes
+	     --------------------------------------------------------------------------------------------------
+	        java.awt           |   Abstract Window Toolkit
+	     --------------------------------------------------------------------------------------------------
+	        javax.swing      |     Swing Library  (GUI based classes)
+	     --------------------------------------------------------------------------------------------------
+	        java.awt.event |     Event handling machanism.
+	     --------------------------------------------------------------------------------------------------
+	        java.awt.Color  |     Color classes.
+	     --------------------------------------------------------------------------------------------------
+	        java.time           |  time related classes.
+	     --------------------------------------------------------------------------------------------------
+	   
+	    User  Define Packages
+	        Packages created thought by user is called user-define package.
+	         This package contains related classes and interfaces.
+	         
+	           How to create package.
+	              
+	               Syntax     :      package  packagename;
+	                                        package  packagename.subpkgname;
+	                                        
+	          How to access package.
+	            We can access packagename by using  'import' keyword.
+	             
+	               Syntax    :    import packagename.*;
+	                                    import pkgname.subpkgnm.*;
+	               
+	  WAP to  create two package;  pack1  contains two classes Teacher and
+	  course. Both classes have method to read corresponding information. pack2 contains class college
+	   with method accept. write a java program to display all information.
+	   // pack1 contains  Teacher class to accept details and display.
+package pack1;
+import java.util.*;
+public class Teacher
+  {
+     int tno;
+     String tnm;
+     Scanner s1=new Scanner(System.in);
+     public void accept()
+       {
+          System.out.println("\n Enter the teacher no and Teacher name:->");
+          tno=s1.nextInt();
+          tnm=s1.next();
+       }
+     public void show()
+       {
+           System.out.println("\n Teacher Number="+tno+"\t Teacher name="+tnm);
+       }
+    }
+	   ----------------------------------------------------------------
+// pack1 contains  Course class to accept details and display.	   
+	           package pack1;
+		   import java.util.*;
+		   public class Course
+		     {
+		        int cno;
+		        String cnm;
+		        Scanner s1=new Scanner(System.in);
+		       public  void accept()
+		          {
+		             System.out.println("\n Enter the Course no and Course name:->");
+		             cno=s1.nextInt();
+		             cnm=s1.next();
+		          }
+		       public  void show()
+		          {
+		              System.out.println("\n Course Number="+cno+"\t Course name="+cnm);
+		          }
+		       }
+       ---------------------------------------------------------------------
+	 // pack2 contains  College class to accept details and display.	             
+	 package pack2;
+	 import java.util.*;
+	 public class College
+	   {
+	      int cno;
+	      String cnm;
+	      Scanner s1=new Scanner(System.in);
+	      public void accept()
+	        {
+	           System.out.println("\n Enter the College no and College name:->");
+	           cno=s1.nextInt();
+	           cnm=s1.next();
+	        }
+	      public void show()
+	        {
+	            System.out.println("\n College Number="+cno+"\t College name="+cnm);
+	        }
+	     }
+        -----------------------------------------
+       // Access package program class in outside... ie. main class.. by using ' import' statement
+         import  pack1.*;    //access
+	 import pack2.*;
+	 class pkgdemo
+	  {
+	     public static void main(String args[])
+	      {
+	          Teacher t1=new Teacher();
+	          Course c1=new Course();
+	          College cg=new College();
+	             t1.accept();   c1.accept();    cg.accept();
+	             t1.show();    c1.show();    cg.show();
+	 
+	      }
+         }
+ ----------------------------------------------------------------------------------------------------------------          
+	 Garbage Collection and finalize() methods.
+	     Garbage collection is a mechanism to remove objects from memory when they are no
+    longer needed. Garbage collection is carried out by the garbage collector. The Garbage Collector
+    runs as a separate thread. whenever  it find some CPU cycles idle, it runs and perform following task.
+    i) Garbage collector keeps track of how many references an object has.
+   ii) It removes an object from memory  when it has no longer any references.
+   iii) Thereafter,  The memory occupied by the object can be allocated again.
+   iv)  The garbage collector invokes the finalize methods.
+       
+         The Garbage collector can be invoked in two ways.
+          i) Using  System.gc() method.
+         ii) Using an instance of Runtime class and invoke gc() .
+         
+         Every running application always has the Runtime object associated with it.
+         you can hold of this instance by calling the static method   getRuntime()  of the Runtime class.
+         
+           Syntax     :   Runtime  rt = Runtime.getRuntime();
+         
+   //WAP to demonstrate of Garbage Collector.
+   class garbage1
+    {
+         public static void main(String args[])
+          {
+   		    Runtime t1 = Runtime.getRuntime();  //obj create kela.
+   		    System.out.println("\n Total memory ="+t1.totalMemory());
+   		    System.out.println("\n Free memory ="+t1.freeMemory());
+   		    long x= t1.totalMemory() -  t1.freeMemory();
+   		    System.out.println("\n Used memory ="+x);
+   		     int A[] = new int[10000];
+   		       for(int i=0; i<10000; i++)
+     		          {
+   					A[i]=i+1;
+   				}
+   	    System.out.println("\nAfter allocatioin Free memory ="+t1.freeMemory());
+   		    x= t1.totalMemory() -  t1.freeMemory();
+   		    System.out.println("\n Used memory ="+x);
+   		      System.gc();
+   		  System.out.println("\nAfter GC method Free memory ="+t1.freeMemory());
+          }
+        }
+-------------------------------------------------------------------------------------------------
+   finalize()  method
+     Constructor is special method which is same name as classname. when object is created constructor
+     called automatically. constructor is used for initaliazation of instance variable. this process is
+     called initialization.
+       Although, java has an garbage collection mechanism, sometime an objects will need to perform
+     some clean-up action when it is destroyed.   To handle this situation java provides a mechanism
+      called finalization.
+         By defination of finalize() method in the class, you can define specific action that will occur when
+       an object is just about to be reclaimed by the garbage collector.
+         The purpose of finalization is to perform clean-up operation for the object 
+         i.e freeing resources, deallocating memory, releasing memory, closing connection, file etc.
+           
+      Syntax 
+              protected void finalize()
+               {
+                   finalization code here.
+               }
+   
+   
+   //WAP to demonstrate of finalize method.
+   class rect
+    {
+       int l,b;
+       rect()
+             {            l=100;            b=200;
+                System.out.println("value of l-->"+l+"value of b->"+b+" Default constructor address ===>"+this);
+            }
+        rect(int l, int b)
+         {
+            this.l=l;           this.b=b;
+            System.out.println("value of l-->"+l+"value of b->"+b+" parameter constructor address ===>"+this);
+        }
+      protected void finalize()
+        {
+   		System.out.println(" Object Destroyed --->"+this);
+   	}
+     }
+     class finalize
+       {
+          public static void main(String args[])
+           {
+   			  rect r1=new rect(); 			  rect r2=new rect(22,33);
+   			  rect r3=new rect();  			  rect r4=new rect(2,3);
+   			   System.gc();
+   			  System.out.println(" Finalize method not called...");
+                    r2=null;    r4=null;
+   			    System.gc();
+           }
+        }
+     -----------------------------------------------------.. 
+       Initializing instance members.
+         Normally, we put code to initialize an instance variables in a constructor. Another method to initialize  an instance variables is by
+         using an initialization block.  Initialization blocks for instance variables are a set of statements enclosed in {}.
+          
+            Syntax 
+                {
+                   //    code for initialization
+                }
+         The compiler copies the initialization block in every constructor automatically, Hence this method is useful when the same code needs
+     to be used in each constructor.
+     
+      //WAP to domonstrate of initialization block.
+      class emp1
+        {
+            int id;
+            String enm;
+            static int nextid=1;
+               
+               
+               {
+                  id=nextid;
+                  nextid++;
+               }
+      
+             emp1()
+              {
+              }
+            emp1(String nm)
+             {
+               enm=nm;
+             }
+            void show()
+             {
+                System.out.println(" id->"+id +" name-->"+enm);
+             }
+            public static void main(String args[])
+             {
+                 emp1   e1=new emp1("mrunal");
+                 emp1   e2=new emp1("shruti");
+                 emp1   e3=new emp1("Vrushali");
+                 e1.show();   e2.show();   e3.show();
+             }
+   }
+   
+   ------------------------------------------------ The End.....-------------------------------------------------------------------------
+   
+
+   
+   
+   
+   
+   
+   
+   
+   
+    
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	           
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	               
+	       
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	     
+	     
+
+         
+                       
+                       
+                       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+       
+       
+       
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

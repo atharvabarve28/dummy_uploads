@@ -1,0 +1,550 @@
+	5. Interfaces and Inner Classes.
+    Interface is an innovative concept in java. It can be  throught of an a fully abstract class.
+    i.e Interface is pure abstract class. It doesn't contain any instance variables, constructor,
+    method defination.  but It contain only static final variables and  method declarations.
+       Java Doesn't support Mutliple inheritance. But if we want achieve multiple inheritance in java
+       then we use interface.
+       
+           Syntax  
+              modifiers interface interfacename extends superinterface
+                {
+                    static/final dataytype fields=values;   // var declaration
+                    returntype methodname(args list);  // method declaration
+                }
+    An Interface can contain fields, but these are implicitly final and static.
+     All methods of interface by  default are abstract method..
+     we can't create object of interface, but we can reference of interface.
+           e.g
+                public interface stack
+                  {
+                        int size=100;
+                        void push(int no);
+                        int pop();
+                        boolean isempty();
+                        boolean isfull();
+                  }   
+       Interface  is define by using 'interface' keyword.  It can be access publicly
+       
+        Their are Certain Rules for writing interface.
+         i)   All interface methods are implictly public and abstract.
+         ii)   Interface methods must not be static.
+         iii)  All Fields (variables) in an interface must be public,static and final;
+         iv)  Interface declare only constant value of variables, not instance variables.
+         v)   An interface can extends one or more other interface.
+         vi)  An interface cannot implements another interface or class.
+        
+    //WAP to demonstrate of Interface     
+         interface A
+	  {
+		    int x=100;
+		    void display();   
+		    void show();
+		    void ghedata();
+	  }
+	class B implements A
+	  {
+		   public  void display()
+		      {
+				    System.out.println(" All methods of interface by default abstract ");
+			  }
+			public void show()
+			  {
+	 		     System.out.println(" Abstract methods must be override in subclas \n  value of x-->"+x);
+			     System.out.println(" Bale hi tyacha use nasel, taripan define karavi ch lagel..");
+		     }
+		   public  void ghedata() {}
+	  }
+	class interface1
+	  {
+	     public static void main(String args[])
+	      {
+	         B b1=new B();
+	         b1.display();
+	         b1.show();
+	         System.out.println(" Value of x  out side class--> "+A.x);
+	      }
+	  }
+	
+Need for interfaces.
+ At this point of time, It is natural to question. if we have class then why we create interface.
+ java doesn't support multiple inheritance, an we user want to achieve multiple inheritance
+ then we use interface.  Interface  are used when two or more classe have the same 
+ functionality(behavior). It provide standardization  to some extent since all classes implementing 
+ the interface will have same methods.
+    
+ **** Tagging interfaces *** .
+     some interface are defined without any methods or constants is called 
+         tagging interface or marker interface.
+      such interface  are only used to tag or mark a class. it indicates that the class support that functionality.
+            e.g   Cloneable, Serializable, 
+        
+     Predefine Interface.
+          Tha java API provides a rich set of predefined interface separated in various packages.
+          
+     *** Implementing Interface *** 
+ once interface has been defined. one or more classes implements that interface.
+A class can implement an interface by using  'implements' keyword. 
+        Syntax 
+                 interface interfacename
+                  {
+                      datatype var;
+                      method declaration();
+                   }
+             class clsname extends supercls implements interfacename, 
+               {
+                  //body of class
+               }
+        
+        interface B
+         {
+         }
+       class A
+         {
+         }
+      class C extends A implements B
+        {
+        }
+         
+    Rules of implementing interface.
+    1) A class can implements one or more interface.
+    2) The interface name should be separated by commas.
+    3)  The method of interface must be declared in public 
+    4)  all methods of interface by default abstract
+    5)  Interface methods must be override in subclass.
+    6)  The signature(prototype) of the implementing  method must be match the type 
+           in method declaratation in subcls.
+    7)   A clas must define all method of interface.
+    
+    /* WAP create interface stack. contains size as const var, and push(), pop(), isempty(). isfull() as method declaration.
+      create class stkoperation implements from stack. override all methods. and apply all operation.
+import java.util.*;
+interface stack
+  {
+     int size=5;
+     void push(int no);
+     int pop();
+     boolean isempty();
+     boolean isfull();
+  }
+class stkoperation implements stack
+  {
+    int top;
+     int A[]=new int[stack.size];
+        stkoperation()
+        {
+           top=-1;
+        }
+     public void push(int no)
+      {
+		   top++;
+		   A[top]=no;
+      }
+   public  int pop()
+     {
+		  return A[top--];
+     }
+   public  boolean isempty()
+      {
+		   if(top==-1)
+		     return true;
+		   else
+		    return false;
+      }
+   public boolean isfull()
+     {
+		 if(top==size-1)
+		   return true;
+		 else
+		   return false;
+     }
+   void display()
+      {
+		  for(int i=top; i>=0; i--)
+		   System.out.print("      "+A[i]);
+       }
+  }
+class interface2
+   {
+       public static void main(String args[])
+         {
+            stkoperation  s=new stkoperation();
+           Scanner s1=new Scanner(System.in);
+             int ch;
+                do
+                  {
+					    System.out.println("\n1.Push \n2.Pop \n3.Display \n4. Exit \n Enter your choice :->");
+					    ch=s1.nextInt();
+					      switch(ch)
+					        {
+								 case 1 :    if(s.isfull()==true)
+								                   {
+													  System.out.println(" Stack is full");
+												   }
+												 else
+												   {
+                                                        System.out.println("\n Enter the Element to be push into stack");
+                 								               int no=s1.nextInt();
+                 								        s.push(no);
+												   }
+												  break;
+								 case 2 :    if(s.isempty()==true)
+								                   {
+													  System.out.println(" Stack is Empty ");
+												   }
+												 else
+												   {
+                                                        System.out.println("\n Popped Element ->"+s.pop());
+      												}
+												  break;
+                                 case 3 :   System.out.println(" Display Stack Elements ");
+                                                    s.display();
+                                                   break;
+                                  case  4 :  System.exit(1);
+                                                 break;
+						}
+					}while(ch!=4);
+			 }
+ }
+    
+ ******   Objec Clone     *****
+means creating copy or clone of existing an object. object cloning create new object which is identical to original object. if we asign one object referance to another objcet, both object points to same physical memory.
+    the object class provide clone protected methods.it generate duplicate copy. 
+if we create clone object in a class. 
+
+
+
+
+
+   class rect implements Cloneable
+     {
+         int l,b;
+          rect()
+           {
+               l=10;   b=20;
+            }
+          public  String toString()
+           {
+              return " Length -->"+l+" \t Breadth :-->"+b;
+           }
+        public  rect  clone() throws CloneNotSupportedException
+         {
+   		   rect P=(rect)super.clone();
+   		   return P;
+   	  }
+     }
+   class clonedemo
+      {
+         public static void main(String args[])  throws CloneNotSupportedException
+          {
+              rect r1=new rect();  // when obj is created then constructor called automatically.
+             System.out.println("Orginal object  :--->"+r1);
+               rect r2=r1.clone();
+             System.out.println("Clonable object -->"+r2);
+          }
+      }
+
+//WAP to  Clone student class
+class student implements Cloneable
+
+
+
+  {
+      int rno;  String snm;  float per;
+       student(int rno, String snm, float per)
+        {
+            this.rno=rno;    this.snm=snm;  this.per=per;
+         }
+       public  String toString()
+        {
+           return " Rollno -->"+rno+" \t Name :-->"+snm+" \t Percentage :->"+per;
+        }
+     public  student  clone() throws CloneNotSupportedException
+      {
+		   student P=(student)super.clone();
+		   return P;
+	  }
+  }
+class clonedemo1
+   {
+      public static void main(String args[])  throws CloneNotSupportedException
+       {
+          student  r1=new student(1,"Omkar",98);  // when obj is created then constructor called automatically.
+          System.out.println("Orginal object  :--->"+r1);
+            student r2=r1.clone();
+          System.out.println("Clonable object -->"+r2);
+            r2.snm="Tanmay";
+          System.out.println(r2+" \n r2 object-->"+r2.snm);
+       }
+   }
+ 
+ *** How to work Clone ****
+         
+   class person
+     {
+        int pid;
+        String pnm;    
+         Date dob;        
+     }
+    
+    //WAP to demonstrate of how to implementing deep  Cloning
+     import java.util.*;
+     class person implements Cloneable
+       {
+          int pid; String pnm;
+          Date d;
+            public person(int pid, String pnm, Date dob)
+             {
+    			 this.pid=pid;
+    			 this.pnm=pnm;
+    			 d=dob;
+    		 }
+         public person clone() throws CloneNotSupportedException
+           {
+    		      person p=(person)super.clone();   // all primitive datatye che copy hote
+    		       p.d=(Date) d.clone();                   //deep copy.. jevha obj che clone karayache asel tevha
+    		       return p;
+    	   }
+    	 public String toString()
+    	 {
+    		return "\n Person id->"+pid+"\t Person name:->"+pnm+"\t Date of Birth ->"+d;
+    	 }
+       }
+     class deepclone
+       {
+    	     public static void main(String args[]) throws CloneNotSupportedException
+    	      {
+    			   person p1=new person(1,"Aniket",new Date());
+    			    person p2=p1.clone();
+    			    System.out.println("\n Original Objec t:->"+p1);
+    			    System.out.println("\n Copied  Objec t:->"+p2);
+    	     }
+    }
+
+   20-09-2020
+    *********** Inner Classes...**********
+     Class define within the class, is called inner class or nested class.
+     Syntax 
+        class outer
+         {
+             //define variable and methods
+                class inner
+                 {
+                     //define nested cls variables and methods
+                  }
+         } 
+     Since a nested class doesnot exist  outside of outer class. An object of inner class created within outer class only.
+     In such case, the nested class instance exist within the outer class instance. Nested class obj store a reference to
+     the outer class obj and hence can access all its member.
+     
+     Program  //WAP to demonstrate on nested class..
+	class outer
+	 {
+	    int x=100;
+	       void display()
+	        {
+	           System.out.println("\n Hello I m Outer cls display function ");
+	              obj.show();
+	        }
+	      inner obj=new inner();  // inner cls cha obj banawala
+	      class inner     //nested class
+	        {
+	           int y=200;
+	             void show()
+	              {
+	               System.out.println("\n Hello I m Inner cls show() function ");
+	                System.out.println(" value of x->"+x+"\n Value of y ->"+y);
+	                  demo();  // outer method call directly..	                  
+	              }
+	        }
+	       void demo()
+	        {
+				 System.out.println(" Hello Everybody ... cls demo..method");
+			}
+	  }// outer cls.
+	 class nested1
+	    {
+	       public static void main(String args[])
+	        {
+	             outer o1=new outer();
+	               o1.display();
+	        }
+	     }
+	
+	Rules of Inner(Nested) Classes. 
+1) The nested class can access all members, including private member of the outer class.
+2) The Enclosing(outer) class  can't access to the member of nested class.
+3) Nested class can be declare public, private, protected, abstract, or final  just like any other class.
+4) A nested class may be declare within any block of code like a class or method.
+5) A static nested class belongs to the outer class and not an instance of outer class.
+6) Outer class methods and variable directly access in nested class. doesnt required object.
+7) An inner class,  being a non-static member, is associted only with an instance of its outer class. you can't define 
+    a static member function inside an inner class.
+8) inner is also non-static class. ie. can't define or declare static member in inner class.
+    
+    
+ Advantage of Inner classes.
+   1) Inner class can be hidden from other classes in the same package. this provide additional security.
+   2) Inner class methods can access all member(including private) of outer class. This provide flexiblity.
+3) Anonymous inner classes are useful when we want to use a class only once and create only a single object.  A common use is in event handling.    
+        
+        
+     **** Local Inner Class ****    
+   An inner class which is declared locally inside a method is called Local Inner class.
+   mean class define within methods is called local inner class. such class is needed whenwe need the inner class just once.
+     The Advantage of local inner class is that they can access the fields of their outer classes and can even access local variables.
+      However those local variables must be declared final.
+   
+     class A
+  {
+      int x=10;
+        void display()
+         {
+		  final int z=100;  //local variable must be declare final in local inner class...
+           System.out.println(" Hello  value of x->"+x);
+               class B
+                {
+					int y=20;
+					void demo()
+					 {
+						  //z++;
+			     		  System.out.println(" Class define within method is called local inner class ");
+						  System.out.println(" value x->"+x+"\n value of y->"+y+" value of z->"+z);
+					 }
+				}
+			B obj=new B();
+				obj.demo();
+          }
+        void show()
+         {
+          System.out.println(" This is another show() method of class A");
+         }
+     }
+   class local
+     {
+        public static void main(String args[])
+         {
+			   A a1=new A();
+			   a1.display();
+			   a1.show();
+         }
+     }   
+        
+  ****Anonymous Inner Class.***
+     Classes are usually first defined and then create object(instantiated) using new opearator.
+     Anonymous classes combine the process of defination and instantiated(creating obj) into  a single step.
+    There are some cases when we want to make only one object of a class. In such a cases there is no need to
+    give a class name.   Class has no name is called anonymous class.
+     
+     Anonymous class defined in local inner class. To create an anonymous inner clas, it must either implement an 
+     interface or extend one class. moreover, it object should be created immediately.
+     
+         Syntax     
+              new superType(parameter)
+                 {
+                    inner class method and data;
+                  }
+                  
+     Here supertype can be  An interface  or  A class.
+     
+     if supertype is an interface, anonymous inner class implements that interface (implicitly).
+     if supertype is a Class, then anonymous inner class extends that class (implicitly).
+       
+         There is no need to use the implements or extends keyword.
+         
+         //WAP to demonstrate of anonymous class by using interface.
+         interface A
+          {
+             void show();
+          }
+       class B 
+        {
+            void test()
+                   {
+                             A ref=new A()
+                                  {
+    				             public void show()
+				  	       {
+					         System.out.println("Hello I am anonymous inner class using interface ");
+					      }
+	    		        };
+		     ref.show();	 //call method
+                 }
+         }
+   class anonydemo
+    {
+       public static void main(String args[])
+        {
+			  B b1=new B();
+			  b1.test();
+        }
+    } 
+         
+         
+      //WAP to demonstrate of anonymous class by using Class..        
+            class A
+          {
+             void show()
+              {
+              }
+          }
+       class B
+        {b b
+            void test()
+                   {
+                          A a1=new A()
+                           {
+    			       public void show()
+			  	       {
+				         System.out.println("Hello I am anonymous inner class using class  ");
+				      }
+	    		   };
+		     a1.show();	 //call method
+                 }
+         }
+   class anonydemo1
+    {
+       public static void main(String args[])
+        {
+			  B b1=new B();
+			  b1.test();
+        }
+    }     
+         
+         
+         
+         
+     
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

@@ -1,0 +1,1039 @@
+ 4.Collections.
+     Collections is set of objects. A collections is simply an object that group multiple elements.
+     It is also called container. It group of object.
+     Collection are store,retrieve, manipulate,and communicate aggregate data.
+     Collection framework introduced in java1.2 version.
+     It is  a unified architecture for representing & manipulating collections.
+     
+  Goals of Collection Frameworks.
+    i) It gives high performance, Collections are dynamic array, linked List, stack, queue, tree,
+         hashtable, vectors etc.
+    ii) It allows different types of collection which works in similar manner with high degree 
+         of interoperatability.
+    iii) We can create our own collections.
+    iv) Extending or/and adapting collection to be easy.
+    v)  Collections mechanism work added that allow the integrations of standard array 
+          into collection framework.
+    
+ Advantages of Collection. 
+     i) Reduce programming efforts.
+    ii)  Increase programming speed and qualities.
+   iii) Allow interoperatability among unrelated API 
+   iv) Reduce efforts to design new API
+   v) Reduce efforts to learn and to use new API
+   vi) It allow for software reuse.
+   
+   Interfaces : 
+     java.util package provide collection framework. It contains several interfaces and classes 
+     for managing group of objects.
+     Core Collection interface are the foundation of java collection framework.
+   
+                                                   collection                                              Map
+                                     
+                              List         Set               Queue                               SortedMap                           
+              
+    
+                                          SortedSet
+ --------------------  
+  1) Collections Interface.
+  The most General collection interface type. A collection represent a group of objects is called elements.
+  Java plateform doesnot provides any direct implementation of this interface. 
+  Collection is root interface in hierarchy. All other subinterface like set, list, queue, stack, sortedset etc,
+  are inherited from collection inteface.
+  
+       There are some methods of Collection Interface.
+        i)  boolean    add(E o)
+       ii)  boolean    addAll(Collection c)
+       iii) void          clear(); 
+       iv) boolean    contains(Object obj)
+       v)  boolean    containsAll(Collection obj)
+       vi) boolean    equals(Object obj)
+       vii) Iterator   iterator()
+       viii) boolean  remove(Ojbect obj)
+       ix)  boolean   removeAll(Collection obj)
+       x)  boolean   retainAll(Collection c)
+       xi)  int           size();
+       xii)  Object   []toArray()
+             
+       
+  ii) List Interface.
+        List stores sequence of elements,  Element can be inserted or deleted by their position in 
+        the list by using '0' based index.  This interface extends  from Collection interface, 
+        And also  its has own methods. List contains duplicate elements.
+         
+          Methods of List
+            mostly all methods of list is derived from collection.
+             void add(int index, E element);
+             void addAll(int index, Collection C);
+             E get(int index)
+             void   indexOf()
+             void   lastIndexOf()
+             boolean  Empty()
+             Iterator   iterator()
+             boolean remove()
+             boolean retainAll(Collection C)
+             void set();
+             int size();
+             List SubList(int from, int to);
+              
+     iii)    Set Interface.
+                This interface cannot add duplicate elements. It is similar to like mathematical set.
+                The set interface contains  only methods inherited from collection interface.
+                   set interface content same methods of collection interface.
+                   
+      iv)   SortedSet
+               This interface inherite from set Interface,  we cannot add duplicate elements. 
+               This interface maintain  elements in ascending order.
+                
+                i) Comparator      comparator()
+                 ii)                E         first()
+                 iii) SortedSet<E> headSet(E toElement)
+                 iv)            E            last()
+                 v)  SortedSet         subSet(fromelement,   toelement)
+                 vi) SortedSet         tailSet(fromelement)
+      
+      v)  Queue Interface           
+                 This Interface extends Collection and add opeartion like insertion,delection, 
+                 extraction and inspection opearation.
+                 Queue order elements in FIFO manner except the priority queue.
+                    Method of Queue interface.
+                      i)  E  element()
+                      ii) boolean  offer(E obj)
+                    iii) E  peek()
+                    iv)  E poll()
+                    v)  E remove()
+                    
+        vi)  Map interface.
+             The map represent an object that maps key to value.  Map cannot contain duplicate keys, 
+             each key can map to atmost one value. it does not extend collection interface. 
+             The map interface provide 3 collection views which allows a map contain to 
+             be view as 
+             i )   a set of keys, 
+             ii)   Collection of values or 
+             iii)  set of key-values mapping.
+             
+                Methods
+                    void clear();
+                    boolean    containKey(Object key)
+                    boolean    equals(Object obj)
+                    int             hashcode();
+                    v                get(Object key)
+                    boolean    isEmpty()
+                    v                put(K key, V value)
+                    void          putAll();
+                    v                remove(Object key)
+                    int             size()
+                    Collection(v)   values();
+         
+         vii)  SortedMap
+                    SortedMap extends from Map interface, It's doesnot allow duplicate keys. 
+                    It keep store in sorted manner according to keys.
+                   all methods are extends from Map interface.
+                 
+      -----------------------------------------------------------------------------------------------------------------------------------------
+      
+      Collection Classes
+                                
+                                  Collection
+                                  
+                      List                          Set
+                      
+ 
+ ArrayList  LinkedList  Vector   HashSet  LinkedHashSet SortedSet
+                                                                                                
+                                                                                                          TreeSet
+               
+               
+	                                           Map
+                                           
+                                           
+                 HashTable       HashMap      LinkedHashMap                          
+   ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+      ArrayList Class.
+            This class implements form List Interface, It represent dynamic array can grow and shrink 
+            as per need.  In java standard array are of fixed length. They cannot grow or shrink,  
+            But sometimes you may not known until runtime, how langth of array you needs.  
+         To handle this situation collection framwork provides  ArrayList class. It is a variable length 
+         array of object reference.  i.e ArrayList can be dynamic increase or decrease in size.
+         ArrayList is created with initial size. when size is exceeded the 
+         collection is automatically enlarged. When object is remove from array, size may be shrink.
+         
+       ArrayList Constructor
+         i)  ArrayList()
+         ii)  ArrayList(Collection c)
+         iii)  ArrayList(int initialcapacity)
+         
+      Methods
+           void            add(int index, E element);
+           boolean     addAll(Collection c)
+           void           ensureCapacity(int min)
+            E               get(int index)
+          boolean      isEmpty()
+          boolean      remove(int index)
+          boolean      remove(Object obj)
+          E                 Set(int index, E element)
+          int               size()
+          Object[]     toArray()
+          
+     WAP to accept name of n cities, insert into ArrayList and display content of arraylist and remove all.   
+      //WAP to accept name of n cities, insert into ArrayList and display content of arraylist and remove all.
+	       import java.util.*;
+	       import java.io.*;
+	       class arraylist
+	          {
+	              public static void main(String args[])  throws IOException
+	                {
+	                   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	                   ArrayList a1=new ArrayList();
+	                   System.out.println("\n size of array list --->"+a1.size());
+	                      System.out.println("\n How many Cities name u want :-->");
+	                      int n=Integer.parseInt(br.readLine());
+	  
+	                       System.out.println("\n Enter the Cities name");
+	                       for(int i=0;i<n;i++)
+	                         {
+	  						       System.out.println(" Enter the Cities :->");
+	  						       String cnm=br.readLine();
+	  						       a1.add(cnm);
+	  					 }
+	        System.out.println(" Element in array list --->"+a1);
+	        System.out.println(" After adding cities size will --->"+a1.size());
+	        System.out.println(" is available mumber is  list  --->"+a1.contains("mumbai"));
+	        System.out.println(" 2nd position Element  array list --->"+a1.get(2));
+	        System.out.println(" Index of pune  array list --->"+a1.indexOf("pune"));
+	        System.out.println(" Remove Element in array list --->"+a1.remove("nashik"));
+	        System.out.println("Elements in array list --->"+a1);
+	        a1.clear();
+	        System.out.println("After clear no Elements in array list --->"+a1);
+	    }
+	  }
+	  
+-----------------------------------------------------------------------------------------------------------------------------
+LinkedList
+    Linked Class implements from List Interface. It's implements all operation and permit 
+    all element(including null).  This class privode methods to get, remove, insert element at 
+    beginning and ending. This operation allow to be used as stack, 
+    queue, double ended queue(Deque).
+    
+    Constructor
+       LinkedList()
+       LinkedList(Collection  c)
+       
+   Methods.
+       boolean             add(E obj)
+       void                  add(int index, E element)
+       boolean           addAll(Collection c)
+       void                 addFirst(E obj)
+       void                  addLast(E obj)
+       void                  clear()
+        int                  indexOf(obj  o)
+        ListIterator    listIterator(int index)
+        boolean            offer(E o)
+        E                         peek()
+        E                         poll()
+        E                         remove()
+        E                         removeFirst()
+        E                         removeLast()
+      ----------------------------------------------------------------------------------------------------------------------------------------------
+      WAP to create 2 linkedlist we cannot add duplicate elements in list, sort this 2 linked list.
+      also apply union and intersection of two linked list.
+          import java.util.*;
+	  class linkedlist
+	    {
+	      public static void main(String args[])
+	       {
+	             Scanner s1=new Scanner(System.in);
+	             LinkedList  l1 =new LinkedList();
+	             System.out.println("\n How many element u want in list 1 :--->");
+	             int n=s1.nextInt();
+	                for(int i=0; i<n;i++)
+	                 {
+	                    System.out.println("\n Enter the Elements:-->");
+	                     int no=s1.nextInt();
+	                       if(!l1.contains(no))
+	                        {
+	                           l1.add(no);
+	                        }
+	                    }
+	  
+	            LinkedList  l2 =new LinkedList();
+	             System.out.println("\n How many element u want in list 2 :--->");
+	             n=s1.nextInt();
+	                for(int i=0; i<n;i++)
+	                 {
+	                    System.out.println("\n Enter the Elements:-->");
+	                     int no=s1.nextInt();
+	                       if(!l2.contains(no))
+	                        {
+	                           l2.add(no);
+	                        }
+	                    }
+	            System.out.println("\n Display First     List ---->"+l1) ;
+	            System.out.println("\n Display Second List ---->"+l2) ;
+	                    Collections.sort(l1);
+	                    Collections.sort(l2);
+	            System.out.println("\n After sorting Display First     List ---->"+l1) ;
+	            System.out.println("\n After sorting Display Second List ---->"+l2) ;
+	  
+	           LinkedList l3=new LinkedList();
+	              for(int i=0; i< l1.size(); i++)
+	                {
+	  				   l3.add(l1.get(i));
+	  			 }
+	  		for(int i=0; i< l2.size(); i++)
+	            {
+	  			    if(!l1.contains(l2.get(i)))
+	  			      {
+	  					 l3.add(l2.get(i));
+	  				  }
+	  	       }
+	  	    System.out.println(" Union of two linked list -->"+l3);
+	  
+	  		   LinkedList l4=new LinkedList();
+	  		     for(int i=0;i<l2.size(); i++)
+	  		      {
+	  				  if(l1.contains(l2.get(i)))
+	  				  {
+	  					  l4.add(l2.get(i));
+	  				  }
+	  		}
+	  	    System.out.println(" Intersection of two linked list -->"+l4);
+	      }
+	  }
+ ----------------------------------------------------------------------------------- 
+ TreeSet class
+    This class implement from SortedSet interface. it is useful when you needed to exact element 
+    from the collection in sorted manner.  The elemetns are internally stored in search tree 
+    which gurantees elements are accessed according  to natural order of elements.
+      The main advatange of using a TreeSet is that basic operation(add, remove and contains)
+      performing in O(logn) time.
+      
+      Constructor of TreeSet.
+	  i) TreeSet();
+	  ii) TreeSet(Collection obj);
+	  iii) TreeSet(Comparator obj);
+	  iv) TreeSet(SortedSet obj); 
+  Methods 
+   i) boolean      add(E obj)
+   ii)boolean      addAll(Collection c)
+   iii)  void         clear()
+   iv)  Comparator   comparator()
+   v)   E                  first();
+   vi)  SortedSet   headSet(E element)
+   vii) boolean      isEmpty()
+   viii)  Iterator     iterator()
+   ix)  E                  last();
+   x)   boolean       remove(Object o)
+   xi)  int size();
+   xii) SortedSet     subSet(int from  int to)
+  xiii)  SortedSet   tailSet(E element);
+   
+  Write a program for TreeSet
+  import java.util.*;
+  class treeset
+    {
+       public static void main(String args[])
+         {
+            TreeSet t1=new TreeSet();
+            t1.add("P");  t1.add("S");  t1.add("A");  t1.add("Y");
+            t1.add("A");  t1.add("L");  t1.add("R"); t1.add("S");
+             System.out.println(" TreeSet --->"+t1);
+                System.out.println(" First Element TreeSet --->"+t1.first());
+                System.out.println(" Last Element TreeSet --->"+t1.last());
+                System.out.println(" HeadSet Element TreeSet --->"+t1.headSet("P"));
+                System.out.println(" Tail Element TreeSet --->"+t1.tailSet("P"));
+                System.out.println(" SubSet Element TreeSet --->"+t1.subSet("L","S"));
+          }
+      }
+----------------------------------------------------------------------------------------------------------------------------------------
+  Itearator Interface.	  
+	  Java provide standard mechanism to traverse any collection in an implementation 
+	  indepedently manner by using iterator.	  Then iterator interface provide methods 
+	  which we can travel any collection. This interface is  implemented by 
+	  all collection classes.
+	   
+	   Methods
+	     i)  boolean hasNext()
+	    ii)  E next();
+	   iii)  void remove();
+	  
+Write a program to demonstrate of iterator interface.	 
+import java.util.*;
+class iterator
+  {
+     public static void main(String args[])
+       {
+          TreeSet t1=new TreeSet();
+          t1.add("P");  t1.add("S");  t1.add("A");  t1.add("Y");
+          t1.add("A");  t1.add("L");  t1.add("R"); t1.add("S");
+
+     Iterator  i1=t1.iterator();
+        while(i1.hasNext())
+          {
+			   String nm=(String)i1.next();
+			   System.out.println(" Element is-->"+nm);
+			   i1.remove();
+		}
+
+  System.out.println(" TreeSet  Element --->"+t1);
+  }
+}
+-------------------------------------------------------------------------------------------
+   HashSet.
+    It is extends from AbstractSet and implement from Set interface. It creates a collection the 
+    use of HashTable for storage. The  advantage of HashSet is it performs basic operation like 
+    add, remove, contains, and size in constant time. The Hash()   
+    distribute the elements properly among brackets.
+        Constructor
+          i)  HashSet()    //by default capacity(16) and load factor(0.75)
+          ii) HashSet(Collection c)
+          iii) HashSet(int initialcapacity, float loadfactor);
+          
+import java.util.*;
+class hashset1
+  {
+     public static void main(String args[])
+      {
+         HashSet h1=new HashSet();
+          h1.add("A");   h1.add("H");  h1.add("Z");  h1.add("A");
+          h1.add("Q");  h1.add("W");  h1.add("R"); h1.add("W");
+           System.out.println(" HashSet Contains --->"+h1);
+           System.out.println(" HashSet Contains Q--->"+h1.contains("Q"));
+             h1.remove("W");
+             h1.add("K");
+            System.out.println(" HashSet Contains --->"+h1);
+               h1.clear();
+               System.out.println("After clear HashSet Contains --->"+h1);
+	}
+}   
+-------------------------------------------------------------------------------------------------	  
+ LinkedHashSet
+   This class extends HashSet Class,  It has no additional methods, and has constructor that 
+   take identical parameters as HashSet. The only difference is that the LinkedHashSet 
+   maintains the order of the items added to the set. 
+   It does this by maintaining a  doubly linked list containing the original order of the items.
+ ---------------------------------------------------------------------------------------------------------------
+  ListIterator Interface.
+    It is an interface which extends from iterator, the LinkedList class used interface ListIterator().
+    To obtain a ListIterator use the method listIterator().
+    
+    Methods.
+	       void add(Object obj);
+	       boolean hasPrevious()
+	       int nextIndex();
+	       Object  previous()
+	       int previousIndex()
+	       void  set(Object obj)
+------------------------------------------------------------------------------------------
+       Write a demonstrate of ListIterator.        
+       import java.util.*;
+       class listiterator
+         {
+            public static void main(String args[])
+             {
+                    LinkedList  l1=new LinkedList();
+                    l1.add("prabhanjan");  l1.add("Yashita"); l1.add("Aboli");
+                    l1.add("Shweta");  l1.add("Sayali"); l1.add("Aniket");
+                    l1.add("Vaishnavi");  l1.add("Lisha"); l1.add("Saurabh");
+       
+                       ListIterator  obj=l1.listIterator();
+                         while(obj.hasNext())
+                          {
+                              String nm=(String)obj.next();
+                              System.out.println(" Element are-->"+nm);
+                           }
+                          System.out.println(" List Element are-->"+l1);
+       
+                        System.out.println("\n\n\n\n Reverse List Element are-->");
+                             while(obj.hasPrevious())
+                            {
+                              String nm=(String)obj.previous();
+                              System.out.println(" Element are-->"+nm);
+                           }
+                     }
+                  }
+     ---------------------------------------------------------------------------------------------------------
+     Advantage of Iterator
+       i) We can traverse any collection in a standard manner without knowing the internal representation.
+       ii) Iterator is fail safe.  It ensures that there are no concurrenct modifications in the underlying collection,
+           which may happen in multi-threaded enviorments.
+           
+      -------------------------------------------------------------------------------------------------------------------------------------
+      Vector Class.
+        A vector class is imp in collection framework, used in several application.
+        Vector class implement a growable array of objects, A vector implement an array which can grow or shrink
+        Dynamically. It contains components that can be accessed using integer index. However the size of vector can grow
+         or shrink as per needed to adding and removing  an item. This class implements from collection and list Interface.
+         By default size of Vector is 10. and by default increment capacity of vector is 0
+          
+          Constructor
+           Vector()  :  by default size is 10.
+           Vector(Collection c)
+           Vector(int initial capacity)
+           Vector(int initialcapacity , int capacityincrement);
+           
+       Methods.
+        i)  boolean add(E obj)
+       ii)  void   add(int index, E no);
+       iii) boolean  addAll(Collection c)
+       iv) void addElement(E obj)
+       v)  int capacity()
+       vi) void clear();
+       vii) boolean  contains(Object elem)
+       viii) boolean containsAll( Collection c)
+       ix)  E elementAt(int index)
+       x)   E elements()
+       xi)  void ensureCapacity()
+       xii)  E firstElement()
+       xiii) E get(int index)
+       xiv) int  indexOf(Object elem)
+       xv)  void insertElementAt(E obj, int index)
+       xvi)  E lastElement()
+       xvii)  remove(Object o)
+       xviii)  boolean removeAll()
+       xix)    boolean  removeAllElements()
+       xx)  void removeRange(int from, int toindex)
+       xxi)  boolean  retainAll(Collection c)
+       xxii)  E set(int index, E element)
+       xxiii) void  setElementAt(E obj, int pos)
+       xxiv) void setSize()
+       xxv)  List subList(int from,int to);
+       -------------------------------------------------------------------   
+       //Write a program to demonstrate of Vector class.
+       import java.util.*;
+       class vectordemo
+        {
+           public static void main(String args[])
+            {
+               Vector v1=new Vector(4,2);
+                System.out.println(" Vector size or capacity -->"+v1.capacity());
+       			   v1.addElement(new Integer(10));
+       			   v1.addElement(new Float(14.50f));
+       			   v1.addElement(new Double(34.54));
+       			   v1.addElement(new Boolean(true));
+       			   v1.addElement(new Character('A'));
+       			   v1.addElement(new Integer(10));
+       			   v1.addElement(new Integer(20));
+                  System.out.println(" Element in Vector -->"+v1);
+                  System.out.println(" Vector size or capacity -->"+v1.capacity());
+                   System.out.println(" Element at 3 position -->"+v1.elementAt(3));
+                   System.out.println(" Get Element at 3 position -->"+v1.get(3));
+                   System.out.println(" First Element -->"+v1.firstElement());
+                   System.out.println(" Last Element -->"+v1.lastElement());
+                   v1.insertElementAt("Aboli",5);
+                System.out.println("After adding at 5th position  in Vector -->"+v1);
+                   System.out.println(" First Index of Element -->"+v1.indexOf(10));
+                   System.out.println(" First Index of Element -->"+v1.lastIndexOf(10));
+                      v1.remove(true);
+                   System.out.println("After  Remove element  in Vector -->"+v1);
+                     v1.clear();
+                   System.out.println("After  Clear element  in Vector -->"+v1);
+                   System.out.println(" Vector size or capacity -->"+v1.capacity());
+            }
+  }
+  ----------------------------------------------------------------------------------------------------------------------
+    Hashtable      
+           This class is implements from HashSet, Which maps keys to value. Any non-null object can be used as key or value.
+           The Hashtable class implement dictionary interface. But, Its now implements in Map Interface.
+           Hashtable is now integrated into Collection Framwork, it similar to like HashMap  but it synchonized.
+            When using Hashtable use specify an object that is used as key and value that want to link key.
+            
+        Constructor of Hashtable
+          Hashtable() ;    // initial capacity is 11 and loat factor 0.75.
+          Hashtable(int initialcapacity);
+          Hashtable(int initialcapacity, float loadfactor);
+          Hashtable(Map K, V);
+         
+         Methods of Hashtable.
+       i)   void clear();
+       ii)  boolean contains(Object value)
+       iii) boolean  containsKey(Object key); 
+       iii) boolean  containsValue(Object value);
+       iv)  Enumeration   elements();
+       v)  V  get(Object key);
+       vi)  Enumeration   keys();
+      vii)  Set  keySet();
+      viii)  V put(K key, V value);
+      ix)  V putAll(Map K, V t);
+       x)  V remove( Object key)
+       xi) int size();
+      xii)  Collection values();
+      
+      Write a program to demonstrate  of Hashtable
+      //Write a program to demonstrate  of Hashtable
+        import java.util.*;
+       class hashtable
+         {
+            public static void main(String args[])
+              {
+                 Hashtable  t1=new Hashtable();
+                 t1.put("Y",86.5);  t1.put("A",96.5);  t1.put("P",76.9); t1.put("V",89.5);
+                 t1.put("S",91.5);  t1.put("Y",66.5);  t1.put("P",86.5); t1.put("R",66.5);
+      
+               System.out.println("HashTable element -->"+t1);
+               System.out.println("Size of HashTable   -->"+t1.size());
+               System.out.println("\n Keys Display");
+                  Enumeration  e =t1.keys();
+                     while(e.hasMoreElements())
+                      {
+      					  System.out.println(" Key is-->"+e.nextElement());
+      		       }
+               System.out.println("\n Values Display");
+      		           Enumeration  e1 =t1.elements();
+      		                while(e1.hasMoreElements())
+      		                 {
+      		 		  System.out.println("  Values is-->"+e1.nextElement());
+      		              }
+             }
+      }
+-----------------------------------------------------------------------------------------------
+ Enumeration Interface.
+   This interface is used for traversing squence of elements . It has two methods
+   i) boolean    hasMoreElement();
+   ii) E               nextElement();
+--------------------------------------------------------------------------------------------------
+      Comparator interface
+        The Collections.sort() sorts  the object of collection by comparing object. The sorting is done according to the natural
+        ordering.  If you want sort them on the basis of some other field you need to  use the java.util.Comparator interface .
+            The Compartor interface has one method  compare(Object o1, Object o2). This method takes two objects as parameters
+            and reture a negative integer, zero or positive integer.
+             if first argumenet less second arguement return -ve.
+             if first argumenet greater second arguement return +ve.
+             and if first argumenet equal to second arguement return zero.
+               This method throws a ClassCastException if either of the args has an appropriate type for the comparator.
+ -----------------------------------------------------------------------------------------------------------------------------------------------------              
+      //WAP to create class student, It contains name and percentage.  Display sorted name according to percentage.
+        import java.util.*;
+        class Student
+         {
+            double per;
+             String nm;
+                Student(String nm,  double per)
+                  {
+                      this.nm=nm;  this.per=per;
+                   }
+               public String toString()
+                {
+                    return "\n Student name->"+nm+" \t Percentage --->"+per;
+                 }
+          }
+        class rahul  implements Comparator
+          {
+              public int  compare(Object  o1,  Object  o2)
+               {
+                   Student s1=(Student)o1;
+                   Student s2=(Student)o2;
+                      if(s1.per==s2.per)
+                         return 0;
+                       else if(s1.per> s2.per)
+                                 return 1;
+                                 else
+                                 return -1;
+               }
+            }
+          class cmpdemo
+           {
+               public static void main(String args[])
+                {
+                    ArrayList a1= new ArrayList();
+                    a1.add(new Student("Sayali",79.67));
+                    a1.add(new Student("Yashita",78.37));
+                    a1.add(new Student("Aboli",89.27));
+                    a1.add(new Student("Vaishnavi",99.47));
+                    a1.add(new Student("Shweta",69.37));
+                     System.out.println("\n Before Sorting -->"+a1);
+                        Collections.sort(a1, new rahul());
+                     System.out.println("\n After Sorting -->"+a1);
+                 }
+           }
+----------------------------------------------------------------------------------------------------------------------------------------------------
+// WAP to accept n no's from user,  push into stack and pop  also display these elements..
+import java.util.*;
+class stack1
+  {
+	    public static void main(String args[])
+	     {
+			   Scanner s1=new Scanner(System.in);
+			   System.out.println("\n How many element u want :-->");
+			   int n=s1.nextInt();
+			   int i=1;
+			   Stack s=new Stack();
+			      while(i<=n)
+			       {
+					    System.out.println("\n Enter Element-->");
+					    int no=s1.nextInt();
+					    s.push(new Integer(no));
+					    i++;
+			       }
+			System.out.println("\n Stack Element -->"+s);
+
+			  System.out.println("\n Popped Element -->");
+			  try
+			  {
+			     while(s1!=null)
+			       {
+					      System.out.println("Poped Element -->"+s.pop());
+					}
+			   }
+			   catch(Exception e){}
+           }
+	}
+------------------------------------------------------------------------------------------------------------------------------	
+  Difference between ArrayList and LinkedList
+ ----------------------------------------------------------------------------------------------------------------------------   
+       ArrayList                                           |                    LinkedList
+ ----------------------------------------------------------------------------------------------------------------------------
+ i)  It is available as dynamic array       |   i)  It is similar to ArrayList, Difference is that elements are
+       that can  grow or shrink.                 |        doubly LinkedList to one  another.
+
+ii)  It is faster than LinkedList               |   ii) It is slower than ArrayList
+
+iii)  ArrayList provide random access  |   iii) It provides sequential  access
+
+iv)  ArrayList can't be synchronized    |   iv)    LinkedList can be synchronized.
+------------------------------------------------------------------------------------------------------------------------------
+
+
+ Difference between  Vector and ArrayList
+ ----------------------------------------------------------------------------------------------------------------------------   
+                  Vector                                            |                                      ArrayList
+----------------------------------------------------------------------------------------------------------------------------
+i) By default size of vector is 10                     |     i)  ByDefault size of ArrayList is Zero (0).
+
+ii) Vector define increment size                    |    ii)  ArrayList doesnot define increment size.
+  
+iii)  Vector are synchonized                          |    iii)  ArrayList cannot be Synchonized.
+
+iv)   Vector is ThreadSafe                             |    iv)   Its  not Thread Safe.
+
+v) When elements added to a vector, the     |   v) its increase its array size by 50%
+    vector size is grow as per increment size
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+Difference between   TreeSet and  HashSet
+----------------------------------------------------------------------------------------------------------------------------             
+                      TreeSet                                      |                            HashSet
+----------------------------------------------------------------------------------------------------------------------------
+i)  It use tree for  Storage                              |   i)  It creates collection that use hashtable for storage.
+
+ii)  It's use red black tree structure             |  ii)  It store item in Hashtable by hashing method concept
+
+iii) Objects are stored in sorted,                  |  iii) An unsorted, unorder, set of object
+       Ascending order
+
+iv)  The class TreeSet  implements from   |  iv)  It extends from AbstractSet and implements from 
+       SortedSet interface                               |          Set Interface.
+
+v)    TreeSet has no LoadFactor                |  v)   HashSet has load Factor.
+
+vi)   The complexity of treeset isO(log n) |    vi)  The complexity of HashSet is  O(1);
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------------------------------------------
+/*
+ * CONSTRUCT A LINNKED LIST CONTAINING NAMES OF COLORS : RED BLUE YELLOW ORANGE
+ * THEN EXTEND YOUR PROGRAM TO DO THE FOLLOWING....
+ * 	1)DIAPLAY THE CONTENTS OF THE LIST USING AN ITEARATOR.
+ * 	2)DISPLAY THE CONTENTS OF LIST IN REVERSE ORDER USING A ListIterator.
+ * 	3)CREATE ANOTHER LIST CONTAINING PINK AND GREEN. INSERT THE ELEMENTS OF THIS LIST BETWEEN BLUE AND YELLOW.
+ * */
+
+import java.io.*;
+import java.util.*;
+public class LinkedListDemo
+{
+	public static void main(String args[])
+	{
+		LinkedList<String> lst=new LinkedList<String>();
+		/*ADDDING COLORS INTO LINKED LIST */
+			lst.add("red");
+			lst.add("blue");
+			lst.add("yellow");
+			lst.add("green");
+
+		System.out.println("\t\t\tDisplaying list using Iterator");
+		ListIterator ir=lst.listIterator();
+		while(ir.hasNext())
+		{
+			System.out.println("Element = "+ir.next());
+		}
+
+		System.out.println("\t\t\tDisplay the contents of the list in reverse order using list iterator ");
+		while(ir.hasPrevious())
+		{
+			System.out.println("Element = "+ir.previous());
+		}
+
+		System.out.println("\t\t\tCreate another list containing pink and green. Insert the elements of this list between blue and yellow ");
+		LinkedList lst2=new LinkedList();
+		lst2.add("pink");
+		lst2.add("green");
+		System.out.println("New Created LinkedList = "+lst2);
+		System.out.println("Old LinkedList before insertion = "+lst);
+		int i=lst.indexOf("blue");
+		lst.addAll(i+1,lst2);
+		System.out.println("New LinkedList After insertion = "+lst);
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------
+//WAP to create hashtable contains studentname, and percentage, display all studentname as key, and display percentage as  a values 
+import java.io.*;
+import java.util.*;
+
+class StudentHashTable2
+{
+	Hashtable<String,Double> ht;
+
+	StudentHashTable2()
+	{
+		ht=new Hashtable<String,Double>();
+
+	}
+	void add()throws Exception
+	{
+		DataInputStream dis=new DataInputStream(System.in);
+
+			System.out.print("Enter name = ");
+			String name=dis.readLine();
+			System.out.print("Enter Percentage = ");
+			double per=Double.parseDouble(dis.readLine());
+			ht.put(name,per);
+
+	}
+	void display()
+	{
+		System.out.println("Displaying Information of students.............."+ht);
+		System.out.println("NAME\t\tPERCENTAGE");
+		Enumeration keys=ht.keys();
+		while(keys.hasMoreElements())
+		{
+			String name=(String)keys.nextElement();
+			System.out.println(name+"\t\t"+ht.get(name));
+		}
+	}
+	void search(String name)
+	{
+		Enumeration keys=ht.keys();
+		while(keys.hasMoreElements())
+		{
+			String sname=(String)keys.nextElement();
+			if(sname.equals(name))
+			{
+				System.out.println("\nRECORD FOUND.......");
+				System.out.println("NAME= "+name+"\nPERCENTAGE= "+ht.get(name));
+				return;
+			}
+		}
+		System.out.println("RECORD IS NOT FOUND FOR NAME= "+name);
+	}
+
+	public static void main(String args[])throws Exception
+	{
+		DataInputStream dis=new DataInputStream(System.in);
+		System.out.print("How many records you want to add = ");
+		int n=Integer.parseInt(dis.readLine());
+		StudentHashTable2 ob=new StudentHashTable2();
+
+		for(int i=1;i<=n;i++)
+		{
+			ob.add();
+		}
+
+		ob.display();
+
+		System.out.print("\nEnter name to search = ");
+		String name=dis.readLine();
+		ob.search(name);
+	}
+}
+--------------------------------------------------------------------------------
+
+
+/*
+ *	ACCEPT 'n' INTEGERS FROM THE USER AND STORE THEM IN A COLLECTION.
+ *	DISPLAY THEM IN THE SORTED ORDER.
+ *	THE COLLECTION SHOULD NOT ACCEPT DUPLICATE ELEMENTS.
+ *	(USE SUTABLE COLLECTION)
+ * */
+
+import java.io.*;
+import java.util.*;
+
+public class ArrayListA1
+{
+public static void main(String args[])throws Exception
+	{
+		ArrayList<Integer> s=new ArrayList<Integer>();
+		DataInputStream dis=new DataInputStream(System.in);
+		System.out.print("how many elements you want to store = ");
+		int n=Integer.parseInt(dis.readLine());
+
+		for(int i=1;i<=n;i++)
+		{
+			System.out.print("Enter the num = ");
+			int num=Integer.parseInt(dis.readLine());
+			Integer numOb=new Integer(num);
+			if(s.contains(numOb))
+			{
+				System.out.println(num+" is  already present in the collection.......");
+				i--;
+
+			}
+			else
+			{
+				s.add(new Integer(numOb));
+			}
+		}
+		System.out.println("\nDISPLAYING ELEMENTS BEFORE SORT= "+s);
+
+		Collections.sort(s);
+		System.out.println("\nACEESSING ELEMENTS SEPARATLY\n");
+		Iterator ir=s.iterator();
+
+		while(ir.hasNext())
+		{
+			System.out.println("Element = "+ir.next());
+		}
+	}
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+      
+      
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+   
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+               
+               
+               
+               
+             
+             
+        
+      
+     
+     
+       
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

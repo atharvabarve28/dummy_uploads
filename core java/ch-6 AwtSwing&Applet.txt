@@ -1,0 +1,1359 @@
+8. User Interface Components With AWT and Swing   9.Applet. 
+  8  AWT, Swing and Applet. 
+       Intro
+         Java was not only designed for console based application, But also used for read or write data from 
+         GUI (Graphical User Interface) .  GUI is friendly to accept or write data to a form.
+         GUI is used from entering input data, for user interaction during processing and for displaying the output. 
+         A typical user interface has  main window with multiple sub-windows. 
+         GUI control all window  allow control user input data.
+  
+  07-11-2020       
+     GUI Support is provided in java using two libraries :  java.awt.*    and  javax.swing.*.
+     
+     AWT and Swing
+         Basic GUI Elements are implemented in two  java package AWT and Swing.
+         AWT is older library introduced in java 1.0  while Swing was introduced in java 2.0 (jdk1.2) version.
+         
+      AWT 
+         Abstract Window Toolkit(AWT) library contains a rich set of classes and interfaces for GUI .
+         It was introduced in java 1.0 varsion.
+         
+       How AWT works.
+          Each operating system has a native GUI  toolkit for creating and displaying GUI  elements.
+          AWT makes use of this native toolkit to manage the GUI .
+          AWT delegates  the creation and behavior of java based GUI to  the native GUI toolkit on 
+          each target plateform  like (window, linux, macintosh, mac, solaris, etc).  
+          this is known as  "Peer approach".
+          
+             Advantage of Peer Approach.
+              i)  The java application retains the  "Look and feel"  of the target plateform.
+             ii) Users are familier with target plateform controls,  hence it will be easier for the users to use java application.
+             iii) Faster creation and displaying of GUI components since the underlying plateform has built-in GUI toolkit.
+             iv) Well suited for small application.
+             
+          Disadvantage
+            i) User interface elements, such as menus, textfields, checkbox, etc can have small differences 
+                in look & behavior on different platform.
+          ii) All plateforms donot have for all user interface components.
+          iii) The GUI elements will look and feel different on different plateforms.
+          iv)  Hence User will not get a consistent and predictable exprerience.
+          v)  It is not well suited for application & complex GUI components.
+          
+       Swing 
+          The swing package become a part of java library jdk 1.2 version.
+           Swing is not complete replacement of AWT, rather it is built on top of the AWT architecture.
+           Swing components are fully written in java. it is plateform independent language.
+           Swing require less memory, so therefore it called "light weight components".
+           It require very less resources compared to a native GUI components(AWT).
+           
+       Advantages of Swing.
+         i)  Swing doesnot rely on the underlying plateform for creating and managing the user interface components.
+         ii) Swing components are written in java, and hence they are plateform independents.
+         iii) Swing component look and feel are same on different plateforms.
+         iv)  The swingi library is independent of the GUI toolkits.
+         vi) Well suited for complex and GUI application.
+         
+      Disadvantage of Swing.
+        i) Swing components appear slower then AWT components.
+       ii) Since they look the same on all platforms, there may lost and user may be less familier,
+       iii) It is not an independent library, It is based on AWT library.
+       
+     Difference between AWT and Swing.
+     
+                          AWT                                               |                            Swing
+   i)  Introduced in java 1.0 version                       |	i) Introduced in java 2.0 version  jdk1.2
+    
+   ii) Platform dependents                                      |	ii) Platform independents.
+   
+  iii)  Heavy Weight                                                |    iii)  Light Weight.
+  
+  iv)   More memory                                               |     iv)  Less memory
+  
+  v)   required More resources                              |    vi) require less resouces
+  
+  vi)  Less Class & interface comapare Swing.  |  vi)  More Class & interface comapare AWT.
+ 
+ vii)  Well suited for small application		 |   vii)  Well suited for large & complex application
+ 
+ viii)  It written in java with native codes.         | viii)  It fully written in java codes.
+ 
+ ix)  AWT component require java.awt pkg.    | ix)  Swing component require javax.swing  pkg.
+ 
+ x)  GUI components are faster                          | x)  GUI components are slower thn AWT components.
+ 
+ xi)  Look & feel may vary for different		| xi)  Look & feel are same for different-different platform.
+        platforms
+        
+ xii)  AWT class start with component name  |    xii)  Swing classes  start with  'J' Characters with Componentname.
+ 
+ xiii) Indepenent Library                                       | xiii)  swing library  depents on AWT library.
+ 
+================================================================================= 
+ 08-10-2020 
+   AWT classes.
+                 
+              AWT class Hierarchy Diagram              
+                               
+                            
+         
+   AWT define GUI elements that are arranged in a hierarchy that adds functionality at each level.
+     At the top of the class Hierarchy is the Component class which is an abstract class that
+     represent a visible Components.  All user interface elements are subclass of Components.
+             The Container class is subclass of Component.  It represent an aggregate which can hold other
+             GUI Elements.    The two most common type of window that are created in an application 
+               are derived from class Panel(used by Applet)  and Frame(Standard window).
+        
+    i)  Component     
+        The topmost class in the AWT class hierarchy. It is abstract class that encapsulates all attributes 
+        of visual component.  It contains methods for managing all aspects related to displaying 
+        and interacting with a GUI component.
+        
+    ii) Container 
+        It is subclass of Components Class. It represent a component which can hold other Component.
+         This class is also responsible for arranging the components using Layout managers.
+         
+    iii) Panel
+         This class is concrete subclass of  Container, It represent a mid level window that doesnot 
+          contain any borders, title bar, or menu bar.  It can hold other low-level component like,
+          Button, TextField, Label etc, or other Panel. It is superclass of Applet Class.
+         
+    iv)  Window
+             This create a Top level window which cannot be contained within another window. 
+             This class is not used directly but its subclass Frame is used to create window which
+             sit on the desktop.
+   
+    v)  Frame      
+        This is a subclass of window and used to create windows which have a title bar, menu bar, 
+        and resizing borders. most of the java applications use Frame window as their top-level window.
+        
+    vi) Applet
+           This is subclass of  the panel class which is used to create small java programs which
+           run in a web browser.  Since it runs  in a browser. It doesnot have it own title bar and border.
+        
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ MVC Architecture
+   Model-View-Controller  architecture is a well-known object -oriented user interface design 
+   architecture. The Component are broken down into three part : a Model,  a view, and a controller.
+    
+     In MVC  Architecture , Every component has three characteristics.
+     i) Its contents, such as the state of a button (push or not) or text in textfield, checkbox select or not?
+     ii) Its visual apperance such as Color, size, spaces, Fonts etc.
+     iii) Its behavior which specifies its reactions to events.
+   
+                MVC architecture diagram karal.
+   
+    The Swing Designers used the MVC architecture to separate the three characteristics 
+    in three different classes.
+      1.  The Model, which stores the content
+      2 . The View  which displays the content.
+      3 . The Controller, Which handle user Input.
+ 
+ 1.   Model     
+             The  Model is resposible for maintaining all aspect of the state of component. 
+             such as redio button selected/deselected.   textfield data, checkbox, scrollbar is scroll horizontal
+             or vertical etc. The model is  only concerned with the data structure and  doesnot have any 
+             information abouts its visual represention.  whenever the state of component changes 
+             the model sends out notification.
+      
+2. View. 
+            The view determine the visual representation of the components model this is a components looks.
+             eg.  view display color, text area.
+           The view is resposible for keeping its visual representation updated.
+            There may be views associated with a single model.
+            A changes made to the model updates both views.
+    
+3. Controller.    
+         The Controller is responsible for determining how the component reacts to events. 
+         The controller is the "Feel" of the  components, and its determine what actions are preformed 
+         when component is used. It decide the translate these  event into changes the model  or views.
+      
+    Advantages of MVC architecture.
+    i)    It separate the three characteristics viz state, visual representation, and  event handling.
+    ii)   A single class doesnot hava to handle all three characteristic.
+    iii)  A single model may be associated with multiple views.
+    iv)  The look and feel of a component can be modified without modifying the model.
+    v)  The look and feel can be customized depending on context.
+    vi) The MVC classes need not know how the other classes function.
+   
+   ------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+     JAVA GUI API
+       The Java GUI API provide rich set of classes and interface for creating GUI.
+       These classes and interface are arranged in the form of hierarchy.
+       These classes in the API classified into three groups.
+          i) Containers   2. Component   3. Helper Classes. 
+    ----------------------------------------------------------------------------------------------------------------
+     09-11-2020  
+       Creating a GUI based application.
+       JFrame class   
+        This class extends from java.awt.Frame.
+         To Create a GUI based application, you need to Create a frame which is a top level window. This window will hold other container
+           like panels and components. for this purpose we can use JFrame class.
+           Constructor
+                i)JFrame();
+               ii)JFrame(String framenm);
+         Methods :
+               i)   setSize(int width,  int height)
+               ii)  setLocation(int x,int y)
+               iii) setVisible(boolean var)
+               iv) setTitle(String title)
+               v)  setDefaultCloseOperation(int mode)
+               vi)  pack()  : sets frame size to minimum size required to hold component.
+             
+         import javax.swing.*;
+         class frame1
+           {
+                  JFrame f;
+                  frame1()
+                   {
+                      f=new JFrame("welcome");
+                      f.setSize(400,500);
+                      f.setDefaultCloseOpeation(JFrame.EXIT_ON_CLOSE);
+                      f.setVisible(true);
+                   }
+              public static void main(String args[])
+               {
+                   new frame1();
+                }
+           }     
+      -----------------------------------------------------------------------------------------------------------------------------------    
+          Adding Components. 
+            To add components to a container like JFrame or JPanel. use the method  add();
+            Syntax
+                        add(Component obj);
+          
+          Button :  Button are the important facility given by the java graphics.
+           Constructor.            
+      ----------------------------------------------------------------------------------------------------------------------------------------
+           LayoutManager Class.
+            A container can hold one or more Components. Two important things have to be considered.
+              i) How to position each component in the container.
+             ii) What happen when the window is resized.
+           The container class has the reponsibility of arranging components on a container like a Frame or a Panel.
+           The programmer can arrange explicitly component by  specifying position.
+           The component or the programmer taking the responsiblity of arranging components , this responsibility is delegated
+            to another class called the Layout Manager.
+            
+              Setting the Layout Manager.
+                 Each container has loyout manager associated with it. To change the Leyout manager for a container 
+                 we use  setLayout() method.
+                  Syntax 
+                        setLayout(LayoutManager obj);
+               If you pas null to this method, it disabled the layout manager for the container.
+               
+            Predefine Layout Manager Class.
+               Java has several predefine LayoutManager  classes which implements LayoutManager Interface.
+               Their are some Layout Classes.
+                 i) FlowLayout          ii) BorderLayout     iii)  GridLayout   iv) BoxLayout  
+                 v) CardLayout        vi) GridBagLayout.
+           
+        1) FlowLayout  Class.
+             This is default layout manager for Frame and Panel. 
+             In this Layout, Component are added to a container from Top-Left corner to Bottom Right Corner.
+             This Layout add component Row by Row. from left To Right.
+             In Row,  till no more componenets can be added, left to right, in the same row, the Remaining Components 
+             add to the next row. 
+                Constructor
+                    FlowLayout();
+                    FlowLayout(int align);
+                    FlowLayout(int align, int hgrap, int vgrap);                    
+                    
+        ii)  BorderLayout
+            This layout divide the container in Five parts.
+             NORTH,SOUTH,EAST,WEST, CENTER. This manager choose where you want to  place each component.
+             This is default Layout for Frame.
+              Constructor 
+                 BorderLayout();
+                 BorderLayout(int hgap,  int vgrap);
+                
+                import java.awt.*;
+	        import java.applet.Applet;
+	        public class buttonDir extends Applet {
+	          public void init() {
+	            setLayout(new BorderLayout());
+	            add(new Button("North"), BorderLayout.NORTH);
+	            add(new Button("South"), BorderLayout.SOUTH);
+	            add(new Button("East"), BorderLayout.EAST);
+	            add(new Button("West"), BorderLayout.WEST);
+	            add(new Button("Center"), BorderLayout.CENTER);
+	          }
+   ---------------------------------------------------------------------------------------------  
+     import java.awt.*;
+     class frame3 extends Frame
+       {
+           Frame f1;
+              frame3()
+               {
+                   f1=new Frame("\n Demo of Border Layout");
+                   f1.setLayout(new BorderLayout());
+                        f1.add(new Button("North"), BorderLayout.NORTH);
+                       f1.add(new Button("South"), BorderLayout.SOUTH);
+                      f1.add(new Button("East"), BorderLayout.EAST);
+     	           f1.add(new Button("West"), BorderLayout.WEST);
+                  f1.add(new Button("Center."), BorderLayout.CENTER);
+     
+                   //f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                   f1.setSize(500,600);
+                   f1.setVisible(true);
+               }
+             public static void main(String args[])
+               {
+                  frame3 f=new frame3();
+               }
+     }
+    ------------------------------------------------------------------------------------------------------------------------       
+    10-11-2020
+    GridLayout
+      The GridLayout arranges components in a two dimensionals grid. The number of rows and columns in the grid 
+      can be specified. The component are added to grid row-wise. Each component is given the same size and dimensions.
+      if no of rows or columns is zero, the grid can have unliminited row or columns.
+      The gap between the rows and columns of the grid can also be specified.
+        Constructor of GridLayout();
+         i)  GridLayout();
+        ii)  GridLayout(int rows, int cols);
+        iii) GridLayout(int rows, int cols, int hgap, int vgap);
+      Methods 
+        i) int getColumns()
+        ii) int getHgap();
+        iii) int getRows()
+        iv) int getVgap()
+        v)  void setColumns(int colno)
+        vi) void setRows(int rowno)
+         vii)  void setVgap(int vgap)
+         viii)  void setHgap(int hgap)
+         ix)  void removeLayoutComponent(Component obj)
+           
+    import java.awt.*;
+class frame4 extends Frame
+ {
+     Frame f;
+       frame4()
+        {
+			f=new Frame(" demo of gridlayout");
+			f.setSize(500,500);
+			f.setLayout(new GridLayout(3,3,5,5));
+			f.add(new Button("1"));			f.add(new Button("2"));
+			f.add(new Button("3"));			f.add(new Button("4"));
+			f.add(new Button("5"));			f.add(new Button("6"));
+			f.add(new Button("7"));			f.add(new Button("8"));
+			f.add(new Button("9"));			f.setVisible(true);
+        }
+      public static void main(String args[])
+       {
+         new frame4();
+       }
+ }       
+-------------------------------------------------------------------------------------------------------- 
+GridBagLayout
+      This layout is the most flexible layout. It aligns component by placing them within a grid. It allowing some componets
+      to span more than one cell. The grid rows & columns may be different heights and widths.
+        Constructor
+          i) GridBagLayout()
+          ii) GridBagLayout(int x,int y, int gheight, int  gwidth)
+         iii) GridBagConstraints()
+         iv) GridBagConstraints((int gridx, int gridy, int gridwidth, int gridheight, double weightx, double weighty,
+                                                      int anchor, int fill, Insets insets, int ipadx, int ipady))
+     -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  v)  CardLayout
+           This layout handle severals containers. The CardLayout Display each Containers as cards. Each Container can have different
+           Layoutmanager. Each card is assigned a name. you can move from card to card by using show() method.
+              This Layout is used in applications where containers have to be dynamically loaded depending on the user actions.
+              In such case, you can prepare several cards, which are added to panel. The cards are initally hidden, A specific card 
+              to be displayed. by using next(), previous(), first(), last() methods.  etc,
+                Constructor
+                  i)  CardLayout()
+                  ii)  CardLayout(int hgap, int vgap)
+                  
+          Methods
+           i) void addLayoutComponent(String nm, Component obj)
+          ii) void first(Container p)
+          iii) int Vgap();
+          iv) int Hgap()
+          v)  void last(Container p)
+         vi) float getLayoutAlignmentX(container p);         
+         vii) float getLayoutAlignmentY(container p);
+         viii)  void next(Container obj) 
+         ix)  void previous(Container obj)
+         x)   void show(Container parent, String nm)
+       ----------------------------------------------------------------------------------------------------------------------  
+        BoxLayout
+          It is desirable to place items in horizontal or vertical direction.
+          A grid layout may not be best choice. since all grid component are resized so that they are 
+          equal.  A BoxLayout is similar to a FlowLayout but with Dimension control specified usign constaints 
+          BoxLayout.X_AXIS, BoxLayout.Y_AXIS.  
+          
+           Constructor
+             i) BoxLayout(Container obj, int axis);
+             
+ ----------------------------------------------------------------------------------------------------------------------------
+ 12-10-2020
+ Event Handling...
+   What is Event
+      Change in the state of an object is known as event.  i.e event decribes the change the state of source. 
+      Events are generated as result of user interaction with GUI interface components.
+      e.g clicking on button, moving mouse, entering character through keyboard.
+      
+Types of Event.
+ The events can beclassified into two categories:
+
+    Foreground Events - 
+       Those events which require the direct interaction of user.They are generated as consequences of a person interacting with the
+       graphical components in  GUI. e.g   clicking on a button, moving the mouse, entering a character through keyboard,
+           selecting an item from list, scrolling the page etc.
+
+    Background Events - 
+    Those events that require the interaction of end user are known as background events. 
+    Operating system interrupts, hardware or software failure, timer expires, an operation completion are the example of background events.
+    
+What is Event Handling?
+      Event Handling is the mechanism that controls the event and decides what should happen if an event occurs.
+       This mechanism have the code which is known as event handler that is executed when an event occurs.
+        Java Uses the Delegation Event Model to handle the events. This model defines the standard mechanism 
+         to generate and handle the events.
+
+The Event Model  key participants namely:
+
+    Source -
+    The source is an object on which event occurs. Source is responsible for providing information of the occurred event to it's handler.
+    Java provide as with classes for source object.
+
+    Listener - 
+    It is also known as event handler.Listener is responsible for generating response to an event. 
+    From java implementation point of view the listener is also an object. Listener waits until it receives an event.
+    Once the event is received , the listener process the event an then returns.
+
+Steps in event handling
+ i)   The User clicks the button and the event is generated.
+ii)  Now the object of concerned event class is created automatically and information about the source and the event get
+      populated with in same object.
+iii) Event object is forwarded to the method of registered listener class.
+iv) The method is now get executed and returns.
+
+                 
+    AWT Event          Listeners  Methods        and the Components That Use Them
+    
+   Event Class                  Event Listener                            Listener Methods                              Registered (Apply) on 
+   
+  i)ActionEvent               ActionListener                               actionPerformed()                          Button, ButtonModel, ComboBoxEditor,
+                                                                                                                                                              JComboBox, JFileChooser, JTextField, List,
+                                                                                                                                                              MenuItem, TextField, Timer.
+                                                                                                                                                              
+           
+  ii)AdjustmentEvent     AdjustmentListener                adjustmentValueChanged()                 JScrollBar, Scrollbar 
+  
+                
+ iii) ComponentEvent     ComponentListener                      componentHidden(),                        Component 
+                                                                                                    componentMoved(),
+                                                                                                    componentResized(),
+                                                                                                    componentShown() 
+                                                                                                    
+                                                                                                    
+                
+iv) ContainerEvent        ContainerListener                         componentAdded(),                       Apply on Container Elements
+                                                                                                   componentRemoved() 
+                                                                                                   
+                                                                                                   
+                                                           
+v)  FocusEvent               FocusListener                                focusGained(),                                 Focus on  Component
+                                                                                                    focusLost() 
+                                                                                                    
+                                                                                                    
+                                                                 
+vi) ItemEvent                  ItemListener                                itemStateChanged()                  AbstractButton, ButtonModel, Checkbox,
+                                                                                                                                                        CheckboxMenuItem, Choice, ItemSelectable,
+                                                                                                                                                         JComboBox, List 
+
+
+vii) KeyEvent                   KeyListener                         keyPressed(), 						Event on Keywords Component
+                                                                                           keyReleased(),
+                                                                                           keyTyped()                                                    
+                                                                                     
+                                                                                     
+                                                                                     
+ viii) MouseEvent              MouseListener                   mouseClicked(),					Event apply on Mouse..
+                                                                                          mouseEntered(),
+                                                                                          mouseExited(),
+                                                                                          mousePressed(),
+                                                                                          mouseReleased();
+                                                                                    
+                                           MouseMotionListener              mouseDragged(),
+                                                                                                mouseMoved() 
+                                                                                    
+                                                                                                
+                                                                                                
+ix) TextEvent                     TextListener                            textValueChanged()                   Apply on TextField  TextComponent
+
+
+x) WindowEvent              WindowListener                      windowActivated(),                     Apply on windows
+                                                                                               windowClosed(), 
+                                                                                               windowClosing(), 
+                                                                                               windowDeactivated(),
+                                                                                               windowDeiconified(),
+                                                                                               windowIconified(), 
+                                                                                               windowOpened() 
+                     
+    All Events are define in java.awt.event package.
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------
+    19-11-2020.
+Event Classes.
+   Information about an event is encapsulated in an object of an event class. The java.awt.event packages define severals Event Classes.
+    i) ActionEvent
+       This is generated when a button is pressed, a list item is double clicked, or menu item is selected.
+        Methods.    String getActionCommand().      
+                             int get modifiers();
+                             
+ii) AdjustmentEvent :  This event is genreated by a scrollbar, This class defines integer constants that can be used to identify to movements.
+   These are  : BLOCK_DECREMENT, BLOCK_INCREMENT, TRACK, UNIT_DECREMENT, UNIT_INCREMENT.
+     Methods :   int getValue();       
+                          Adjustable getAdustable()
+                          int getAdjustableType();
+                          
+iii) ItemEvent
+      This is generated when a checkbox or a list item is clicked or when a checkable menu item is selected or deselected. 
+      There are two type of events DESELECTED   or  SELECTED.
+       Methods :  Object getItem().   
+                           int  getStateChanged();
+                           
+ iv)  ComponentEvent
+         This is generated when the size, position or visibility of component is changed. This class define 4 integer Constants.
+          COMPONENT_HIDDEN,  COMPONENT_MOVED, COMPONENT_RESIZED,  COMPONENT_SHOWN.
+          
+  v) ContainerEvent 
+       This is generated when a component is added to  or removed from the container. 
+       The 4 integer constant are :  COMPONENT_ADDED, COMPONENT_REMOVED, CONTAINER_FIRST, CONTAINER_LAST.
+      Methods :    Component  getChild()
+                            Container   getContainer()
+                             String        paramString()
+
+vi) FocusEvent                              
+       This is generated when a component gains or loses input focus. 
+        There are 4 integer. : FOCUS_FIRST,     FOCUS_LAST,       FOCUS_GAINED,      FOCUS_LOST.
+      	Methods  :  void focusGained(FocusEvent)      
+      	                     void  focusLost(FocusEvent);        
+      	                     
+ vii)  KeyEvent
+          This is generated when keyboard event occures. it defines  3 integer constant.:  KEY_PRESSED,  KEY_RELEASED, KEY_TYPED. 
+          To identifed the key typed.  Virtual key codes are defined in this class.  these are  VK_0 to VK_9 ,  VK_A to VK_Z, VK_ENTER
+          VK_CANCEL,  VK_ESCAPE,  VK_UP, VK_DOWN,  VK_LEFT, VK_RIGHT, VK_ALT, VK_CONTROL. etc.
+          
+               Methods.
+                 char   getKeyChar();       int getKeyLocation()         static String getKeyText()       boolean  isActionKey()
+                 int      getKeyCode()        void setKeyChar(char ch)       void setKeyCode(int keycode)
+   
+   viii)  MouseEvent 
+           This is generated when the mouse is dragged, moved, clicked, pressed, released, and when mouse enete or, or exits a components.
+           The constants defined are : MOUSE_CLICKED,  MOUSE_ENTERED, MOUSE_EXITED, MOUSE_MOVED, MOUSE_PRESSED,
+           MOUSE_RELEASED, MOUSE_DRAGGED, etc.
+            Methods  :     int getX();              int  getY()               int getButton()                int getClickCount()               Point   getPoint();
+  
+  ix) WindowEvent
+          This event occurs when a window is  opened, closing, closed, activated,  deactivated, iconified, deiconified.
+          This class define constant : WINDOW_OPENED, WINDOW_CLOSED, WINDOW_CLOSING, WINDOW_ACTIVATED, 
+           WINDOW_DEACTIVATED,  WINDOW_ICONIFIED, WINDOW_DEICONIFIED.
+        Methods  :    int getNewState()   
+                               int getOldState() 
+                               Window getWindow()  
+                               Window getOppositeWindow()   
+    -------------------------------------------------------------------------------------------------------------------------------------------------      
+     Advantage 
+       i)  The Component need not know anything about event handling.
+       ii)  There is a clear separation between the GUI and event handling
+       iii) An event source can notify one or more listeners when a event occures.
+       iv)  An event source can delegate the processing of an event to  a separate piece of code.
+       v)  Notifications are send only to  listeners that want to receives them, this minimizes the overheads.
+    ------------------------------------------------------------------------------------------------------------------------------------------------                         
+     Components  or  JComponents.
+      Components are abstract classes which is encapsulates entire attributes of visual components. A Component provides subclasses such as user 
+      interfacing elements such as button, frame, chechbox, textfields. etc.
+      1) Frame
+           The type of window defined by either frame or applet.  Frame constructor create Frame Window. 
+           There are two type of frame constructor.
+            i) Frame();
+            ii) Frame(String title);
+                 
+                 import java.awt.*;
+		 class frame7 extends Frame
+		  {
+		      String fnm;
+		      public frame7(String fnm)
+		       {
+		          super(fnm);
+		          setSize(300,400);
+		          setVisible(true);
+		          setBackground(Color.orange);
+		       }
+		    public void paint(Graphics g)
+		     {
+		       //Font f=new Font("Times New Roman",Font.BOLD,40);
+		       setForeground(Color.red);
+		       g.drawString(" Good morning....",100,100);
+		     }
+		  public static void main(String args[])
+		   {
+		      new frame7(" Demo Frame ");
+		    }
+        }
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                   
+    2) Button(JButton)     
+         A button is the most widely used GUI control. Any Application contains several buttons. Buttons are often contained within many
+         other elements. Toolbars are colloections of buttons. Menu Elements are buttons. A swing button can be created using the JButton
+         class. It can display both text and an image.
+            A letter can be underlined in the button's text. this represents the mnemonic which is the keyboard shortcut for the button.(Alt+ ch)
+         Constructor 
+            JButton(Icon icon)              JButton(String s)            JButoon(String s, Icon icon);
+        Methods
+          void setDisabledIcon(Icon),        void setPressedIcon(Icon)                void setSelectedIcon(Icon)     voidSetRolloverIcon(Icon)
+          String getText()                           void setText(String)               voidSetMnemonic(char)     void setToolTipText(String).
+          
+          
+     import java.awt.*;
+     import javax.swing.*;
+     import java.awt.event.*;
+     class buttondemo implements ActionListener
+      {
+         JFrame f1;
+         JButton b1,b2,b3; 
+         JTextField t1;
+           buttondemo()
+            {
+               f1=new JFrame("buttondemo");
+               b1=new JButton("Yes");          b2=new JButton("No");                
+               b3=new JButton("With Icon",new ImageIcon("smiley.gif"));
+               b1.setMnemonic('Y');   b1.setMnemonic('N');
+               t1=new TextField(20);
+               f1.setLayout(new FlowLayout());
+                 f1.add(t1);   f1.add(b1);   f1.add(b2);    f1.add(b3); 
+                 b1.addActionListener(this);  b2.addActionListener(this);
+                 f1.setVisible(true);
+                 f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             }
+        public void actionPerformed(ActionEvent obj)
+         {
+            if(obj.getSource()==b1)
+              t1.setText("You Clicked Yes");
+                else 
+                   t1.setText("You Clicked No");
+         }
+    public static void main(String args[])
+     {
+        new buttondemo();
+     }
+}
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+21-11-2020
+    Label
+      A Label is a basic swing control which displays an un-selectectable line of text. Its main use is to display heading and messages for other 
+      controls. It is created using the JLabel class. A swing label can also display images, It doesnot generate any event.
+       Constructors
+         JLable()     
+         JLable(String s)
+         JLabel(Icon icon)   
+         JLabel(String s, int alignment)
+         JLabel(String s, Icon icon, int alignment)
+    Methods
+      String getText()        void setText(String) 
+      void setAlignment(int)                int getAlignment()            void setIcon(Icon)
+      
+      import java.awt.*;
+      import javax.swing.*;
+      class labels
+        {
+            JFrame f1;
+            JLabel l1,l2,l3,l4;
+            labels()
+              {
+                f1=new JFrame();
+                f1.setLayout(new GridLayout(4,1));
+                f1.setSize(400,400);
+                f1.setLocationRelativeTo(null); 
+                  l1= new JLabel("Left Label");
+                  l2= new JLabel("Central Label", JLabel.CENTER);
+                  l3= new JLabel("Right Label",JLabel.RIGHT);
+                  l4= new JLabel("Image Label", new ImageIcon("image8.gif"),JLabel.CENTER);
+                  f1.add(l1);      f1.add(l2);     f1.add(l3);    f1.add(l4);
+                  f1.setVisible(true);
+                  f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+               }
+           public static void main(String args[])
+            {
+               new labels();
+            }
+       }     
+  -------------------------------------------------------------------------------------------------------------------------------------------
+  Checkboxs and Radio Buttons.
+  The JCheckbox and JRadioButton Class creates controls which provide the user the choice to select or deselect an option.
+     Checkbox
+       A checkbox is a control that is used to turn an option On or Off. A JRadioButton component is a two-state button typically used inGUIs 
+       containing selectable items. When checkbox is selected or deselected, it causes an ItemEvent.
+        Constructor
+        
+	  JCheckBox();       	  JCheckBox(Icon icon);     	  JCheckBox(Icon icon, boolean state);
+	  JCheckBox(String nm);              JCheckBox(String nm, boolean state);           JCheckBox(String nm, Icon icon, boolean state);
+        
+         
+      //WAP to select hobby by using checkbox. and msg hobby in textfield.
+      
+      import java.awt.*;
+            import javax.swing.*;
+            import java.awt.event.*;
+            class checkbox1  implements ItemListener
+              {
+                   JFrame f1;
+                   JCheckBox  c[]=new JCheckBox[4];
+                   JTextField t1;
+                   JLabel l1;
+                   JPanel p1;
+                     checkbox1()
+                      {
+                          f1=new JFrame("Checkbox demo");
+                          f1.setSize(500,300);
+                          f1.setLayout(new GridLayout(4,1));
+                           p1=new JPanel();
+                            c[0]= new JRadioButton(" Sleeping..");
+                            c[1]= new JRadioButton(" Reading..");
+                            c[2]= new JRadioButton(" Writing..");
+                            c[3]= new JRadioButton(" Swimming..");
+                            for(int i=0;i<4;i++)
+                              {
+                                  p1.add(c[i]);
+                                  c[i].addItemListener(this);
+                              }
+                               l1=new JLabel("  Select Your Favorite Hobbies-->");
+                           f1.add(l1);
+                           f1.add(p1);
+                         f1.setLayout(new FlowLayout());
+      
+                               t1=new JTextField(30);
+                               f1.add(t1);
+                             f1.setVisible(true);
+                         }
+                      public void itemStateChanged(ItemEvent obj)
+                        {
+                            String msg="You have selected : ";
+                              for(int i=0;i<4;i++)
+                              {
+                                if(c[i].isSelected())
+                                      msg=msg+c[i].getText();
+                               }
+                            t1.setText(msg);
+                         }
+               public static void main(String args[])
+                 {
+                     new checkbox1();
+                 }
+         }
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+RadioButton
+  A radiobutton is similar to checkbox i.e it has two state On or Off.
+  however, Radio button are used to select exactly one option from several option. when another option is selected, the previous should 
+  automatically be deselected. The JRadioButton class and ButtonGroup class is used to create a group or mutually exclusive radio button.
+  it's generate ItemEvent.
+        Constructor
+            JRadioButton();    JRadioButton(Icon icon);         JRadioButton(Icon icon, boolean state);     JRadioButton(String nm); 
+            JRadioButton(String nm, boolean state);          JRadioButton(String nm, Icon icon, boolean state);
+  Methods.
+     void add(AbstractButton b);   
+     void remove(AbtractButton b) 
+     int getButtonCount()
+  //WAP to select Colleges and Class (TYBCS/TYBCA)
+  
+  import java.awt.*;
+        import javax.swing.*;
+        import java.awt.event.*;
+        class radiobutton1  implements ItemListener
+          {
+               JFrame f1;
+               JRadioButton  b[]=new JRadioButton[9];
+               JTextField t1;
+               JLabel l1,l2;
+               JPanel p1,p2;
+               ButtonGroup bg1,bg2;
+                 radiobutton1()
+                  {
+                      f1=new JFrame("Radiobutton demo");
+                      f1.setSize(500,300);
+                      f1.setLayout(new GridLayout(4,1));
+                       p1=new JPanel();
+                       p2=new JPanel();
+                        b[0]= new JRadioButton("MMCC");
+                        b[1]= new JRadioButton("KHS.");
+                        b[2]= new JRadioButton("GARWARE.");
+                        b[3]= new JRadioButton("MMC..");
+                        b[4]= new JRadioButton("SIDDHI");
+                        b[5]= new JRadioButton("PVG");
+                        b[6]= new JRadioButton("HV Desai");
+                        b[7]= new JRadioButton("TYBCA",true);
+                        b[8]= new JRadioButton("TYBCS");
+                            bg1=new ButtonGroup();
+                           bg2=new ButtonGroup();
+                        for(int i=0;i<6;i++)
+                          {
+                              p1.add(b[i]);
+                              b[i].addItemListener(this);
+                              bg1.add(b[i]);
+                          }  
+                       l1=new JLabel("  Select Your College  -->");
+                       l2=new JLabel("  Select Your Class  -->");
+                       f1.add(l1);             f1.add(p1);
+                       f1.setLayout(new FlowLayout());
+  
+                            b[7].addItemListener(this); b[8].addItemListener(this);
+                            bg2.add(b[7]);   bg2.add(b[8]);       p2.add(b[7]);   p2.add(b[8]);
+  
+                       f1.add(l2);    f1.add(p2);                t1=new JTextField(30);
+                           f1.add(t1);                f1.setVisible(true);
+                     }
+                  public void itemStateChanged(ItemEvent obj)
+                    {
+                        String msg="You have selected : ";
+                          for(int i=0;i<9;i++)
+                          {
+                            if(b[i].isSelected())
+                                  msg=msg+b[i].getText();
+                           }
+                        t1.setText(msg);
+                     }
+           public static void main(String args[])
+             {
+                 new radiobutton1();
+             }
+     }
+  
+------------------------------------------------------------------------------------------------------------------------------------------------
+  TextFields and TextArea.
+                                        
+  GUI based application deal with text input and output. e.g displaying the output of an application, accepting data etc.
+  The JTextField and JTextArea classes provide the functionality of handling single or multiple lines of text.
+    TextFields.
+        A textfield or textbox is similar to a label. i.e it displays a single line of text, the difference is that is editable.
+        It can be used for both input and output control. The JTextField class creates a text box.  TextFields allow the user to enter 
+        Strings and to edit the text using the arrow keys. cut & paste keys. 
+         Constructor
+            JTextField();   
+            JTextField(String tnm);   
+            JTextField(String text, int noofchars);
+            JTextField(int noofchars);
+        Methods.
+          String getText();              void setText(String snm);          void setFont(Font);                         String getSelectedText()
+          void select(int start,int end);          void selectAll();           void replaceSelection(String);        boolean isEditable()
+          void setEditable(boolean canedit);
+          
+     import java.awt.*;
+     import javax.swing.*;
+     import java.awt.event.*;
+      public class findreplace extends JFrame implements ActionListener
+       { 
+           JLabel l1, l2,l3,l4;
+           JTextField t1,t2,t3,t4;
+           JButton b1,b2;
+           JPanel p1,p2;
+            public findreplace()
+             {
+                 l1=new JLabel("Enter  Text         : ",JLabel.RIGHT);
+                 l2=new JLabel("Text to Find       : ",JLabel.RIGHT);
+                 l3=new JLabel("Text to Replace : ",JLabel.RIGHT);
+                 l4=new JLabel("No of occurence: ",JLabel.RIGHT);
+                     t1=new JTextField(20);               t2=new JTextField(20);
+                     t3=new JTextField(20);               t4=new JTextField(20);
+                 p1= new JPanel();
+                 p1.setLayout(new GridLayout(4,2));
+                 p1.add(l1);    p1.add(t1);
+                 p1.add(l2);    p1.add(t2);
+                 p1.add(l3);    p1.add(t3);
+                 p1.add(l4);    p1.add(t4);
+                     b1=new JButton("find");     b2=new JButton("replace");
+                  b1.addActionListener(this);     b2.addActionListener(this);
+                  
+                 p2= new JPanel();
+                 p2.setLayout(new FlowLayout());
+                 p2.add(b1);    p2.add(b2);
+                
+                setLayout(new BorderLayout());
+                  add(p1, BorderLayout.CENTER);
+                  add(p2, BorderLayout.SOUTH);
+                  setSize(300,200);
+                  setVisible(true);
+                  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                  setVisible(true);
+         }
+        public void actionPerformed(ActionEvent obj)
+         {
+             String s,str=t1.getText();
+             String f=t2.getText();
+             String r=t3.getText();
+               int i,occures=0, pos=0;
+                 if(obj.getSource()==b1)
+                  { 
+                     s=str;
+                     while((i=s.indexOf(f))!=-1)
+                     {
+                      occures++;
+                      t4.setText(Integer.toString(occures));
+                      s=s.substring(i+f.length());
+                    }
+                 }
+               else
+                {
+                   s=str; pos=0;
+                    while((i=s.indexOf(f))!=-1)
+                    {
+                        pos=pos+i;
+                        t1.select(pos, pos+f.length());
+                        pos+=r.length();
+                        t1.replaceSelection(r);
+                        s=s.substring(i+f.length());
+                    }                    
+                }
+         }
+       public static void main(String args[])
+        {
+          new findreplace();
+        }
+     }    
+  --------------------------------------------------------------------------------------------------------------------------
+  JPasswordField
+   This class create a password field, you can specify which character should appear insted of the typed characters. e.g '*' appear password char.
+   The constructor are same as JTextField.
+       Methods. 
+         char getEchoChar();        void setEchoChar(char)      boolean echoCharIsSet(char)      String getText()     char[] getPassword()
+                     e.g JPasswordField  obj=new JPasswordField(20);
+                            obj.setEchoChar('*'); 
+      
+   TextArea
+      A textarea is like a textfield, except that it can contain multiple lines of text and more functionality.
+      Constructor
+         JTextArea();      JTextArea(int rows. int cols);  JTextArea(String nm);      JTextArea(String nm,int rows. int cols);  
+      Methods.
+         void append(String s);     void insert(String s, int pos)   void replaceRange(String s, int start, int end)
+         int getLineCount();           int getColumns()    void setRows(int norow)    void setColumns(int nocol);  
+         void setLineWrap(boolean)       void setFont(Font);
+      import java.awt.*;
+      import javax.swing.*;
+      import java.awt.event.*;
+      class textarea extends JFrame
+       {
+           JFrame f;
+           JLabel l1;
+           JPasswordField t1;
+             textarea()
+              {
+      			f=new JFrame(" demo of TextArea");
+      			f.setSize(500,500);
+      			f.setLayout(new FlowLayout());
+      			 JTextArea ta=new JTextArea(5,20);
+      			 l1=new JLabel("Enter password : ");
+      			 t1=new JPasswordField(20);
+      			 ta.setFont(new Font("Arial",Font.ITALIC,20));
+      			 ta.setBackground(Color.YELLOW);
+      			 ta.setLineWrap(true);
+      			 f.add(ta);
+      			 f.setLayout(new FlowLayout());
+      			 f.add(l1);   f.add(t1);
+      		    f.setVisible(true);
+              }
+            public static void main(String args[])
+             {
+               new textarea();
+             }
+ }
+  ------------------------------------------------------------------------------------------------------
+  Lists and ComboBox
+    List  
+      The JList class provides a compact , multiple choice, scolling list of  alternatives which the user can select form.
+      Single or multiple, or a range of  value can be selected. 
+      The javax.swing.ListSelectionModel class define three selection.
+     SINGLE_SELECTION(),    SINGLE_INTERVAL_SELECTION(multiple), MULTIPLE_INTERVAL_SELECTION(any no of select)
+       Constructor
+         JList();          JList(ListModel obj)               JList(Object obj[])          JList(Vector vector);   
+      Method
+         boolean isSelectedIndex(int);         void setSelectIndex(int);            void setSelectedIndeices(int)
+         int getSelectedIndex();                    int getMinSelectionIndex();       int getMaxSelectionIndex();
+         Object getSelectedValue();           Object[] getSelectedValues();   void setSelectedInterval(int,int);  
+         void clearSelection()                       void setSelectionMode();
+   ---------------------------------------------------      
+      import java.awt.*;
+      import javax.swing.*;
+      import java.awt.event.*;
+      class listdemo 
+      {
+           JFrame f1;
+            JList l1;
+            JPanel  p1;
+            JTextField t1;
+              listdemo()
+                {
+                   f1=new JFrame("List demo");
+                   String a[]=new String[]{"India","America","Japan","Austrolia","Rassia","England"};
+                    l1=new JList(a);
+                    p1=new JPanel();
+                    p1.add(l1);
+                    t1= new JTextField(20);
+                     f1.setLayout(new BorderLayout());
+                     f1.add(p1,BorderLayout.CENTER);
+                     f1.add(t1,BorderLayout.SOUTH);
+                        f1.pack();
+                       f1.setVisible(true);
+                       f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+               }
+      	 public static void main(String args[])
+      	  {
+      		  new listdemo();
+      	  }
+        }
+--------------------------------------------------------------------------------
+Combobox.
+   ComboBox also known as choice list or drop-down list contains a list of items from which the user can choose.
+   A combobox allow the user to type the value in a textfield. hence it combines a text box and a list into a single control.
+    The JComboBox class creates this control.to make the combobox editable, use the method setEditable() and  Elements can be 
+    added to combobox using the addElement() method.
+      Only one item of a combobox can be selected at a time. you can retrive that itme using getSelectedItem() or getSelectedIndex()
+      The selections or deselection of a combobox item causes the ItemEvent to occure.
+   Constructor
+      JComboBox();   JComboBox(ComboBoxModel obj);  JComboBox(Object obj[]);  JComboBox(Vector v);
+    Methods
+      getSelectedItem();           getSelectedIndex();             getSelectedObjects();      setSelectedIndex(int pos);
+      setSelectedItem(Object obj);   setMaximumRowCount(int cnt);
+      
+    import java.awt.*;
+    import javax.swing.*;
+    import java.awt.event.*;
+    class comboboxdemo implements ItemListener
+    {
+         JFrame f1;          JComboBox c1;
+          JPanel  p1;           JTextField t1;
+            comboboxdemo()
+              {
+                 f1=new JFrame("Combobox demo");
+                 f1.setLayout(new BorderLayout());
+                 String a[]=new String[]{"Java","TCS","Syspro","PHP","NW","OOSE"};
+                  c1=new JComboBox(a);              p1=new JPanel();                 p1.add(c1);
+                  t1= new JTextField(20);
+                   c1.setEditable(true);
+                   c1.addItemListener(this);                     f1.add(p1,BorderLayout.CENTER);
+                   f1.add(t1,BorderLayout.SOUTH);       f1.pack();                   f1.setVisible(true);
+                     f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             }
+            public void itemStateChanged(ItemEvent obj)
+             {
+    			String nm=(String)c1.getSelectedItem();
+    			String msg="Your Favorite selected->"+nm;
+    			t1.setText(msg);
+    		 }
+    	 public static void main(String args[])
+    	  {
+    		  new comboboxdemo();
+    	  }
+      }
+---------------------------------------------------------------------------------------------------------------------------------------------
+Menus.
+    Menu's are very imp control in GUI based application. A menu is associated only with a top level 
+    window like a JFrame.    Creating menu.       
+    To create basic menu, you need to use three classes.
+    JMenuBar, JMenu, and JMenuItem.
+       A menu bar contains one or more menus. Each menu contains one or more menuitem, seperator,
+       sub menus. menu item actually as a button.
+       so we can add ActionListener.
+         Constructor
+               JMenuBar();     JMenu(String nm);       JMenu(String nm, boolean removable);   
+          Method   
+            add(menuitem);       addSeparator();         int getItemCount()      JPopupMenu getPopupMenu()       insert(JmenuItem item,int pos);
+            remove(int pos)     remove(JMenuItem)   removeAll();    setMenuLocation(int x,int y);
+    
+        import javax.swing.*;
+        class menudemo
+        {
+                  JMenu menu, submenu,menu1,submenu1;
+                  JMenuItem i1, i2, i3, i4, i5;
+                  menudemo()
+                  {
+    				  JFrame f= new JFrame("Menu and MenuItem Example");
+    				  JMenuBar mb=new JMenuBar();
+ 	                           menu1=new JMenu("File");
+    				   submenu1=new JMenu("Print");
+    				       i1=new JMenuItem("New");
+    			 	       i2=new JMenuItem("Open");
+    				       i3=new JMenuItem("Close");
+    				       i4=new JMenuItem("full");
+    				       i5=new JMenuItem("half");
+    				menu1.add(i1); menu1.add(i2); menu1.add(i3);
+    				 submenu1.add(i4); submenu1.add(i5);
+    				  menu1.add(submenu1);
+                              mb.add(menu1);
+    			
+    			menu=new JMenu("Edit");
+                        submenu=new JMenu("Insert");
+    					  i1=new JMenuItem("Cut");
+    					  i2=new JMenuItem("Copy");
+    					  i3=new JMenuItem("Paste");
+    					  i4=new JMenuItem("Line After");
+    					  i5=new JMenuItem("Line Before");
+                            menu.add(i1); menu.add(i2); menu.add(i3);
+                             submenu.add(i4); submenu.add(i5);
+                        menu.add(submenu);
+                       mb.add(menu);
+    
+                  f.setJMenuBar(mb);
+                  f.setSize(400,400);
+                  f.setLayout(null);
+                  f.setVisible(true);
+        }
+        public static void main(String args[])
+        {
+        new menudemo();
+      }
+    }
+ --------------------------------------------------------------------------   
+    Creating PopupMenu.
+      The JPopupMenu class create a popup menu. when the right mouse button is clicked.
+      the menu should be displayed.  hence MouseListener should be added to the component.
+      the mouse button can be identified from the mouseEvent method getButton()
+      which return the button constant viz BUTTON1, BUTTON2., BUTTON3,
+      Constructor
+              JPopupMenu();               JPopupMenu(String nm);
+       Methods.
+          setVisible(boolean)      show(Component obj, int ,x int y);      setLocation(int x, int y);  
+          setPopupSize(int w, int h)            boolean isVisible();
+       import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+class popupmenu //implements MouseListener
+{
+     JFrame f1;         JPopupMenu p1;
+         popupmenu()
+          {
+             f1=new JFrame("popupmenu demo");
+             f1.setSize(300,300);
+             p1=new JPopupMenu();
+		       f1.setLayout(new FlowLayout());
+		       JMenuItem i1=new JMenuItem("Properties");
+		       JMenuItem i2=new JMenuItem("Insert");
+		       JMenuItem i3=new JMenuItem("Copy");
+                    p1.add(i1);   p1.add(i2);
+                    p1.addSeparator();       p1.add(i3);
+                 f1.add(p1);
+
+                 f1.setVisible(true);
+                 f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                 f1.addMouseListener(new MouseAdapter()
+                                      {
+										public void mousePressed(MouseEvent obj)
+										 {
+										   if(obj.getButton()==MouseEvent.BUTTON3)
+										     p1.show(f1, obj.getX(), obj.getY());
+										 }
+   									  });
+         }
+	 public static void main(String args[])
+	  {
+		  new popupmenu(); 
+	  }
+  }
+ ------------------------------------------------------------------------------------------------------------------------------------- 
+    ScrollBar.
+      JScrollPane class which provides scrolling support to component.
+      You can also add scrollbar manually to a component by  using the JScrollBar Class.
+      We can add vertical or horizontal scrollbar or both.
+      A scrollbar also enables the user to select from a range of continuous values.
+       The Leftmost side represent the smallest value and rightmost side represent the largest value.
+       the current position indicated by bubble.
+       A change in the scrollbar position causes an AdjustmentEvent.
+         Constructor
+             JScrollBar();        
+             JScrollBar(int);        JScrollBar.HORIZONTAL,  JScrollBar.VERTICAL
+             JScrollBar(int oriented, int value, int extent, int min, int max);
+             
+         Methods
+           int getMaximum();    int getMinimum();   void setMaximum(int);    void setMinimum();
+           int getBlockIncrement();           void setBlockIncrement(int);
+           int getUnitIncrement();             void setUnitIncrement(int);
+           int getValue();                            void setValue(int);
+           int getVisibleAmount();           void setVisibleAmount(int);
+
+//Write demo program for scrollbar     
+  import javax.swing.*;
+   class ScrollBarExample
+   {
+    ScrollBarExample()
+      {
+        JFrame f= new JFrame("Scrollbar Example");
+        JScrollBar s=new JScrollBar();
+          s.setBounds(100,100, 50,200);    //setBounds(x,y,w,h);
+          f.add(s);
+          f.setSize(400,400);
+          f.setLayout(null);
+          f.setVisible(true);
+       }
+    public static void main(String args[])
+     {
+        new ScrollBarExample();
+     }
+   }
+-----------------------------------------------------------------
+//Write JScrollBar (Horizontal & Vertical scrollbar) Example with AdjustmentListener
+
+    import javax.swing.*;
+    import java.awt.event.*;
+    class ScrollBarExample1
+    {
+    ScrollBarExample1()
+      {
+        JFrame f= new JFrame("Scrollbar Example");
+        final JLabel l1 = new JLabel();
+        l1.setHorizontalAlignment(JLabel.CENTER);
+        l1.setSize(350,100);
+                final JLabel l2 = new JLabel();
+		        l2.setHorizontalAlignment(JLabel.CENTER);
+		        l2.setSize(350,250);
+
+        final JScrollBar s1=new JScrollBar(JScrollBar.VERTICAL);
+        final JScrollBar s2=new JScrollBar(JScrollBar.HORIZONTAL);
+          s1.setBounds(30,30,20,200);
+          s2.setBounds(80,180,200,20);
+
+        f.add(s1); f.add(l1);
+        f.add(s2); f.add(l2);
+
+        f.setSize(400,400);
+       f.setLayout(null);
+       f.setVisible(true);
+       s1.addAdjustmentListener(new AdjustmentListener()
+         {
+           public void adjustmentValueChanged(AdjustmentEvent e)
+           {
+             l1.setText("Vertical Scrollbar value is:"+ s1.getValue());
+           }
+         });
+
+       s2.addAdjustmentListener(new AdjustmentListener()
+         {
+           public void adjustmentValueChanged(AdjustmentEvent e)
+           {
+             l2.setText("Horizontal Scrollbar value is:"+ s2.getValue());
+           }
+         });
+    }
+    public static void main(String args[])
+    {
+       new ScrollBarExample1();
+    }
+  }
+--------------------------------------------------------------------------------------------    
+    Dialogs.  
+   All the components mostly placed within container. however, in many cases we require dialog boxes which is pop-up. Dialog are
+   used to give information or message to the user or accept some input like file name from the user. They are similar like frame window.
+   Dialog boxes don't have menu bars. Dialog boxes comes in serveral varieties some for output or some for input. for display output.
+   File dialog for choosing a file name, color chooser for selecting a color.
+      Types of dialog boxes.
+        1. Model 
+          When a model dialog box is active, it doesnot allow the user to interct with any other component until a dialog box is closed.
+          e.g in a file read application, the user must first select the name of the file in a dialog box. this application can be proceed only after that.
+       2. Modeless
+           A modeless dialog box allows the user to interact with the dialog box as well as other controls in the application.
+           
+     Creating Dialog.
+        The JOptionPane class provides convenient static methods for creating a dialog box without writing extensive code.
+        It provides static methods to create following type of dialog box.
+        The JOptionPane class is used to provide standard dialog boxes such as message dialog box, confirm dialog box and input dialog box.
+        These dialog boxes are used to display information or get input from the user. The JOptionPane class inherits JComponent class.
+        
+        showMessageDialog    : -> show a message and wait for user to click OK
+        showConfirmDialog    : -> show a message and get a confirmation like Ok or Cancel.
+        showOptionDialog    : -> show a message and get a a user option from a set of options.
+        showInputDialog       :->  show a message and get one line of user input.
+        
+           MessageDialog
+A message dialog is a model window used to display a message to the user. To create a message dialog, use 
+JOptionPane.showMessageDialog() Method.
+ Method
+     JOptionPane.showMessageDialog(Component parent, String msg);
+     JOptionPane.showMessageDialog(Component parent, String msg,String title, int messagetype);
+     JOptionPane.showMessageDialog(Component parent, String msg,String title, int messagetype, Icon icon);
+                  
+    message type means :   JOptionPane.INFORMATION_MESSAGE,            JOptionPane.ERROR_MESSAGE,
+                                             JOptionPane.WARNING_MESSAGE,                      JOptionPane.QUESTION_MESSAGE,
+   -----------------------------------------------------------------------------------------               
+    import javax.swing.*;
+    public class Dialog1
+    {
+      JFrame f1;
+      Dialog1()
+        {
+           f1=new JFrame();
+           JOptionPane.showMessageDialog(f,"Hello, Welcome to Dialog.");
+       }
+    public static void main(String[] args)
+      {
+        new Dialog1();
+      }
+    }      
+   ---------------------------------------------------------------------------------------------
+   Input Dialog
+     An input dialog is similar to a message dialog but it has additional controls like a text field fro the user to type input.
+     It also has additional buttons typically OK and Cancel. The dialog box return the value entered by the user as a String object.
+         import javax.swing.*;  
+    public class Dialog2
+    {  
+       JFrame f1;  
+       Dialog2()
+       {  
+        f1=new JFrame();   
+          String name=JOptionPane.showInputDialog(f1,"Enter Name");      
+      }  
+     public static void main(String[] args) 
+     {  
+         new Dialog2();  
+      }  
+    }         
+   -------------------------------------------------------------------------------------------
+   Confirmation Dialog.
+   This is similar to message a dialog but it asks, the user for a confirmation. This dialog is created using shoConfirmDialog method fo JOptionPane cls.
+       import javax.swing.*;
+       import java.awt.event.*;
+       public class Dialog3 extends WindowAdapter
+       {
+        JFrame f;
+         Dialog3()
+           {
+           f=new JFrame();
+           f.addWindowListener(this);
+           f.setSize(300, 300);
+           f.setLayout(null);
+           f.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+           f.setVisible(true);
+          }
+       public void windowClosing(WindowEvent e)
+         {
+           int a=JOptionPane.showConfirmDialog(f,"Are you sure?");
+               if(a==JOptionPane.YES_OPTION)
+               {
+                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                
+               }
+       }
+       public static void main(String[] args) 
+       {
+           new  Dialog3();
+       }
+    }
+    -----------------------------------------------
+        
+      
+ 
+ 
+        
+         
+       
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         

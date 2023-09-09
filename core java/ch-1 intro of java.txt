@@ -1,0 +1,402 @@
+Chapter 1.  
+  Introduction of Java.
+       C lang developed by Dennies Ritchhie in 1972. It developed at AT&T Bell Laboratories, New Jursey. USA.
+       C++  lang developed by BJarne Strostrup in 1980. It developed at AT&T Bell Laboratories, New Jursey. USA.
+        Initially this lang is called 'C with classes'.  In 1983 it's Rename C++.  It is advanced version of C lang.
+        C++ in combination of simula 67 and C lang.  Simula67 supports OOPs.  C++ is object oriented programming language.
+                      
+                      Java was Developed in 1991. Its developed by Sun Microsystem. Java was developed by Team of James Gosling,
+                      Patric Naughton, Ed Frank, Chris Worth, Mike Sherdon.  
+                 Initially this  langauge is called 'Oak' Language.  Because Java lang was developing like 'Oak' tree.
+            In 1995, It rename 'Java'.   why put 'java' name  because,  Java is Very Popular Hot Drink in USA.  You can learn this language
+            like hot drinks.
+             
+         The main Motivation of Java language is Platform independents.  Java program code can be run any operating system.
+         so therefore, It is plateform independence. Java Technology was created for electronic components like, Java is created for
+         web-based application.
+         
+         Addition.java
+         import java.io.*;   //karan BF cls ya package madhye aahe.
+	 class addition
+	  {
+	      public static void main(String args[])  throws IOException
+	       {
+	          BufferedReader  br =new BufferedReader(new InputStreamReader(System.in));
+	          System.out.println("\n Enter the two number --->");
+	           int a=Integer.parseInt(br.readLine());
+	           int b=Integer.parseInt(br.readLine());
+	             int c=a+b;
+	           System.out.println("\n Addition ="+c);
+	       }
+	   }
+-----------------------------------------------------------------------------
+	 sub.java
+	 import java.io.*;   //karan BF cls ya package madhye aahe.
+	 class sub
+	  {
+	      public static void main(String args[])  throws IOException
+	       {
+	          BufferedReader  br =new BufferedReader(new InputStreamReader(System.in));
+	          System.out.println("\n Enter the two number --->");
+	           int a=Integer.parseInt(br.readLine());
+	           int b=Integer.parseInt(br.readLine());
+	             int c=a-b;
+	           System.out.println("\n Subtraction ="+c);
+	       }
+	   }
+   ----------------------------------------------------------------------------------------------
+   WAP accept student details and display
+   import java.io.*;
+   class student
+    {
+       public static void main(String args[]) throws  IOException
+        {
+           BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+           System.out.println(" Enter the Rollno, Name and Percentage --->");
+             int rno= Integer.parseInt(br.readLine());
+             String snm=br.readLine();
+             float per=Float.parseFloat(br.readLine());
+   
+             System.out.println("Student Rollno="+rno);
+             System.out.println("Student Name ="+snm);
+             System.out.println("Percentage     ="+per);
+   
+            System.out.println(" Student rno="+rno+"\t Name ="+snm+" \t Percentage="+per);
+   
+        }
+  }
+ -------------------------------------------------------------------------------------------
+  WAP accept radius and find area of circle
+   import java.io.*;
+   class circle
+    {
+       public static void main(String args[]) throws  IOException
+        {
+           BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+           System.out.println(" Enter the Radius--->");
+             int r= Integer.parseInt(br.readLine());
+             float area=3.14f*r*r;
+             System.out.println("\n Area of Circle= "+area);
+         }
+}
+----------------------------------------------------------------------------------------
+Homeworks
+  1) WAP accept  employ details and display
+  2) WAP find circumference of circle
+  3)  WAP to find volume of cylinder
+  4)  WAP to find area of tringle.
+-----------------------------------------------------------------------------------------
+
+Features Of Java.  (Buzzwords)
+  The reason why the java technology has become very popular is because it supports many  important features.
+  These features is also called java buzzwords.
+    i) Simple
+   ii) Object Oriented
+  iii) Distrubuted
+  iv) Robust
+  v)  Secure
+  vi) Architecture Neutral
+  vii) Portable
+  viii) Interpreted
+  ix)  Multithreaded
+  x)  Dynamic
+  xi) High Performance.
+  
+ i)  Simple
+       Java is simple lang compared to c, and C++, Java has omitted complex and confusing features of C,C++, like
+       preprocesser, operator overloading, multiple inheritance, pointers,template etc. If programmer is familier with
+       C and C++, then he can learn java easily. hence java is simple lang.
+       
+ ii) Object Oriented
+      Java has been designed as a pure object Oriented lang. It includes all OOPs concept like Classes, Object, Data abstraction,
+      Data Hiding,  Inheritance, Polymorphism, Message passing. etc. It support extensibility to create dynamic application.
+      
+  iii) Distributed.     
+        java program can be distributed and accessed over the network, Java Supports protocol like TCP/IP, UTP and FTP.
+  java application can access objects using URL's and invoke remote methods using RMI. java supported distributive concept.
+  
+  iv) Robust.
+        Major causes of failures are runtime errors and memory mismanagements. java is strongly supported typed language.
+      type checking is carried out at both compile and runtime.  Java uses automatic garbage collection, which  manage memory
+      by preventing memory leaks.
+      
+  v)  Secure.
+        java used in network enviornments, hence security is an important concern. Java enforces security by restricting access to resouces
+        to trusted program only. By eliminating pointers, java ensures the user cannot access and modify data in memory. Java support four
+        access specifier, hence it secure data.
+        
+   vi)   Architecture Neutral.
+          The Java compiler compile the source code and generates bytecode, which is intermediate between source and native machine code.
+          This byte code is neutral, hence this byte code is executed any operating system. JVM(Java Virtual Machines) convets bytecode to 
+          machine code for particular processor.
+   
+   vii) Portable
+            By Porting an interpreter for the java Virtual machine to any computer hardware/operating system. one is assured that all 
+           code compiled for it will run on that  system. This forms the  basis for java's portability. Java program can be run on any hardware.
+           
+   viii)  Interpreted 
+            The Java compiler compiles the java source code into java bytecode, which is executable for the java virtual machine.
+         The bytecode is then interpreted by a java interpreter which converts the bytecode into platform specific code and executes its.
+         
+      ix)  MultiThreaded
+              Two or more thread (small program) can be run simultanously/ concurrently in a system is called multithreading..
+            Java support Multithreading concept.  Because CPU cannot seat idle.  It's Utilies CPU Idle time and perform some clean up
+            action and general system maintenance.
+        
+      x)  Dynamic
+             Java is designed to adapt to an ever changing enviornment. During the execution of a program. java 
+             can dynamically load required classes thereby reducing overheads and imporving performance.
+             
+      xi)  High performance.
+               Java lang support many high-performance features such as multitheading and just-in-time(JIT) compilation.
+                In some cases, JIT compilation is used. whereby the code is complied at run time to native code before execution.
+                This improves performance of the program.
+      ------------------------------------------------------------------------------------------------------------------------------------------------                
+ 
+     ------------------------------------------------------------------------------------------------------------------------------------------------
+            Comparison or difference between  C/C++   and   Java            
+      ------------------------------------------------------------------------------------------------------------------------------------------------                
+                      C/C++                                                                        |                        Java     
+     ------------------------------------------------------------------------------------------------------------------------------------------------       
+       1) hybrid between procedural / Object Oriented lang       |    1) Java is Pure Object Oriented Language.
+             Combination of POPs and OOPs                                   |
+     ------------------------------------------------------------------------------------------------------------------------------------------------        
+       2)  Can Have Stand alone methods                                      |     2) All Methods are part of class
+      ------------------------------------------------------------------------------------------------------------------------------------------------        
+        3)  Platform Depedence                                                        |     3) Platform  Independance
+      ------------------------------------------------------------------------------------------------------------------------------------------------        
+        4) Architecture Specific                                                        |     4) Architecture Neutral
+      ------------------------------------------------------------------------------------------------------------------------------------------------        
+       5)  Dose support Multiple Inheritance                                 |     5) Doesnot Support Multiple Inheritance
+      ------------------------------------------------------------------------------------------------------------------------------------------------         
+       6)   Dose support   Pointer                                                    |     6) Does not Support Pointers.
+      ------------------------------------------------------------------------------------------------------------------------------------------------    
+       7)  It support Default Arguments                                        |       7)  Doesnot support Default Arguments.
+     ------------------------------------------------------------------------------------------------------------------------------------------------         
+       8) Dose support template, operator overloading             |     8) Doesnot Support template, operating overloading, enum sturcture etc
+      ------------------------------------------------------------------------------------------------------------------------------------------------         
+      9)  Only virtual function are dynamic bounds.                 |     9)  All methods are dynamic bounds.
+      ------------------------------------------------------------------------------------------------------------------------------------------------         
+     10)  Templates as parameterized types                              |  10)   No Parameterized types.
+     ------------------------------------------------------------------------------------------------------------------------------------------------         
+     11)  Array references translate to pointer arithmetic       |  11) Array reference are not translated pointer arithmetic.
+    ------------------------------------------------------------------------------------------------------------------------------------------------          
+   12)  No Bound checking in array                                           |  12)  Bound Checking in array. 
+    ------------------------------------------------------------------------------------------------------------------------------------------------         
+   13)  String are null ternminated chars arrays.                     |   13)  String are objects.
+   ------------------------------------------------------------------------------------------------------------------------------------------------         
+  14)   NO Automatic Garbage Collector                                |   14)  Automatic Garbage Collector
+  ------------------------------------------------------------------------------------------------------------------------------------------------         
+   15)  Compiled language                                                          |   15) Compiler and interpreter language.
+ ------------------------------------------------------------------------------------------------------------------------------------------------          
+  16)  Doesnot support interface                                                |    16)  It support Interface.
+ ------------------------------------------------------------------------------------------------------------------------------------------------         
+  17)   Doesnot Support Multithreading                                   |    17) Does Support Multithreading
+ -----------------------------------------------------------------------------------------------------------------------------------------------         
+ 18)   Does support Preprocessor                                             |     18) Doesnot support Preprocessor.
+ ------------------------------------------------------------------------------------------------------------------------------------------------         
+ 19)   Support SystemBased Application                                |   19)  Support SystemBased & Web Based Application
+ ------------------------------------------------------------------------------------------------------------------------------------------------         
+ 20)   It support structure & enum.                                          |  20)  It Doesnot  support structure & enum.
+ ------------------------------------------------------------------------------------------------------------------------------------------------         
+ 21)  Main function can have return a value                          |  21)  Main Methods cannot have a return value.
+ ------------------------------------------------------------------------------------------------------------------------------------------------         
+ 
+   Java Enviroments.
+    Java is not just a programming lang, it is a complete technology.
+    The Java Technology contains 
+     i) A programming language.
+    ii) A developement environments
+   iii) An Application Environments
+   iv) A deployment Environments
+   v) Integration Environments.
+---------------------------------------------------------------------------------
+  
+     Java Tools.
+          i)  javac      :   The Java Compiler,  It converts java source code into bytecode (classfile).
+         ii)  java        :   java interpreter, Convert bytecode into machine code.
+        iii)  javadoc  :   java documentation (API). The java commenting tool, Creates HTML help file from java source code.
+        iv)  jdb          :   The java debugger, Steps through programs as they executed, sets breakpoints, and monitor behavior.
+        v)  javap      :    Disassembling classes, It show lists of methods and class members.   e.g   javap java.io.BufferedReader
+      vi)   javah      :    Header File Generator, Used when combining java with C/C++ programs.
+      vii)  jar           :   Java Archieve File(JAR) manager,  Combines and compresses multiple files and directories into onle.
+      viii)  appletviewer  :  The java applet launcher.. it is used for run applet programming.
+----------------------------------------------------------------------------------------------------------------------------
+
+Java Editors ..
+ A java program is a simple text which can be typed using any standard editor like,
+ notepad, textpad, eclipse, gedit, vi editor, NetBeans, Editplus, JCreator, JBoss, Notepad++, JDeveloper, DrJava
+  Greenfoot, JGrasp, JEdit,BlueJ etc....
+  The IDE's provide their own editors, these editor provide additional features such as keyword, highlighting, automatic indentation etc.
+  
+ ---------------------------------------------------------------------------------------------------------------------------------
+ //simple program
+   class demo
+     {
+         public static void main(String args[])
+          {
+          
+            System.out.println(" Good Morning...");
+         }
+     }
+
+public  :   main() methods must be declare as public,  since main() should be access outside the class.
+
+static   :  static methods called without creating objects, ie. it making it static, main() belogns to the class and not  any object
+                hence, it can be called by java interpreter before any objects are made.
+void   :    doesnot return any values.
+main()  : Every program start from main() methods.
+
+String args[]  :  String args[] array. accept input from commandline arguments.
+-----------------------------------------------------------------------------------------------------------  
+ System.out.println()
+    System is class and out is object. This methods displays the given string on the output device. It also displays a new line characters after
+     the string. System.out is a predefine object which represent the output stream.
+     
+-----------------------------------------------------------------------------------
+Command line Arguments.
+    Recall the defination of the main method, here main is defined as a method which accept an array of strings as 
+    commond line arguements. These are arguments passed to the main function when it start executing.
+       Input values can be passed to main method from command line and accessed in the code. 
+         Syntax
+                   java programname  value1  value2   value3  ........................  valueN
+                   
+             All command line arguments are stored as string.      
+                   
+ WAP to find addition of two nums by using command line arguments.
+ class args1
+  {
+     public static void main(String args[])
+      {
+           int a= Integer.parseInt(args[0]);
+           int b= Integer.parseInt(args[1]);
+             int c=a+b;
+           System.out.println(" Addition two number by using command line -->"+c);
+      }
+  }
+ -------------------------------------------------         
+    WAP to find maximum number from three nums by using command line arguments.      
+      class args2
+ {
+    public static void main(String args[])
+     {
+          int a = Integer.parseInt(args[0]);
+          int b = Integer.parseInt(args[1]);
+          int c = Integer.parseInt(args[2]);
+              if(a>b  && a>c)
+                System.out.println(a+" is maximum ");
+                else if(b>=a  && b>=c)
+                     System.out.println(b+" is maximum ");
+                      else
+                        System.out.println(c+" is maximum ");
+
+     }
+  }
+  -----------------------------------------------------------------------
+   WAP to accept   'n'  numbers from command line arguments and find sum.         
+  class args3
+  {
+     public static void main(String args[])
+      {
+           int n=args.length;
+             int sum=0;
+               for(int i=0; i<n; i++)
+                {
+                    sum=sum+Integer.parseInt(args[i]);
+                }
+            System.out.println("\n Addition ="+sum);    
+      }
+  }
+  ----------------------------------------------
+  //WAP to accept   'n'  numbers from command line arguments and find maximum number from its.
+class args4
+  {
+     public static void main(String A[])
+      {
+           int n=A.length;
+             int max=0;
+               for(int i=0; i<n; i++)
+                {
+                    if(max< Integer.parseInt(A[i]))
+                     {
+                        max=Integer.parseInt(A[i]);
+		     }
+                }
+            System.out.println("\n  Maximum elements ="+max);
+      }
+  }
+------------------------------------------------------------------------------
+//WAP to accept  number from command line arguments and find factorial
+ class args5
+  {
+     public static void main(String A[])
+      {
+           int n=Integer.parseInt(A[0]);
+             int f=1;
+            System.out.print("\n Factorial of ="+n+" is--->");
+
+               while(n>1)
+                {
+					 f=f*n;
+					 n--;
+		     }
+           System.out.print(f);
+      }
+  }
+--------------------------------------------------------------------------------  
+//WAP to accept   'n'  numbers from command line arguments and count positive and negative numbers.
+ class args6
+  {
+     public static void main(String A[])
+      {
+           int n=A.length;
+             int p=0, ng=0;
+               for(int i=0; i<n; i++)
+                {
+					int x= Integer.parseInt(A[i]);
+                     if(x>0)
+                        p++;
+                      else
+                        ng++;
+                }
+            System.out.println("\n No of positive number ="+p+"\n No of negative  number="+ng);
+      }
+  }
+  -------------------------------------------------------
+WAP to accept n numbers from commandline arguments and count even  and odd numbers.          
+---------------------------------------------------------------------------------------------------------------------          
+ //WAP to accept n numbers in array and display
+import java.io.*;
+ class arr1
+   {
+      public static void main(String args[])throws IOException
+       {
+         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+         int A[]=new int[5];           //array syntax    datatype arrnam[]=new datatype[size];
+
+          System.out.println("\n Enter the array elements:-->");
+		         for(int i=0;i<5;i++)
+		             A[i]=Integer.parseInt(br.readLine());
+
+		         System.out.println("\n Display the array elements:-->");
+			   		         for(int i=0;i<5;i++)
+		                     System.out.print("         "+A[i]);
+		 }
+   }
+----------------------------------------------------------------------------------
+
+         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
